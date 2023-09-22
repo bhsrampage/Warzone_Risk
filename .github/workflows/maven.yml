@@ -34,7 +34,7 @@ jobs:
       run: mvn javadoc:javadoc
       
     - name: Run tests with Maven
-        run: mvn -B test --file pom.xml
+      run: mvn -B test --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
