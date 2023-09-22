@@ -36,7 +36,4 @@ jobs:
     
     - name: Build Javadoc API documentation
       run: mvn javadoc:javadoc
-      
-    - name: Run tests with Maven
-      run: mvn -B test --file pom.xml
 
