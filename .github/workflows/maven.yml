@@ -36,23 +36,6 @@ jobs:
     
     - name: Build Javadoc API documentation
       run: mvn javadoc:javadoc
-
-    - name: Convert JavaDoc to Markdown and Update README
-      run: |
-          # Install a tool to convert JavaDoc to Markdown (e.g., javadoc-md)
-          npm install -g javadoc-md
-          
-          # Convert JavaDoc to Markdown and save it to a file
-          javadoc-md ./target/site/apidocs > apidocs.md
-          
-          # Update the README with the generated JavaDoc in Markdown
-          cat apidocs.md > README.md
-
-    - name: Publish JavaDoc to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_dir: ./target/site/apidocs
       
     - name: Run tests with Maven
       run: mvn -B test --file pom.xml
