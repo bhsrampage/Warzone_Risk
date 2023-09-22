@@ -32,13 +32,9 @@ jobs:
     
     - name: Build with Maven
       run: mvn javadoc:javadoc
-    
-
-    - name: Publish JavaDoc to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./target/site/apidocs
+      
+    - name: Run tests with Maven
+        run: mvn -B test --file pom.xml
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
