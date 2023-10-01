@@ -24,13 +24,14 @@ public class GameEngine {
         int choice;
         boolean playing = true;
         while (playing){
-            System.out.println("1. Map Editor\n2. Play Game");
+            System.out.println("1. Map Editor\n2. Play Game\nEnter your choice:- ");
             choice = SCAN.nextInt();
             switch (choice){
                case 1: d_currPhase = Phase.MAP_ACTIONS; break;
                case 2: d_currPhase = Phase.GAMEPLAY; break;
                default: playing = false; break;
             }
+
         }
 
     }

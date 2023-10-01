@@ -29,9 +29,18 @@ public class Map {
         return null;
     }
 
-    public void printMap(Main.Phase p_currPhase){
+    Continent getContinentById(int p_id){
+        for(Continent l_continent : d_continents){
+            if(p_id == l_continent.d_continentId) {
+                return l_continent;
+            }
+        }
+        return null;
+    }
+
+    public void printMap(boolean isMapPhase){
         for (Continent continent : d_continents ){
-            continent.printContinent(p_currPhase == Main.Phase.MAP_ACTIONS);
+            continent.printContinent(isMapPhase);
         }
     }
     public void addContinent(Continent p_newContinent){
