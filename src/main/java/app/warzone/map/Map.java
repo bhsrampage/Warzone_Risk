@@ -30,8 +30,8 @@ public class Map {
      */
     public Map(String p_name) {
         d_mapName = p_name;
-        d_continents = new ArrayList<Continent>();
-        d_countries = new ArrayList<Country>();
+        d_continents = new ArrayList<>();
+        d_countries = new ArrayList<>();
     }
 
     /**
@@ -73,6 +73,7 @@ public class Map {
      */
     Continent getContinentById(int p_id) {
         for (Continent l_continent : d_continents) {
+            if(l_continent == null) continue;
             if (p_id == l_continent.d_continentId) {
                 return l_continent;
             }
@@ -88,6 +89,7 @@ public class Map {
      */
     Continent getContinentByName(String p_name) {
         for (Continent l_continent : d_continents) {
+            if(l_continent == null) continue;
             if (p_name.equals(l_continent.d_continentName)) {
                 return l_continent;
             }
