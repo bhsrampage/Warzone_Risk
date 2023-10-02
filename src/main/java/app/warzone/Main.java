@@ -10,9 +10,12 @@ import app.warzone.game.GameEngine;
  * @author Burhanuddin Savliwala
  */
 public class Main {
+   public enum Phase {
+        MAP_ACTIONS,
+        GAMEPLAY
+    }
     public static void main(String[] args) {
         GameEngine l_game = new GameEngine();
         l_game.initialize();
-
     }
 }
