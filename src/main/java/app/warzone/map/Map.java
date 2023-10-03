@@ -18,11 +18,16 @@ public class Map {
      */
     List<Continent> d_continents;
 
+
+
     /**
      * The list of countries in the map.
      */
     List<Country> d_countries;
 
+    public List<Country> getD_countries() {
+        return d_countries;
+    }
     /**
      * Constructs a Map object with the given name.
      *

@@ -124,6 +124,8 @@ public class MapUtils {
         d_currTargetMap.printMap(true);
     }
 
+
+
     /**
      * Saves the current map to a file.
      */
@@ -181,15 +183,15 @@ public class MapUtils {
      */
     public void editMap(List<String> p_arguments) {
         try {
-            File myObj = new File("src/main/resources/maps/" + p_arguments.get(0) + ".map");
-            if (!myObj.exists()) {
+            File l_myObj = new File("src/main/resources/maps/" + p_arguments.get(0) + ".map");
+            if (!l_myObj.exists()) {
                 d_currTargetMap = new Map(p_arguments.get(0));
-                if (myObj.createNewFile()) {
+                if (l_myObj.createNewFile()) {
                     System.out.println("File not found created new");
                 }
             } else {
                 MapFileParser l_fileParser = new MapFileParser(p_arguments.get(0));
-                Scanner l_fileScanner = new Scanner(myObj);
+                Scanner l_fileScanner = new Scanner(l_myObj);
                 d_currTargetMap = l_fileParser.parseMapFile(l_fileScanner);
                 System.out.println(p_arguments.get(0) + " has been loaded successfully");
                 l_fileScanner.close();
