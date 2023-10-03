@@ -28,11 +28,11 @@ public class MapValidator {
     public static boolean validateMap(Map p_map) {
         if (p_map == null) {
             d_alertMsg = "The Map is not valid, it does not contain any content.";
-            return d_isValidMap;
+            return false;
         } else {
             if (p_map.d_continents.isEmpty()) {
                 d_alertMsg = "There should be atleast one Continent in the graph.";
-                return d_isValidMap;
+                return false;
             } else {
 
                 if (!validateCountryBelongsToOneContinent(p_map)) {
@@ -45,7 +45,7 @@ public class MapValidator {
 
                 if (!isMapConnectedGraph(p_map)) {
                     d_alertMsg = "The map is not a connected graph i.e Continent is not a subgraph in the map. A map should be connected graph formed by continents.";
-                    return d_isValidMap;
+                    return false;
                 } else {
                     System.out.println("The map is connected");
                     d_isValidMap = true;
@@ -69,6 +69,10 @@ public class MapValidator {
 
     public static boolean validateContinents(Map p_map) {
 
+        if(p_map.d_continents.isEmpty()) {
+            d_alertMsg = "There are no continents present";
+            return false;
+        }
         for (Continent l_continent : p_map.d_continents) {
             if (l_continent.d_memberCountries.isEmpty()) {
                 d_alertMsg = "There should be atleast one country in any continent.";
