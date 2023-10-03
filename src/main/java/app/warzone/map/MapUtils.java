@@ -43,7 +43,7 @@ public class MapUtils {
                     new Country(
                             d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1,
                             l_modifiable.get(l_i + 1),
-                            d_currTargetMap.getContinentByName(l_modifiable.get(l_i + 1))
+                            d_currTargetMap.getContinentByName(l_modifiable.get(l_i + 2))
                     )
             );
             l_modifiable.remove(l_i);
@@ -111,7 +111,7 @@ public class MapUtils {
             d_currTargetMap.addRemoveCountryNeighbourByName(
                     l_modifiable.get(l_i + 1),
                     l_modifiable.get(l_i + 2),
-                    true
+                    false
             );
             l_modifiable.remove(l_i);
         }
@@ -160,7 +160,7 @@ public class MapUtils {
                 StringBuilder borderInfo = new StringBuilder(String.valueOf(l_country.d_countryId));
                 lines.add("\n");
                 for (Country l_neighbour : l_country.d_neighbours) {
-                    borderInfo.append(" ").append(String.valueOf(l_neighbour.d_countryId));
+                    borderInfo.append(" ").append(l_neighbour.d_countryId);
                 }
                 lines.add(borderInfo.toString());
             }
