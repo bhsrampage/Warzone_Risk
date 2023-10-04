@@ -69,11 +69,12 @@ public class MapValidator {
 
     public static boolean validateContinents(Map p_map) {
 
-        if(p_map.d_continents.isEmpty()) {
+        if (p_map.d_continents.isEmpty()) {
             d_alertMsg = "There are no continents present";
             return false;
         }
         for (Continent l_continent : p_map.d_continents) {
+            if (l_continent == null) continue;
             if (l_continent.d_memberCountries.isEmpty()) {
                 d_alertMsg = "There should be atleast one country in any continent.";
                 return false;
@@ -90,7 +91,7 @@ public class MapValidator {
         }
 
         for (Continent l_continent : p_map.d_continents) {
-
+            if (l_continent == null) continue;
             if (!checkSubGraphConnectivityForContinent(l_continent)) {
                 d_alertMsg = "The Continent:-" + l_continent.d_continentName + " failed subgraph connectivity";
             }
@@ -126,7 +127,6 @@ public class MapValidator {
 
     /**
      * This method performs the traversal of the countries in BFS manner.
-     *
      */
 
     public static void bfsTraversalCountry(Country p_country) {
@@ -236,6 +236,7 @@ public class MapValidator {
 
         boolean l_returnValue = true;
         for (Continent l_continent : p_map.d_continents) {
+            if (l_continent == null) continue;
             if (!l_continent.d_isProcessed) {
                 l_returnValue = false;
                 break;
@@ -243,6 +244,7 @@ public class MapValidator {
         }
 
         for (Continent l_continent : p_map.d_continents) {
+            if(l_continent == null) continue;
             l_continent.d_isProcessed = false;
         }
         return l_returnValue;
@@ -256,6 +258,8 @@ public class MapValidator {
      */
 
     public static void bfsTraversalContinent(Continent p_continent, Map p_map) {
+        if (p_continent == null) bfsTraversalContinent(p_map.d_continents.get(1), p_map);
+        assert p_continent != null;
         if (p_continent.d_isProcessed) {
             return;
         }
@@ -286,6 +290,7 @@ public class MapValidator {
         }
 
         for (Continent l_remainingContinent : p_map.d_continents) {
+            if (l_remainingContinent == null) continue;
             if (!p_continent.equals(l_remainingContinent)) {
                 if (!Collections.disjoint(l_adjCountryMainSet, l_remainingContinent.d_memberCountries)) {
                     l_adjacentContinents.add(l_remainingContinent);
@@ -307,6 +312,7 @@ public class MapValidator {
         ArrayList<Country> l_countryList = new ArrayList<>();
 
         for (Continent l_continent : p_map.d_continents) {
+            if (l_continent == null) continue;
             for (Country l_country : l_continent.d_memberCountries) {
                 if (!l_countryList.contains(l_country)) {
                     l_countryList.add(l_country);

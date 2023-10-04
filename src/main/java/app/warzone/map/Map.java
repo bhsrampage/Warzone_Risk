@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * The Map class represents a game map, which includes continents and countries.
+ *
  * @author Burhanuddin
  */
 public class Map {
@@ -19,7 +20,6 @@ public class Map {
     List<Continent> d_continents;
 
 
-
     /**
      * The list of countries in the map.
      */
@@ -28,6 +28,7 @@ public class Map {
     public List<Country> getD_countries() {
         return d_countries;
     }
+
     /**
      * Constructs a Map object with the given name.
      *
@@ -78,7 +79,7 @@ public class Map {
      */
     Continent getContinentById(int p_id) {
         for (Continent l_continent : d_continents) {
-            if(l_continent == null) continue;
+            if (l_continent == null) continue;
             if (p_id == l_continent.d_continentId) {
                 return l_continent;
             }
@@ -94,7 +95,7 @@ public class Map {
      */
     Continent getContinentByName(String p_name) {
         for (Continent l_continent : d_continents) {
-            if(l_continent == null) continue;
+            if (l_continent == null) continue;
             if (p_name.equals(l_continent.d_continentName)) {
                 return l_continent;
             }
@@ -109,7 +110,7 @@ public class Map {
      */
     public void printMap(boolean isMapPhase) {
         for (Continent continent : d_continents) {
-            if(continent == null) continue;
+            if (continent == null) continue;
             continent.printContinent(isMapPhase);
         }
     }
@@ -123,15 +124,6 @@ public class Map {
         d_continents.add(p_newContinent);
     }
 
-//    public void removeContinentById(int p_continentId) {
-//        Continent l_continent = getContinentById(p_continentId);
-//        List<Country> l_memberCopy = new ArrayList<>(l_continent.getMemberCountries());
-//        for (Country l_member : l_memberCopy) {
-//            l_continent.addRemoveMembers(l_member, false);
-//            d_countries.remove(l_member);
-//        }
-//        d_continents.set(d_continents.indexOf(l_continent), null);
-//    }
 
     /**
      * Removes a continent from the map by its name.
@@ -140,7 +132,7 @@ public class Map {
      */
     public void removeContinentByName(String p_name) {
         Continent l_target = getContinentByName(p_name);
-        if(l_target == null) {
+        if (l_target == null) {
             System.out.println("No continent found");
             return;
         }
@@ -148,7 +140,7 @@ public class Map {
         for (Country l_member : l_memberCopy) {
             l_target.addRemoveMembers(l_member, false);
             d_countries.remove(l_member);
-            for(Country l_country : d_countries){
+            for (Country l_country : d_countries) {
                 l_country.d_neighbours.remove(l_member);
             }
         }
@@ -165,15 +157,6 @@ public class Map {
         p_newCountry.d_memberOfContinent.addRemoveMembers(p_newCountry, true);
     }
 
-//    public void removeCountryById(int p_countryId) {
-//        Country l_country = getCountryById(p_countryId);
-//        if (l_country == null) {
-//            System.err.printf("No country found with id %d", p_countryId);
-//            return;
-//        }
-//        l_country.d_memberOfContinent.addRemoveMembers(l_country, false);
-//        d_countries.remove(l_country);
-//    }
 
     /**
      * Removes a country from the map by its name.
@@ -188,7 +171,7 @@ public class Map {
         }
         l_targetCountry.d_memberOfContinent.addRemoveMembers(l_targetCountry, false);
         d_countries.remove(l_targetCountry);
-        for(Country l_country : d_countries){
+        for (Country l_country : d_countries) {
             l_country.d_neighbours.remove(l_targetCountry);
         }
         System.out.println(p_name + " has been removed.");
@@ -197,9 +180,9 @@ public class Map {
     /**
      * Adds or removes a neighbor for a country in the map.
      *
-     * @param p_countryName The name of the target country.
+     * @param p_countryName          The name of the target country.
      * @param p_neighbourCountryName The name of the neighbor country.
-     * @param isAdding True to add a neighbor, false to remove.
+     * @param isAdding               True to add a neighbor, false to remove.
      */
     public void addRemoveCountryNeighbourByName(String p_countryName, String p_neighbourCountryName, boolean isAdding) {
         Country l_targetCountry = getCountryByName(p_countryName);
@@ -216,20 +199,5 @@ public class Map {
         l_neighbourToTarget.addRemoveNeighbour(l_targetCountry, isAdding);
         System.out.println(isAdding ? "Addition" : "Removal" + " of neighbour executed");
     }
-//    public void addRemoveCountryNeighbour(int p_countryId, int p_neighbourCountryId, boolean isAdding) {
-//        Country l_targetCountry = getCountryById(p_countryId);
-//        if (l_targetCountry == null) {
-//            System.err.printf("No country found with id %d", p_countryId);
-//            return;
-//        }
-//        Country l_neighbourToTarget = getCountryById(p_neighbourCountryId);
-//        if (l_neighbourToTarget == null) {
-//            System.err.printf("No country found with id %d", p_neighbourCountryId);
-//            return;
-//        }
-//        l_targetCountry.addRemoveNeighbour(l_neighbourToTarget, isAdding);
-//        l_neighbourToTarget.addRemoveNeighbour(l_targetCountry, isAdding);
-//        System.out.println(isAdding ? "Addition" : "Removal" + " of neighbour executed");
-//    }
 
 }

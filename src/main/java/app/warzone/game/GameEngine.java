@@ -48,7 +48,6 @@ public class GameEngine {
                     break;
                 case "savemap":
                     l_targetMapUtil.saveMap();
-                    l_isEditing = false;
                     break;
                 case "editmap":
                     l_targetMapUtil.editMap(arguments);

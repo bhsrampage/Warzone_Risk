@@ -1,6 +1,5 @@
 package app.warzone.map;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -52,7 +51,7 @@ public class MapFileParser {
         for (String l_continentInfo : l_continentLines) {
             String[] l_infoTokens = l_continentInfo.split(" ");
             if (l_infoTokens.length < 2) {
-                if (Objects.equals(l_infoTokens[0], "$$")) {
+                if (l_infoTokens[0].equals("$$")) {
                     d_parsedMap.addContinent(null);
                     i++;
                 }
