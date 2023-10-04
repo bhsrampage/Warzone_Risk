@@ -1,35 +1,27 @@
 package app.warzone.game;
 
-import app.warzone.Main.Phase;
-import app.warzone.map.MapUtils;
-import app.warzone.player.Player;
-import app.warzone.player.orders.Order;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+import app.warzone.Main.Phase;
+import app.warzone.map.MapUtils;
+import app.warzone.player.Player;
+import app.warzone.player.orders.Order;
+
 /**
- * This class is responsible for maintaining the rules for the Warzone game
- * along with generating the flow of gameplay.
+ * This class is responsible for generating the flow of game play by maintaining
+ * the rules of the Warzone game.
  */
 public class GameEngine {
 	Scanner SCAN;
 	Phase d_currPhase = null;
 
-	/**
-	 * Constructor for the GameEngine class, initializes a Scanner for user input.
-	 */
 	public GameEngine() {
 		SCAN = new Scanner(System.in);
 	}
 
-	/**
-	 * Getter method for the current game phase.
-	 *
-	 * @return The current game phase.
-	 */
 	public Phase getD_currPhase() {
 		return d_currPhase;
 	}
@@ -59,7 +51,6 @@ public class GameEngine {
 				break;
 			case "savemap":
 				l_targetMapUtil.saveMap();
-				l_isEditing = false;
 				break;
 			case "editmap":
 				l_targetMapUtil.editMap(arguments);
@@ -74,9 +65,10 @@ public class GameEngine {
 				l_isEditing = false;
 				break;
 			default:
-				System.out.println("Invalid Command, please try again..");
+				System.out.println("Invalid Command try again..");
 			}
 		}
+
 	}
 
 	/**
@@ -108,7 +100,7 @@ public class GameEngine {
 				l_gameUtil.showMap();
 				break;
 			default:
-				System.out.println("Invalid Command, please try again..");
+				System.out.println("Invalid Command try again..");
 				break;
 			}
 		}
@@ -116,7 +108,8 @@ public class GameEngine {
 	}
 
 	/**
-	 * Listen to gameplay commands and execute player orders.
+	 * Take the game command as the input and execute it. Display map after
+	 * execution
 	 *
 	 * @param p_gameUtil The GameUtils object containing game-related utilities.
 	 */
@@ -150,6 +143,7 @@ public class GameEngine {
 	/**
 	 * Initialize the game and provide options for map editing or gameplay.
 	 */
+
 	public void initialize() {
 		System.out.println("Welcome to Risk (Warzone) by U6 build1");
 		String choice;
@@ -172,5 +166,7 @@ public class GameEngine {
 			}
 			System.out.println("Quitting...");
 		}
+
 	}
+
 }

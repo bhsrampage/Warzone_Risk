@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * The Map class represents a game map, which includes continents and countries.
- * 
+ *
  * @author Burhanuddin
  */
 public class Map {

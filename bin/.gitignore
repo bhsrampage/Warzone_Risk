@@ -36,3 +36,11 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/.github/
+/.gitignore
+/.idea/
+/Architecture diagram.png
+/Architecture_diagram_raw.drawio
+/doc/
+/pom.xml
+/src/

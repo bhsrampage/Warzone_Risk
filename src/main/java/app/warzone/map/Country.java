@@ -1,9 +1,9 @@
 package app.warzone.map;
 
-import app.warzone.player.Player;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import app.warzone.player.Player;
 
 /**
  * The Country class represents a country in the game map.
@@ -56,7 +56,7 @@ public class Country {
 		d_countryId = p_id;
 		d_countryName = p_name;
 		d_memberOfContinent = p_continent;
-		d_neighbours = new ArrayList<Country>();
+		d_neighbours = new ArrayList<>();
 		d_currentArmyCount = 0;
 		d_holder = null;
 	}
@@ -116,7 +116,6 @@ public class Country {
 	 */
 	public void printCountryStatus(boolean isMapPhase) {
 		System.out.printf("\n**%s**\n", d_countryName);
-		// System.out.printf("\nPart of :- *%s*\n",d_memberOfContinent.d_continentName);
 		if (!isMapPhase) {
 			System.out.printf("Armies present :- %d\n", d_currentArmyCount);
 			System.out.printf("Current holder :- %s\n", d_holder == null ? "No holder" : d_holder.d_playerName);

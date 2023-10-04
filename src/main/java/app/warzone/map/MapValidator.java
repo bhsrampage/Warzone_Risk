@@ -1,6 +1,9 @@
 package app.warzone.map;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
 
 /**
  * This class performs validation of map correctness, also after loading and
@@ -8,6 +11,7 @@ import java.util.*;
  *
  * @author Burhanuddin
  */
+
 public class MapValidator {
 
 	static String d_alertMsg = "";
@@ -22,6 +26,7 @@ public class MapValidator {
 	 *
 	 * @param p_map refers to the map object for verification.
 	 */
+
 	public static boolean validateMap(Map p_map) {
 		if (p_map == null) {
 			d_alertMsg = "The Map is not valid, it does not contain any content.";
@@ -64,6 +69,7 @@ public class MapValidator {
 	 *
 	 * @param p_map map refers to map object to validate the continents.
 	 */
+
 	public static boolean validateContinents(Map p_map) {
 
 		if (p_map.d_continents.isEmpty()) {
@@ -71,6 +77,8 @@ public class MapValidator {
 			return false;
 		}
 		for (Continent l_continent : p_map.d_continents) {
+			if (l_continent == null)
+				continue;
 			if (l_continent.d_memberCountries.isEmpty()) {
 				d_alertMsg = "There should be atleast one country in any continent.";
 				return false;
@@ -89,7 +97,8 @@ public class MapValidator {
 		}
 
 		for (Continent l_continent : p_map.d_continents) {
-
+			if (l_continent == null)
+				continue;
 			if (!checkSubGraphConnectivityForContinent(l_continent)) {
 				d_alertMsg = "The Continent:-" + l_continent.d_continentName + " failed subgraph connectivity";
 			}
@@ -105,6 +114,7 @@ public class MapValidator {
 	 * @param p_continent is the continent to be validated.
 	 * @return will return true if the continent is connected in the map.
 	 */
+
 	public static boolean isContinentConnectedGraph(Continent p_continent) {
 		bfsTraversalCountry(p_continent.d_memberCountries.get(0));
 		boolean l_returnValue = true;
@@ -125,9 +135,10 @@ public class MapValidator {
 
 	/**
 	 * This method performs the traversal of the countries in BFS manner.
-	 *
-	 * @param p_country refers to the country
+	 * 
+	 * @param p_country is the name of the country
 	 */
+
 	public static void bfsTraversalCountry(Country p_country) {
 		if (p_country.d_isProcessed) {
 			return;
@@ -147,6 +158,7 @@ public class MapValidator {
 	 *
 	 * @param p_country refers to the country that is to be verified.
 	 */
+
 	public static boolean validateCountry(Country p_country) {
 		List<Country> l_adjCountryList = p_country.getNeighbouringCountries();
 
@@ -171,6 +183,7 @@ public class MapValidator {
 	 * @param p_continent refers to the continent
 	 * @return will return true or false accordingly
 	 */
+
 	public static boolean checkSubGraphConnectivityForContinent(Continent p_continent) {
 
 		bfsTraversalSubGraphConnectivityForContinent(p_continent.d_memberCountries.get(0));
@@ -225,6 +238,7 @@ public class MapValidator {
 	 * @param p_map refers to the map object
 	 * @return returns true if the map is connected graph.
 	 */
+
 	public static boolean isMapConnectedGraph(Map p_map) {
 
 		if (p_map.d_continents.size() < 2) {
@@ -235,6 +249,8 @@ public class MapValidator {
 
 		boolean l_returnValue = true;
 		for (Continent l_continent : p_map.d_continents) {
+			if (l_continent == null)
+				continue;
 			if (!l_continent.d_isProcessed) {
 				l_returnValue = false;
 				break;
@@ -242,6 +258,8 @@ public class MapValidator {
 		}
 
 		for (Continent l_continent : p_map.d_continents) {
+			if (l_continent == null)
+				continue;
 			l_continent.d_isProcessed = false;
 		}
 		return l_returnValue;
@@ -253,7 +271,11 @@ public class MapValidator {
 	 * @param p_continent refers to the continent to be traversed.
 	 * @param p_map       refers to the map object
 	 */
+
 	public static void bfsTraversalContinent(Continent p_continent, Map p_map) {
+		if (p_continent == null)
+			bfsTraversalContinent(p_map.d_continents.get(1), p_map);
+		assert p_continent != null;
 		if (p_continent.d_isProcessed) {
 			return;
 		}
@@ -276,6 +298,7 @@ public class MapValidator {
 	 * @param p_map       refers to the map object.
 	 * @return will return the list of adjacent continents of the current continent.
 	 */
+
 	public static List<Continent> getAdjacentContinents(Continent p_continent, Map p_map) {
 		List<Continent> l_adjacentContinents = new ArrayList<>();
 		HashSet<Country> l_adjCountryMainSet = new HashSet<>();
@@ -285,6 +308,8 @@ public class MapValidator {
 		}
 
 		for (Continent l_remainingContinent : p_map.d_continents) {
+			if (l_remainingContinent == null)
+				continue;
 			if (!p_continent.equals(l_remainingContinent)) {
 				if (!Collections.disjoint(l_adjCountryMainSet, l_remainingContinent.d_memberCountries)) {
 					l_adjacentContinents.add(l_remainingContinent);
@@ -307,6 +332,8 @@ public class MapValidator {
 		ArrayList<Country> l_countryList = new ArrayList<>();
 
 		for (Continent l_continent : p_map.d_continents) {
+			if (l_continent == null)
+				continue;
 			for (Country l_country : l_continent.d_memberCountries) {
 				if (!l_countryList.contains(l_country)) {
 					l_countryList.add(l_country);

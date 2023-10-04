@@ -22,18 +22,41 @@ public class MapUtils {
 	Map d_currTargetMap;
 
 	/**
+	 * Flag to indicate whether map is loaded
+	 */
+	boolean d_isMapLoaded;
+
+	/**
+	 * Helper method to print default map not loaded message
+	 *
+	 * @return true if map is loaded and prints message and returns false otherwise
+	 */
+	boolean checkLoadStatus() {
+		if (d_isMapLoaded)
+			return true;
+		System.out.println("Load the map using editmap <name> command to start editing");
+		return false;
+	}
+
+	/**
 	 * Edits countries in the map based on the provided arguments.
 	 *
 	 * @param p_arguments The arguments specifying the operations to be performed on
 	 *                    countries.
 	 */
 	public void editCountry(List<String> p_arguments) {
+		if (!checkLoadStatus())
+			return;
 		int l_i;
 		List<String> l_modifiable = new ArrayList<>(p_arguments);
 		while (true) {
 			l_i = l_modifiable.indexOf("-add");
 			if (l_i == -1)
 				break;
+			if (l_modifiable.size() < l_i + 3) {
+				System.out.println("Incorrect arguments for add try again..");
+				break;
+			}
 			d_currTargetMap.addCountry(
 					new Country(d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1,
 							l_modifiable.get(l_i + 1), d_currTargetMap.getContinentByName(l_modifiable.get(l_i + 2))));
@@ -44,9 +67,15 @@ public class MapUtils {
 			l_i = l_modifiable.indexOf("-remove");
 			if (l_i == -1)
 				break;
+			if (l_modifiable.size() < l_i + 2) {
+				System.out.println("Incorrect arguments try again..");
+				break;
+			}
 			d_currTargetMap.removeCountryByName(l_modifiable.get(l_i + 1));
 			l_modifiable.remove(l_i);
 		}
+
+		System.out.println("editcountry command was executed\n");
 	}
 
 	/**
@@ -56,12 +85,18 @@ public class MapUtils {
 	 *                    continents.
 	 */
 	public void editContinent(List<String> p_arguments) {
+		if (!checkLoadStatus())
+			return;
 		int l_i;
 		List<String> l_modifiable = new ArrayList<>(p_arguments);
 		while (true) {
 			l_i = l_modifiable.indexOf("-add");
 			if (l_i == -1)
 				break;
+			if (l_modifiable.size() < l_i + 3) {
+				System.out.println("Incorrect arguments for add try again..");
+				break;
+			}
 			d_currTargetMap.addContinent(new Continent(d_currTargetMap.d_continents.size(), l_modifiable.get(l_i + 1),
 					Integer.parseInt(l_modifiable.get(l_i + 2))));
 			l_modifiable.remove(l_i);
@@ -71,9 +106,14 @@ public class MapUtils {
 			l_i = l_modifiable.indexOf("-remove");
 			if (l_i == -1)
 				break;
+			if (l_modifiable.size() < l_i + 2) {
+				System.out.println("Incorrect arguments for remove try again..");
+				break;
+			}
 			d_currTargetMap.removeContinentByName(l_modifiable.get(l_i + 1));
 			l_modifiable.remove(l_i);
 		}
+		System.out.println("editcontinent command was executed\n");
 	}
 
 	/**
@@ -84,12 +124,18 @@ public class MapUtils {
 	 *                    neighboring countries.
 	 */
 	public void editNeighbour(List<String> p_arguments) {
+		if (!checkLoadStatus())
+			return;
 		int l_i;
 		List<String> l_modifiable = new ArrayList<>(p_arguments);
 		while (true) {
 			l_i = l_modifiable.indexOf("-add");
 			if (l_i == -1)
 				break;
+			if (l_modifiable.size() < l_i + 3) {
+				System.out.println("Incorrect arguments for add try again..");
+				break;
+			}
 			d_currTargetMap.addRemoveCountryNeighbourByName(l_modifiable.get(l_i + 1), l_modifiable.get(l_i + 2), true);
 			l_modifiable.remove(l_i);
 		}
@@ -98,16 +144,23 @@ public class MapUtils {
 			l_i = l_modifiable.indexOf("-remove");
 			if (l_i == -1)
 				break;
+			if (l_modifiable.size() < l_i + 3) {
+				System.out.println("Incorrect arguments for remove try again..");
+				break;
+			}
 			d_currTargetMap.addRemoveCountryNeighbourByName(l_modifiable.get(l_i + 1), l_modifiable.get(l_i + 2),
 					false);
 			l_modifiable.remove(l_i);
 		}
+		System.out.println("editneighbour command was executed\n");
 	}
 
 	/**
 	 * Displays the map to the user in a readable format.
 	 */
 	public void showMap() {
+		if (!checkLoadStatus())
+			return;
 		d_currTargetMap.printMap(true);
 	}
 
@@ -115,6 +168,8 @@ public class MapUtils {
 	 * Saves the current map to a file.
 	 */
 	public void saveMap() {
+		if (!checkLoadStatus())
+			return;
 		try {
 			if (!validateMap()) {
 				System.out.println("Cannot save map as it is not valid");
@@ -158,6 +213,7 @@ public class MapUtils {
 				out.write(s);
 			out.flush();
 			out.close();
+			System.out.println("Map was saved successfully :)\n");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -185,22 +241,17 @@ public class MapUtils {
 				System.out.println(p_arguments.get(0) + " has been loaded successfully");
 				l_fileScanner.close();
 			}
-
+			d_isMapLoaded = true;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
 
-	/**
-	 * Validate the current map for correctness using MapValidator.
-	 *
-	 * @return True if the map is valid, false otherwise.
-	 */
 	public boolean validateMap() {
 		MapValidator.validateMap(d_currTargetMap);
 		if (!(MapValidator.d_alertMsg.isEmpty()))
-			System.out.println(MapValidator.d_alertMsg);
+			System.out.println("Map Validation Result:- " + MapValidator.d_alertMsg);
 		return MapValidator.d_isValidMap;
 
 	}
