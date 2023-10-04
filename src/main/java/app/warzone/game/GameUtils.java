@@ -1,13 +1,11 @@
 package app.warzone.game;
 
-import app.warzone.map.Continent;
 import app.warzone.map.Country;
 import app.warzone.map.Map;
 import app.warzone.map.MapFileParser;
 import app.warzone.player.Player;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

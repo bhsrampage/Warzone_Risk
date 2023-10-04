@@ -50,6 +50,8 @@ public class Player {
 
 	public void issue_order() {
 		System.out.printf("\nEnter your command %s\n", d_playerName);
+		System.out.println("Note: Your current status is:");
+		printPlayerStatus();
 		Scanner l_scanner = new Scanner(System.in);
 		String l_userCommand = l_scanner.nextLine();
 
