@@ -1,10 +1,14 @@
 package app.warzone.game;
 
 import app.warzone.Main.Phase;
+import app.warzone.game.orders.Deploy;
+import app.warzone.game.orders.Order;
 import app.warzone.map.MapFileParser;
 import app.warzone.map.MapUtils;
+import app.warzone.player.Player;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -69,12 +73,12 @@ public class GameEngine {
 
     }
 
-    void listenGameCommands() {
+    void listenStartupCommands() {
         System.out.println("**Gameplay**\n");
         GameUtils l_gameUtil = new GameUtils();
-        boolean l_isEditing = true;
+        boolean l_isSettingUp = true;
 
-        while (l_isEditing) {
+        while (l_isSettingUp) {
             String l_userInput = SCAN.nextLine();
             String[] l_cmdTokens = l_userInput.split(" ");
             List<String> arguments = Arrays.asList(Arrays.copyOfRange(l_cmdTokens, 1, l_cmdTokens.length));
@@ -88,6 +92,8 @@ public class GameEngine {
                     break;
                 case "assigncountries":
                     l_gameUtil.assignCountries();
+                    d_currPhase = Phase.GAMEPLAY;
+                    l_isSettingUp = false;
                     break;
                 case "showmap":
                     l_gameUtil.showMap();
@@ -97,7 +103,26 @@ public class GameEngine {
                     break;
             }
         }
+        listenGameplayCommands(l_gameUtil);
 
+
+    }
+
+    private void listenGameplayCommands(GameUtils p_gameUtil) {
+        boolean l_isPlaying = true;
+        int l_playerCount = p_gameUtil.d_playerList.size();
+        int l_i = 0;
+        int l_remainingPlayerCount = l_playerCount;
+        Player l_targetPlayer;
+
+        while (l_remainingPlayerCount != 0) {
+            l_targetPlayer = p_gameUtil.d_playerList.get(l_i%l_playerCount);
+            l_targetPlayer.issue_order();
+
+            if (l_targetPlayer.d_currentArmyCount == 0) {
+                l_remainingPlayerCount--;
+            }
+        }
     }
 
 
@@ -115,8 +140,8 @@ public class GameEngine {
                     listenMapCommands();
                     break;
                 case "2":
-                    d_currPhase = Phase.GAMEPLAY;
-                    listenGameCommands();
+                    d_currPhase = Phase.STARTUP;
+                    listenStartupCommands();
                     break;
                 default:
                     playing = false;

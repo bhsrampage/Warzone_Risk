@@ -12,7 +12,8 @@ import app.warzone.game.GameEngine;
 public class Main {
    public enum Phase {
         MAP_ACTIONS,
-        GAMEPLAY
+        GAMEPLAY,
+       STARTUP
     }
     public static void main(String[] args) {
         GameEngine l_game = new GameEngine();

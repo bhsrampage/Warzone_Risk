@@ -14,6 +14,8 @@ public class Country {
      * The unique identifier for the country.
      */
     int d_countryId;
+
+
     /**
      * The name of the country.
      */
@@ -39,6 +41,9 @@ public class Country {
      */
     boolean d_isProcessed;
 
+    public String getD_countryName() {
+        return d_countryName;
+    }
     /**
      * Constructs a Country object with the given parameters.
      *
