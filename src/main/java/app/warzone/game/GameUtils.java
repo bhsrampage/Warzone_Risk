@@ -11,23 +11,36 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Random;
 
+/**
+ * Utility class for managing various game-related actions and operations.
+ */
 public class GameUtils {
 
 	Map d_currTargetMap;
 	List<Player> d_playerList;
 
+	/**
+	 * Constructor for GameUtils, initializes the player list.
+	 */
 	public GameUtils() {
 		d_playerList = new ArrayList<>();
 	}
 
+	/**
+	 * Load a map from the provided arguments.
+	 *
+	 * @param p_arguments List of arguments, including the map file name.
+	 */
 	public void loadMap(List<String> p_arguments) {
+		// Create a File object for the specified map file
 		File l_myObj = new File("src/main/resources/maps/" + p_arguments.get(0) + ".map");
 		try {
-
+			// Check if the map file exists
 			if (!l_myObj.exists()) {
 				System.out.println("No such map is present");
 				return;
 			}
+			// Parse the map file using MapFileParser
 			MapFileParser l_fileParser = new MapFileParser(p_arguments.get(0));
 			Scanner l_fileScanner = new Scanner(l_myObj);
 			d_currTargetMap = l_fileParser.parseMapFile(l_fileScanner);
@@ -36,13 +49,18 @@ public class GameUtils {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
+	/**
+	 * Display the current state of the map.
+	 */
 	public void showMap() {
 		d_currTargetMap.printMap(false);
 	}
 
+	/**
+	 * Assign countries to players in a random manner.
+	 */
 	public void assignCountries() {
 		List<Country> l_assignableList = new ArrayList<>(d_currTargetMap.getD_countries());
 		int l_i = 0;
@@ -50,24 +68,36 @@ public class GameUtils {
 			Country l_assignablecountry = l_assignableList.get(generateRandomNumber(0, l_assignableList.size() - 1));
 			d_playerList.get(l_i % d_playerList.size()).addCountryToHolderList(l_assignablecountry, 0);
 			l_assignableList.remove(l_assignablecountry);
-
 			l_i++;
 		}
 		showMap();
 	}
 
-	private int generateRandomNumber(int minValue, int maxValue) {
-
-		Random random = new Random();
-		int range = maxValue - minValue + 1;
-		int randomNumber = random.nextInt(range) + minValue;
-		return randomNumber;
+	/**
+	 * Generate a random number within the specified range.
+	 *
+	 * @param minValue Minimum value for the random number.
+	 * @param maxValue Maximum value for the random number.
+	 * @return The generated random number.
+	 */
+	private int generateRandomNumber(int p_minValue, int p_maxValue) {
+		Random l_random = new Random();
+		int l_range = p_maxValue - p_minValue + 1;
+		int l_randomNumber = l_random.nextInt(l_range) + p_minValue;
+		return l_randomNumber;
 	}
 
+	/**
+	 * Add or remove players based on the provided arguments.
+	 *
+	 * @param p_arguments List of arguments, including player names and edit
+	 *                    actions.
+	 */
 	public void addRemovePlayers(List<String> p_arguments) {
-
 		int l_i;
 		List<String> l_modifiable = new ArrayList<>(p_arguments);
+
+		// Add players based on "-add" arguments
 		while (true) {
 			l_i = l_modifiable.indexOf("-add");
 			if (l_i == -1)
@@ -76,6 +106,7 @@ public class GameUtils {
 			l_modifiable.remove(l_i);
 		}
 
+		// Remove players based on "-remove" arguments
 		while (true) {
 			l_i = l_modifiable.indexOf("-remove");
 			if (l_i == -1)
@@ -84,16 +115,20 @@ public class GameUtils {
 			l_modifiable.remove(l_i);
 		}
 
-		System.out.println("Player edit tasks have been performed succesfully");
+		System.out.println("Player edit tasks have been performed successfully");
 	}
 
+	/**
+	 * Get a player by their name.
+	 *
+	 * @param p_name The name of the player to find.
+	 * @return The Player object if found, or null if not found.
+	 */
 	private Player getPlayerByName(String p_name) {
-
 		for (Player l_player : d_playerList) {
-			if (l_player.d_playerName == p_name) {
+			if (l_player.d_playerName.equals(p_name)) {
 				return l_player;
 			}
-
 		}
 		return null;
 	}

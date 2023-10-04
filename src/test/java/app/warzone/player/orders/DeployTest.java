@@ -11,6 +11,10 @@ import app.warzone.map.Continent;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 
+/**
+ * This class contains unit tests for the Deploy class, which represents a
+ * deployment order in the Warzone game.
+ */
 public class DeployTest {
 
 	private Player d_deployingPlayer;
@@ -25,6 +29,9 @@ public class DeployTest {
 		d_deployOrder = new Deploy(d_deployingPlayer, 5, d_targetCountry);
 	}
 
+	/**
+	 * Test for the constructor of the Deploy class.
+	 */
 	@Test
 	void testConstructor() {
 		assertEquals(d_deployingPlayer, d_deployOrder.d_deployingPlayer);
@@ -33,29 +40,27 @@ public class DeployTest {
 		assertFalse(d_deployOrder.d_isExecuted);
 	}
 
+	/**
+	 * Test for executing the deploy order, increasing the army count in the target
+	 * country.
+	 */
 	@Test
 	void testExecute() {
-// Set up initial army count in the target country
 		d_targetCountry.assignHolderWithArmies(d_deployingPlayer, 3);
-
-// Execute the deploy order
 		d_deployOrder.execute();
-
-// Check if the order was executed
 		assertTrue(d_deployOrder.d_isExecuted);
-
-// Check if the target country's army count is updated correctly
 		assertEquals(8, d_targetCountry.getCurrentArmyCount());
 	}
 
+	/**
+	 * Test for executing the deploy order with zero armies, which should not change
+	 * anything.
+	 */
 	@Test
 	void testExecuteWithZeroArmies() {
-// Try to execute the deploy order with zero armies (should not change anything)
 		d_deployOrder = new Deploy(d_deployingPlayer, 0, d_targetCountry);
 		d_targetCountry.assignHolderWithArmies(d_deployingPlayer, 3);
-
 		d_deployOrder.execute();
-
 		assertTrue(d_deployOrder.d_isExecuted);
 		assertEquals(3, d_targetCountry.getCurrentArmyCount());
 	}

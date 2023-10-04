@@ -18,14 +18,25 @@ public class GameEngine {
 	Scanner SCAN;
 	Phase d_currPhase = null;
 
+	/**
+	 * Constructor for the GameEngine class, initializes a Scanner for user input.
+	 */
 	public GameEngine() {
 		SCAN = new Scanner(System.in);
 	}
 
+	/**
+	 * Getter method for the current game phase.
+	 *
+	 * @return The current game phase.
+	 */
 	public Phase getD_currPhase() {
 		return d_currPhase;
 	}
 
+	/**
+	 * Listen to map editing commands and perform corresponding actions.
+	 */
 	void listenMapCommands() {
 		System.out.println("**Map Editor**\n");
 		MapUtils l_targetMapUtil = new MapUtils();
@@ -63,12 +74,14 @@ public class GameEngine {
 				l_isEditing = false;
 				break;
 			default:
-				System.out.println("Invalid Command try again..");
+				System.out.println("Invalid Command, please try again..");
 			}
 		}
-
 	}
 
+	/**
+	 * Listen to startup commands to set up the game.
+	 */
 	void listenStartupCommands() {
 		System.out.println("**Gameplay**\n");
 		GameUtils l_gameUtil = new GameUtils();
@@ -95,13 +108,18 @@ public class GameEngine {
 				l_gameUtil.showMap();
 				break;
 			default:
-				System.out.println("Invalid Command try again..");
+				System.out.println("Invalid Command, please try again..");
 				break;
 			}
 		}
 		listenGameplayCommands(l_gameUtil);
 	}
 
+	/**
+	 * Listen to gameplay commands and execute player orders.
+	 *
+	 * @param p_gameUtil The GameUtils object containing game-related utilities.
+	 */
 	private void listenGameplayCommands(GameUtils p_gameUtil) {
 		boolean l_isPlaying = true;
 		List<Player> l_currPlayingPlayers = new ArrayList<>(p_gameUtil.d_playerList);
@@ -129,6 +147,9 @@ public class GameEngine {
 		}
 	}
 
+	/**
+	 * Initialize the game and provide options for map editing or gameplay.
+	 */
 	public void initialize() {
 		System.out.println("Welcome to Risk (Warzone) by U6 build1");
 		String choice;
@@ -151,7 +172,5 @@ public class GameEngine {
 			}
 			System.out.println("Quitting...");
 		}
-
 	}
-
 }

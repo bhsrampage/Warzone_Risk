@@ -125,16 +125,6 @@ public class Map {
 		d_continents.add(p_newContinent);
 	}
 
-//    public void removeContinentById(int p_continentId) {
-//        Continent l_continent = getContinentById(p_continentId);
-//        List<Country> l_memberCopy = new ArrayList<>(l_continent.getMemberCountries());
-//        for (Country l_member : l_memberCopy) {
-//            l_continent.addRemoveMembers(l_member, false);
-//            d_countries.remove(l_member);
-//        }
-//        d_continents.set(d_continents.indexOf(l_continent), null);
-//    }
-
 	/**
 	 * Removes a continent from the map by its name.
 	 *
@@ -166,16 +156,6 @@ public class Map {
 		d_countries.add(p_newCountry);
 		p_newCountry.d_memberOfContinent.addRemoveMembers(p_newCountry, true);
 	}
-
-//    public void removeCountryById(int p_countryId) {
-//        Country l_country = getCountryById(p_countryId);
-//        if (l_country == null) {
-//            System.err.printf("No country found with id %d", p_countryId);
-//            return;
-//        }
-//        l_country.d_memberOfContinent.addRemoveMembers(l_country, false);
-//        d_countries.remove(l_country);
-//    }
 
 	/**
 	 * Removes a country from the map by its name.
@@ -218,20 +198,5 @@ public class Map {
 		l_neighbourToTarget.addRemoveNeighbour(l_targetCountry, isAdding);
 		System.out.println(isAdding ? "Addition" : "Removal" + " of neighbour executed");
 	}
-//    public void addRemoveCountryNeighbour(int p_countryId, int p_neighbourCountryId, boolean isAdding) {
-//        Country l_targetCountry = getCountryById(p_countryId);
-//        if (l_targetCountry == null) {
-//            System.err.printf("No country found with id %d", p_countryId);
-//            return;
-//        }
-//        Country l_neighbourToTarget = getCountryById(p_neighbourCountryId);
-//        if (l_neighbourToTarget == null) {
-//            System.err.printf("No country found with id %d", p_neighbourCountryId);
-//            return;
-//        }
-//        l_targetCountry.addRemoveNeighbour(l_neighbourToTarget, isAdding);
-//        l_neighbourToTarget.addRemoveNeighbour(l_targetCountry, isAdding);
-//        System.out.println(isAdding ? "Addition" : "Removal" + " of neighbour executed");
-//    }
 
 }

@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"app.warzone.map"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"app.warzone"},{"l":"app.warzone.game"},{"l":"app.warzone.map"},{"l":"app.warzone.player"},{"l":"app.warzone.player.orders"}];updateSearchResults();

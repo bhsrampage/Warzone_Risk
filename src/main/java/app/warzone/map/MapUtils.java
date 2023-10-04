@@ -192,6 +192,11 @@ public class MapUtils {
 
 	}
 
+	/**
+	 * Validate the current map for correctness using MapValidator.
+	 *
+	 * @return True if the map is valid, false otherwise.
+	 */
 	public boolean validateMap() {
 		MapValidator.validateMap(d_currTargetMap);
 		if (!(MapValidator.d_alertMsg.isEmpty()))

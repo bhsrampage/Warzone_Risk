@@ -18,13 +18,8 @@ class ContinentTest {
 
 	@BeforeEach
 	void setUp() {
-		// Initializing a sample player
 		d_player = new Player("Test Player");
-
-		// Initializing a d_continent for testing
 		d_continent = new Continent(1, "Test Continent", 5);
-
-		// Initializing some countries
 		d_country1 = new Country(1, "Country 1", d_continent);
 		d_country2 = new Country(2, "Country 2", d_continent);
 		d_continent.addRemoveMembers(d_country1, true);
@@ -59,11 +54,9 @@ class ContinentTest {
 
 	@Test
 	void addRemoveMembers() {
-		// Adding a new member country
 		assertTrue(d_continent.addRemoveMembers(d_country2, true));
 		assertTrue(d_continent.getMemberCountries().contains(d_country2));
 
-		// Removing an existing member country
 		assertTrue(d_continent.addRemoveMembers(d_country1, false));
 		assertFalse(d_continent.getMemberCountries().contains(d_country1));
 	}
