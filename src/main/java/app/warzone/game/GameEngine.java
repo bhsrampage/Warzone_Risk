@@ -1,13 +1,10 @@
 package app.warzone.game;
 
 import app.warzone.Main.Phase;
-import app.warzone.game.orders.Deploy;
-import app.warzone.game.orders.Order;
-import app.warzone.map.MapFileParser;
 import app.warzone.map.MapUtils;
 import app.warzone.player.Player;
+import app.warzone.player.orders.Order;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -104,24 +101,31 @@ public class GameEngine {
             }
         }
         listenGameplayCommands(l_gameUtil);
-
-
     }
 
     private void listenGameplayCommands(GameUtils p_gameUtil) {
         boolean l_isPlaying = true;
-        int l_playerCount = p_gameUtil.d_playerList.size();
+        List<Player> l_currPlayingPlayers = new ArrayList<>(p_gameUtil.d_playerList);
         int l_i = 0;
-        int l_remainingPlayerCount = l_playerCount;
         Player l_targetPlayer;
 
-        while (l_remainingPlayerCount != 0) {
-            l_targetPlayer = p_gameUtil.d_playerList.get(l_i%l_playerCount);
-            l_targetPlayer.issue_order();
-
+        while (!l_currPlayingPlayers.isEmpty()) {
+            l_targetPlayer = l_currPlayingPlayers.get(l_i%l_currPlayingPlayers.size());
             if (l_targetPlayer.d_currentArmyCount == 0) {
-                l_remainingPlayerCount--;
+                l_currPlayingPlayers.remove(l_targetPlayer);
+            }else {
+                l_targetPlayer.issue_order();
+                l_i++;
             }
+        }
+
+        for (Player l_player : p_gameUtil.d_playerList){
+            while (true){
+                Order order = l_player.next_order();
+                if(order == null) break;
+                order.execute();
+            }
+        p_gameUtil.showMap();
         }
     }
 

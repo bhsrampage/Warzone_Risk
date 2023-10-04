@@ -123,6 +123,7 @@ public class Country {
         for (Country neighbour : d_neighbours) {
             System.out.printf("%s\t", neighbour.d_countryName);
         }
+        System.out.print("\n");
     }
 
     /**

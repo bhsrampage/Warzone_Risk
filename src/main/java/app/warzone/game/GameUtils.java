@@ -20,8 +20,6 @@ public class GameUtils {
 
     public GameUtils() {
         d_playerList = new ArrayList<>();
-
-
     }
 
     public void loadMap(List<String> p_arguments) {
