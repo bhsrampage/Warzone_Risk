@@ -1,22 +1,34 @@
 package app.warzone.map;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-class MapFileParserTest {
+/**
+ * Test class for the MapFileParser class, which is responsible for parsing map
+ * files. This class contains test cases for the parseMapFile method of the
+ * MapFileParser class.
+ */
+public class MapFileParserTest {
 
 	private MapFileParser d_mapFileParser;
 
+	/**
+	 * Setup method to initialize the MapFileParser instance for testing.
+	 */
 	@BeforeEach
 	void setUp() {
 		d_mapFileParser = new MapFileParser("Test Map");
 	}
 
+	/**
+	 * Test case for parsing a map file. This test checks if the parseMapFile method
+	 * correctly parses a map file's content and constructs a Map object.
+	 */
 	@Test
 	void parseMapFile() {
 		String l_mapFileContent = "[continents]\n" + "North_America 5\n" + "Europe 7\n" + "[countries]\n" + "1 USA 1\n"
