@@ -1,15 +1,15 @@
 package app.warzone.game;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+
 import app.warzone.map.Country;
 import app.warzone.map.Map;
 import app.warzone.map.MapFileParser;
 import app.warzone.player.Player;
-
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Random;
 
 /**
  * Utility class for managing various game-related actions and operations.
@@ -70,7 +70,20 @@ public class GameUtils {
 			l_assignableList.remove(l_assignablecountry);
 			l_i++;
 		}
+		assignReinforcementArmies();
 		showMap();
+	}
+	
+	/**
+	 * Calculate reinforcement armies and assign it to each player object
+	 */
+
+	public void assignReinforcementArmies() {
+
+		for (int l_i = 0; l_i < d_playerList.size(); l_i++) {
+			int l_count = d_playerList.get(l_i).d_holdingCountries.size();
+			d_playerList.get(l_i).d_currentArmyCount = Math.max((l_count / 3), 3);
+		}
 	}
 
 	/**

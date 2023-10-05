@@ -12,10 +12,6 @@ import app.warzone.map.Country;
 import app.warzone.player.orders.Deploy;
 import app.warzone.player.orders.Order;
 
-/**
- * This class contains unit tests for the Player class to ensure its
- * functionality.
- */
 public class PlayerTest {
 
 	private Player d_player;
@@ -27,9 +23,6 @@ public class PlayerTest {
 		d_country = new Country(0, "TestCountry", null);
 	}
 
-	/**
-	 * Test the constructor of the Player class.
-	 */
 	@Test
 	public void testConstructor() {
 		assertEquals("TestPlayer", d_player.d_playerName);
@@ -38,10 +31,6 @@ public class PlayerTest {
 		assertEquals(0, d_player.getD_givenOrders().size());
 	}
 
-	/**
-	 * Test the addCountryToHolderList method to ensure countries are added
-	 * correctly.
-	 */
 	@Test
 	public void testAddCountryToHolderList() {
 		d_player.addCountryToHolderList(d_country, 5);
@@ -52,10 +41,6 @@ public class PlayerTest {
 		assertEquals(d_player, d_country.getCountryHolder());
 	}
 
-	/**
-	 * Test the next_order method to ensure it correctly retrieves and removes
-	 * orders.
-	 */
 	@Test
 	public void testNextOrder() {
 		assertNull(d_player.next_order());
