@@ -14,7 +14,7 @@ import java.util.List;
 
 public class MapValidator {
 
-	static String d_alertMsg = "";
+	public static String d_alertMsg = "";
 
 	/**
 	 * d_isValid variable is for clearing the continents of the d_Map variable.
@@ -28,6 +28,7 @@ public class MapValidator {
 	 */
 
 	public static boolean validateMap(Map p_map) {
+		d_alertMsg = "";
 		if (p_map == null) {
 			d_alertMsg = "The Map is not valid, it does not contain any content.";
 			return false;

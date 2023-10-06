@@ -9,6 +9,7 @@ import java.util.Scanner;
 import app.warzone.map.Country;
 import app.warzone.map.Map;
 import app.warzone.map.MapFileParser;
+import app.warzone.map.MapValidator;
 import app.warzone.player.Player;
 
 /**
@@ -16,7 +17,7 @@ import app.warzone.player.Player;
  */
 public class GameUtils {
 
-	Map d_currTargetMap;
+	Map d_currTargetMap = null;
 	List<Player> d_playerList;
 
 	/**
@@ -44,7 +45,16 @@ public class GameUtils {
 			MapFileParser l_fileParser = new MapFileParser(p_arguments.get(0));
 			Scanner l_fileScanner = new Scanner(l_myObj);
 			d_currTargetMap = l_fileParser.parseMapFile(l_fileScanner);
-			System.out.println(p_arguments.get(0) + " has been loaded successfully");
+			boolean l_result = MapValidator.validateMap(d_currTargetMap);
+			if (!(MapValidator.d_alertMsg.isEmpty()))
+				System.out.println("Map Validation Result:- " + MapValidator.d_alertMsg);
+			if(!l_result) {
+				System.out.println("Map could not be loaded in for gameplay :(");
+				d_currTargetMap = null;
+			} else {
+				System.out.println(p_arguments.get(0) + " has been loaded successfully");
+			}
+
 			l_fileScanner.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -64,7 +74,7 @@ public class GameUtils {
 	public void assignCountries() {
 		List<Country> l_assignableList = new ArrayList<>(d_currTargetMap.getD_countries());
 		int l_i = 0;
-		while (l_assignableList.size() != 0) {
+		while (!l_assignableList.isEmpty()) {
 			Country l_assignablecountry = l_assignableList.get(generateRandomNumber(0, l_assignableList.size() - 1));
 			d_playerList.get(l_i % d_playerList.size()).addCountryToHolderList(l_assignablecountry, 0);
 			l_assignableList.remove(l_assignablecountry);
@@ -80,24 +90,23 @@ public class GameUtils {
 
 	public void assignReinforcementArmies() {
 
-		for (int l_i = 0; l_i < d_playerList.size(); l_i++) {
-			int l_count = d_playerList.get(l_i).d_holdingCountries.size();
-			d_playerList.get(l_i).d_currentArmyCount = Math.max((l_count / 3), 3);
-		}
+        for (Player player : d_playerList) {
+            int l_count = player.d_holdingCountries.size();
+            player.d_currentArmyCount = Math.max((l_count / 3), 3);
+        }
 	}
 
 	/**
 	 * Generate a random number within the specified range.
 	 *
-	 * @param minValue Minimum value for the random number.
-	 * @param maxValue Maximum value for the random number.
+	 * @param p_minValue Minimum value for the random number.
+	 * @param p_maxValue Maximum value for the random number.
 	 * @return The generated random number.
 	 */
 	private int generateRandomNumber(int p_minValue, int p_maxValue) {
 		Random l_random = new Random();
 		int l_range = p_maxValue - p_minValue + 1;
-		int l_randomNumber = l_random.nextInt(l_range) + p_minValue;
-		return l_randomNumber;
+        return l_random.nextInt(l_range) + p_minValue;
 	}
 
 	/**

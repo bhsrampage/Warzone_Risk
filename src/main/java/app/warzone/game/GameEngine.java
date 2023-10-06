@@ -18,9 +18,9 @@ public class GameEngine {
 	Scanner SCAN;
 	Phase d_currPhase = null;
 
-	public GameEngine() {
-		SCAN = new Scanner(System.in);
-	}
+//	public GameEngine() {
+//		SCAN = new Scanner(System.in);
+//	}
 
 	public Phase getD_currPhase() {
 		return d_currPhase;
@@ -114,7 +114,6 @@ public class GameEngine {
 	 * @param p_gameUtil The GameUtils object containing game-related utilities.
 	 */
 	private void listenGameplayCommands(GameUtils p_gameUtil) {
-		boolean l_isPlaying = true;
 		List<Player> l_currPlayingPlayers = new ArrayList<>(p_gameUtil.d_playerList);
 		int l_i = 0;
 		Player l_targetPlayer;
@@ -131,10 +130,10 @@ public class GameEngine {
 
 		for (Player l_player : p_gameUtil.d_playerList) {
 			while (true) {
-				Order order = l_player.next_order();
-				if (order == null)
+				Order l_order = l_player.next_order();
+				if (l_order == null)
 					break;
-				order.execute();
+				l_order.execute();
 			}
 			p_gameUtil.showMap();
 		}
@@ -145,13 +144,14 @@ public class GameEngine {
 	 */
 
 	public void initialize() {
+		SCAN = new Scanner(System.in);
 		System.out.println("Welcome to Risk (Warzone) by U6 build1");
-		String choice;
-		boolean playing = true;
-		while (playing) {
+		String l_choice;
+		boolean l_playing = true;
+		while (l_playing) {
 			System.out.println("1. Map Editor\n2. Play Game\nEnter your choice:- ");
-			choice = SCAN.nextLine();
-			switch (choice) {
+			l_choice = SCAN.nextLine();
+			switch (l_choice) {
 			case "1":
 				d_currPhase = Phase.MAP_ACTIONS;
 				listenMapCommands();
@@ -161,7 +161,7 @@ public class GameEngine {
 				listenStartupCommands();
 				break;
 			default:
-				playing = false;
+				l_playing = false;
 				break;
 			}
 			System.out.println("Quitting...");

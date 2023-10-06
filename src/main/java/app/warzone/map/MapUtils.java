@@ -58,7 +58,7 @@ public class MapUtils {
 				break;
 			}
 			d_currTargetMap.addCountry(
-					new Country(d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1,
+					new Country(d_currTargetMap.d_countries.size() == 0 ? 0 : d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1,
 							l_modifiable.get(l_i + 1), d_currTargetMap.getContinentByName(l_modifiable.get(l_i + 2))));
 			l_modifiable.remove(l_i);
 		}
@@ -249,11 +249,10 @@ public class MapUtils {
 	}
 
 	public boolean validateMap() {
-		MapValidator.validateMap(d_currTargetMap);
+		boolean l_result = MapValidator.validateMap(d_currTargetMap);
 		if (!(MapValidator.d_alertMsg.isEmpty()))
 			System.out.println("Map Validation Result:- " + MapValidator.d_alertMsg);
-		return MapValidator.d_isValidMap;
-
+		return l_result;
 	}
 
 }
