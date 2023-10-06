@@ -25,6 +25,7 @@ public class MapValidator {
 	 * This method is used for validation of map.
 	 *
 	 * @param p_map refers to the map object for verification.
+	 * @return true if map is valid, false otherwise
 	 */
 
 	public static boolean validateMap(Map p_map) {
@@ -69,6 +70,7 @@ public class MapValidator {
 	 * graph of continents.
 	 *
 	 * @param p_map map refers to map object to validate the continents.
+	 * @return true if continents are valid , false otherwise
 	 */
 
 	public static boolean validateContinents(Map p_map) {
@@ -158,6 +160,7 @@ public class MapValidator {
 	 * This method is used to validate that the country is connected or not.
 	 *
 	 * @param p_country refers to the country that is to be verified.
+	 * @return true if countries are valid , false otherwise
 	 */
 
 	public static boolean validateCountry(Country p_country) {
@@ -182,7 +185,7 @@ public class MapValidator {
 	 * connected.
 	 *
 	 * @param p_continent refers to the continent
-	 * @return will return true or false accordingly
+	 * @return will return true if continent is a subgraph, false otherwise
 	 */
 
 	public static boolean checkSubGraphConnectivityForContinent(Continent p_continent) {
