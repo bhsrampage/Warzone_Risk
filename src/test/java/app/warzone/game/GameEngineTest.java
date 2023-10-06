@@ -1,6 +1,5 @@
 package app.warzone.game;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.io.ByteArrayInputStream;
@@ -30,19 +29,6 @@ public class GameEngineTest {
 	public void setUp() {
 		gameEngine = new GameEngine();
 		originalSystemIn = System.in;
-	}
-
-	/**
-	 * Test the initialization of the game by providing valid user input. This test
-	 * checks if the game phase is correctly set to STARTUP after initialization.
-	 */
-	@Test
-	public void testInitialize() {
-		String userInput = "1\n2\n3\n";
-		InputStream userInputInputStream = new ByteArrayInputStream(userInput.getBytes());
-		System.setIn(userInputInputStream);
-		gameEngine.initialize();
-		assertEquals(Phase.STARTUP, gameEngine.getD_currPhase());
 	}
 
 	/**

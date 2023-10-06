@@ -41,10 +41,6 @@ public class Country {
 	 */
 	boolean d_isProcessed;
 
-	public String getD_countryName() {
-		return d_countryName;
-	}
-
 	/**
 	 * Constructs a Country object with the given parameters.
 	 *
@@ -68,6 +64,15 @@ public class Country {
 	 */
 	public int getCountryId() {
 		return d_countryId;
+	}
+
+	/**
+	 * Getter for country name
+	 *
+	 * @return Country Name
+	 */
+	public String getD_countryName() {
+		return d_countryName;
 	}
 
 	/**
