@@ -1,7 +1,5 @@
 package app.warzone.game;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
@@ -9,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import app.warzone.Main.Phase;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for the GameEngine class, which is responsible for game
@@ -33,15 +31,15 @@ public class GameEngineTest {
 
 	/**
 	 * Test the initialization of the game with invalid user input. To check that
-	 * the game phase is not set to STARTUP when invalid input is provided.
+	 * the game phase is not set when invalid input is provided.
 	 */
 	@Test
 	public void testInitializeInvalidChoice() {
-		String userInput = "invalid\n";
+		String userInput = "3\n";
 		InputStream userInputInputStream = new ByteArrayInputStream(userInput.getBytes());
 		System.setIn(userInputInputStream);
 		gameEngine.initialize();
-		assertNotEquals(Phase.STARTUP, gameEngine.getD_currPhase());
+		assertNull(gameEngine.gamePhase);
 	}
 
 	/**
@@ -54,7 +52,7 @@ public class GameEngineTest {
 		InputStream userInputInputStream = new ByteArrayInputStream(userInput.getBytes());
 		System.setIn(userInputInputStream);
 		gameEngine.initialize();
-		assertNotEquals(Phase.STARTUP, gameEngine.getD_currPhase());
+		assertEquals("End",gameEngine.gamePhase.getClass().getSimpleName());
 	}
 
 	/**

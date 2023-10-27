@@ -8,12 +8,6 @@ import app.warzone.game.GameEngine;
  * @author Burhanuddin
  */
 public class Main {
-	/**
-	 * An enumeration representing the different phases of the Warzone game.
-	 */
-	public enum Phase {
-		MAP_ACTIONS, GAMEPLAY, STARTUP
-	}
 
 	/**
 	 * The main method of the Warzone game application. It initializes and starts

@@ -58,8 +58,12 @@ public class MapUtils {
 				break;
 			}
 			d_currTargetMap.addCountry(
-					new Country(d_currTargetMap.d_countries.isEmpty() ? 0 : d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1,
-							l_modifiable.get(l_i + 1), d_currTargetMap.getContinentByName(l_modifiable.get(l_i + 2))));
+					new Country(
+							d_currTargetMap.d_countries.isEmpty() ? 0 : (d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1),
+							l_modifiable.get(l_i + 1),
+							d_currTargetMap.getContinentByName(l_modifiable.get(l_i + 2))
+					)
+			);
 			l_modifiable.remove(l_i);
 		}
 
