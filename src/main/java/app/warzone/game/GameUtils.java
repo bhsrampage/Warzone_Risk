@@ -17,8 +17,8 @@ import app.warzone.player.Player;
  */
 public class GameUtils {
 
-	Map d_currTargetMap = null;
-	List<Player> d_playerList;
+	public static Map d_currTargetMap = null;
+	public List<Player> d_playerList;
 
 	/**
 	 * Constructor for GameUtils, initializes the player list.
@@ -65,6 +65,10 @@ public class GameUtils {
 	 * Display the current state of the map.
 	 */
 	public void showMap() {
+		if (d_currTargetMap == null) {
+			System.out.println("Map isn't loaded");
+			return;
+		}
 		d_currTargetMap.printMap(false);
 	}
 

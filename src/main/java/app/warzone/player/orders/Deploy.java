@@ -29,12 +29,27 @@ public class Deploy extends Order {
 		d_deployingPlayer.d_currentArmyCount -= d_armyCount;
 	}
 
+	public void printOrder() {
+		System.out.println("Order Type : Deploy \nPlayer : " + d_deployingPlayer.d_playerName
+				+ " Target Country : " + d_targetCountry.getD_countryName() + " Number Of Armies : " + d_armyCount);
+	}
 	/**
 	 * Execute the deployment order by assigning armies to the target country. After
 	 * execution, the deployment order is marked as executed.
 	 */
 	@Override
 	public void execute() {
+		printOrder();
+		if (d_armyCount > d_deployingPlayer.d_currentArmyCount) {
+			System.out.println("cannot deploy more armies than you have..");
+			d_deployingPlayer.d_currentArmyCount+=d_armyCount;
+			return;
+		}
+		if (d_targetCountry == null) {
+			System.out.println("You do not own the country you are trying to deploy to..");
+			d_deployingPlayer.d_currentArmyCount+=d_armyCount;
+			return;
+		}
 		d_targetCountry.assignHolderWithArmies(d_deployingPlayer, d_targetCountry.getCurrentArmyCount() + d_armyCount);
 		d_isExecuted = true;
 	}

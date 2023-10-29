@@ -16,6 +16,8 @@ import java.util.List;
  *        Play (abstract)
  *          PlaySetup
  *          MainPlay
+ *          	CreateOrders
+ *          	ExecuteOrders
  *        End
  *        
  *      In each state, nextState() is defined so that it goes to the next state
@@ -53,6 +55,8 @@ public abstract class Phase {
 	// end command
 	abstract public void endGame();
 
+	abstract public void createOrders();
+	abstract public void executeOrders();
 	// go to next phase
 	abstract public void next();
 	

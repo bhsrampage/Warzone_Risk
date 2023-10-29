@@ -11,35 +11,12 @@ public class PlaySetup extends Play {
     }
 
     /**
-     * @param arguments
+     * Function to load the map for the game
+     * @param arguments For reading the name of the map
      */
     @Override
     public void loadMap(List<String> arguments) {
-        System.out.println("Map has already been loaded");
-    }
-
-    /**
-     * @param arguments
-     */
-    @Override
-    public void editCountry(List<String> arguments) {
-        printInvalidCommandMessage();
-    }
-
-    /**
-     * @param arguments
-     */
-    @Override
-    public void editContinent(List<String> arguments) {
-        printInvalidCommandMessage();
-    }
-
-    /**
-     * @param arguments
-     */
-    @Override
-    public void editNeighbour(List<String> arguments) {
-        printInvalidCommandMessage();
+        ge.d_gameUtil.loadMap(arguments);
     }
 
     /**
@@ -51,22 +28,49 @@ public class PlaySetup extends Play {
     }
 
     /**
-     * @param arguments
+     * Function to create or remove players
+     * @param arguments for options to add remove players with their names
      */
     @Override
     public void setPlayers(List<String> arguments) {
         ge.d_gameUtil.addRemovePlayers(arguments);
     }
 
+    /**
+     * Assign countries randomly to  all players
+     */
     public void assignCountries() {
+        if(ge.d_gameUtil.d_playerList.isEmpty()) {
+            System.out.println("No players are added");
+            return;
+        }
+        if(ge.d_gameUtil.d_currTargetMap == null){
+            System.out.println("Map isn't loaded");
+            return;
+        }
         ge.d_gameUtil.assignCountries();
+        this.next();
     }
 
     public void endGame() {
         printInvalidCommandMessage();
     }
 
+    @Override
+    public void createOrders() {
+        printInvalidCommandMessage();
+    }
+
+    @Override
+    public void executeOrders() {
+        printInvalidCommandMessage();
+    }
+
+    /**
+     * Move towards create order phase
+     */
     public void next() {
         System.out.println("Now play");
+        ge.setPhase(new CreateOrders(ge));
     }
 }

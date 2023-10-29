@@ -2,6 +2,8 @@ package app.warzone.game.phase;
 
 import app.warzone.game.GameEngine;
 
+import java.util.List;
+
 /**
  *	ConcreteState of the State pattern. In this example, defines behavior 
  *  for commands that are valid in this state, and for the others signifies  
@@ -17,20 +19,24 @@ public abstract class Edit extends Phase {
 	Edit(GameEngine p_ge) {
 		super(p_ge);
 	}
-
-	public void setPlayers() {
-		printInvalidCommandMessage(); 
+	@Override
+	public void setPlayers(List<String> arguments) {
+		printInvalidCommandMessage();
 	}
 
 	public void assignCountries() {
 		printInvalidCommandMessage(); 
 	}
 
-	public void endGame() {
-		printInvalidCommandMessage(); 
+	public void createOrders(){
+		printInvalidCommandMessage();
 	}
-	
-	public void showMap() {
+
+	public void executeOrders(){
+		printInvalidCommandMessage();
+	}
+
+	public void endGame() {
 		printInvalidCommandMessage(); 
 	}
 }
