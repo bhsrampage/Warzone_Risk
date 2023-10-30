@@ -52,6 +52,7 @@ public class DeployTest {
     @Test
     void testExecute() {
         d_targetCountry.assignHolderWithArmies(d_deployingPlayer, 3);
+        d_deployingPlayer.d_currentArmyCount = 5;
         d_deployOrder.execute();
         assertTrue(d_deployOrder.d_isExecuted);
         assertEquals(8, d_targetCountry.getCurrentArmyCount());
@@ -68,7 +69,7 @@ public class DeployTest {
         d_deployOrder = new Deploy(d_deployingPlayer, 0, d_targetCountry);
         d_targetCountry.assignHolderWithArmies(d_deployingPlayer, 3);
         d_deployOrder.execute();
-        assertTrue(d_deployOrder.d_isExecuted);
+        assertFalse(d_deployOrder.d_isExecuted);
         assertEquals(3, d_targetCountry.getCurrentArmyCount());
     }
 

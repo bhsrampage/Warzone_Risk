@@ -35,7 +35,7 @@ public class GameEngineTest {
 	 */
 	@Test
 	public void testInitializeInvalidChoice() {
-		String userInput = "3\n";
+		String userInput = "4\n";
 		InputStream userInputInputStream = new ByteArrayInputStream(userInput.getBytes());
 		System.setIn(userInputInputStream);
 		gameEngine.initialize();

@@ -107,7 +107,7 @@ public class GameUtils {
 	 * @param p_maxValue Maximum value for the random number.
 	 * @return The generated random number.
 	 */
-	private int generateRandomNumber(int p_minValue, int p_maxValue) {
+	public static int generateRandomNumber(int p_minValue, int p_maxValue) {
 		Random l_random = new Random();
 		int l_range = p_maxValue - p_minValue + 1;
         return l_random.nextInt(l_range) + p_minValue;

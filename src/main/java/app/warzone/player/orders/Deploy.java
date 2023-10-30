@@ -40,7 +40,7 @@ public class Deploy extends Order {
 	@Override
 	public void execute() {
 		printOrder();
-		if (d_armyCount > d_deployingPlayer.d_currentArmyCount) {
+		if (d_deployingPlayer.d_currentArmyCount<0) {
 			System.out.println("cannot deploy more armies than you have..");
 			d_deployingPlayer.d_currentArmyCount+=d_armyCount;
 			return;
