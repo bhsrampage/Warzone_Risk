@@ -24,6 +24,7 @@ public class Country {
 	 * The continent to which this country belongs.
 	 */
 	Continent d_memberOfContinent;
+
 	/**
 	 * The current army count in the country.
 	 */
@@ -114,6 +115,9 @@ public class Country {
 		return d_holder;
 	}
 
+	public void setD_currentArmyCount(int d_currentArmyCount) {
+		this.d_currentArmyCount = d_currentArmyCount;
+	}
 	/**
 	 * Prints the status of the country.
 	 *

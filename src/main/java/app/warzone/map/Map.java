@@ -60,7 +60,7 @@ public class Map {
 	 * @param p_name The name of the country.
 	 * @return The country with the specified name, or null if not found.
 	 */
-	Country getCountryByName(String p_name) {
+	public Country getCountryByName(String p_name) {
 		for (Country l_country : d_countries) {
 			if (p_name.equals(l_country.d_countryName)) {
 				return l_country;
@@ -92,7 +92,7 @@ public class Map {
 	 * @param p_name The name of the continent.
 	 * @return The continent with the specified name, or null if not found.
 	 */
-	Continent getContinentByName(String p_name) {
+	public Continent getContinentByName(String p_name) {
 		for (Continent l_continent : d_continents) {
 			if (l_continent == null)
 				continue;

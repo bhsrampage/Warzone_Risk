@@ -17,8 +17,8 @@ import app.warzone.player.Player;
  */
 public class GameUtils {
 
-	Map d_currTargetMap = null;
-	List<Player> d_playerList;
+	public static Map d_currTargetMap = null;
+	public List<Player> d_playerList;
 
 	/**
 	 * Constructor for GameUtils, initializes the player list.
@@ -65,6 +65,10 @@ public class GameUtils {
 	 * Display the current state of the map.
 	 */
 	public void showMap() {
+		if (d_currTargetMap == null) {
+			System.out.println("Map isn't loaded");
+			return;
+		}
 		d_currTargetMap.printMap(false);
 	}
 
@@ -103,7 +107,7 @@ public class GameUtils {
 	 * @param p_maxValue Maximum value for the random number.
 	 * @return The generated random number.
 	 */
-	private int generateRandomNumber(int p_minValue, int p_maxValue) {
+	public static int generateRandomNumber(int p_minValue, int p_maxValue) {
 		Random l_random = new Random();
 		int l_range = p_maxValue - p_minValue + 1;
         return l_random.nextInt(l_range) + p_minValue;
