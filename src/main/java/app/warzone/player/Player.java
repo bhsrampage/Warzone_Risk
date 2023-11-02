@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.risk.models.Player;
+
 import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.orders.Advance;
@@ -24,6 +26,7 @@ public class Player {
     public boolean d_hasLost;
 
     public List<String> d_holdingCards;
+    public List<String> d_diplomacyPlayers;
 
     /**
      * Constructor for the Player class.
@@ -38,6 +41,26 @@ public class Player {
         d_hasCommittedOrders = false;
         d_hasLost = false;
         d_holdingCards = new ArrayList<>();
+    }
+    
+    /**
+     * adds a new card to the list of holding cards.
+     *
+     * @param p_card card to be added.
+     */
+    public void addCardToHolding(String p_card) {
+    	d_holdingCards.add(p_card);
+    }
+
+    /**
+     * Removes a card from the holding list if it is present
+     *
+     * @param p_card card to be removed
+     */
+    public void removeCardFromHolding(String p_card) {
+    	if (d_holdingCards.contains(p_card)) {
+    		d_holdingCards.remove(i);
+        }
     }
 
     /**
@@ -144,5 +167,24 @@ public class Player {
         Order l_nextOrder = d_givenOrders.get(0);
         d_givenOrders.remove(0);
         return l_nextOrder;
+    }
+
+    /**
+     * To add a player to the Diplomacy Players list
+     *
+     * @param p_player player name
+     */
+    public void addDiplomacyPlayer(Player p_player) {
+    	d_diplomacyPlayers.add(p_player);
+    }
+
+    /**
+     * To remove a player from the Diplomacy Players list
+     *
+     * @param p_player player name
+     */
+    public void removeDiplomacyPlayer(String p_player) {
+        Player l_player = GameUtils.getPlayerByName(p_player);
+        d_diplomacyPlayers.remove(l_player);
     }
 }
