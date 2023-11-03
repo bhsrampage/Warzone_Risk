@@ -92,6 +92,9 @@ public class GameEngine {
                 case "showmap":
                     l_gameUtil.showMap();
                     break;
+                case "airlift":
+                    l_gameUtil.airlift();
+                    break;
                 default:
                     System.out.println("Invalid Command try again..");
                     break;

@@ -108,4 +108,42 @@ public class GameUtils {
         }
         return null;
     }
+
+    /**
+     * Performs an "airlift" operation, randomly reassigning countries to players.
+     * <p>The method operates as follows:
+     * - It creates a list of assignable countries from the current target map.
+     * - It iterates through the list and assigns each country randomly to players.
+     * - It ensures each player receives an equal number of countries, rotating through
+     *   the list of players.
+     * - After the reassignment, it displays the updated game map.
+     *
+     * @see Country
+     * @see Player
+     * @see TargetMap
+     * @see #generateRandomNumber(int, int)
+     */
+    public void airlift() {
+        List<Country> l_assignableList = new ArrayList<>(d_currTargetMap.getD_countries());
+        int l_i = 0;
+
+        // Iterate through the list of assignable countries
+        while (!l_assignableList.isEmpty()) {
+            // Randomly select an assignable country
+            Country l_assignablecountry = l_assignableList.get(generateRandomNumber(0, l_assignableList.size() - 1));
+
+            // Assign the country to the current player
+            d_playerList.get(l_i % d_playerList.size()).addCountryToHolderList(l_assignablecountry, 0);
+
+            // Remove the assigned country from the assignable list
+            l_assignableList.remove(l_assignablecountry);
+
+            // Rotate to the next player
+            l_i++;
+        }
+
+        // Display the updated game map
+        showMap();
+    }
+
 }
