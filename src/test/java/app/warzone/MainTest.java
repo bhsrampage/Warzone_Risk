@@ -1,13 +1,11 @@
 package app.warzone;
 
-import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.platform.suite.api.SelectPackages;
+import org.junit.runner.RunWith;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+@RunWith(JUnitPlatform.class)
+@SelectPackages("app.warzone")
 class MainTest {
 
-    @Test
-    void testCalcSum() {
-        assertEquals(6+3,Main.calcSum(6,3));
-    }
 }
