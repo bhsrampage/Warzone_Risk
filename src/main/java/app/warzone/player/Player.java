@@ -9,6 +9,7 @@ import app.warzone.map.Country;
 import app.warzone.player.orders.Advance;
 import app.warzone.player.orders.Deploy;
 import app.warzone.player.orders.Order;
+import app.warzone.player.orders.Bomb;
 
 /**
  * Represents a player in the Warzone game, with methods for managing player
@@ -122,6 +123,10 @@ public class Player {
                                 Integer.parseInt(l_cmdTokens[3])
                         )
                 );
+                break;
+            case "bomb":
+                System.out.println("Bomb Order");;
+                d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
             case "commit":
                 System.out.println("Committing orders for " + d_playerName);
