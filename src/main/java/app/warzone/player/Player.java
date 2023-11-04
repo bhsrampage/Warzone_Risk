@@ -59,7 +59,7 @@ public class Player {
      */
     public void removeCardFromHolding(String p_card) {
     	if (d_holdingCards.contains(p_card)) {
-    		d_holdingCards.remove(i);
+    		d_holdingCards.remove(p_card);
         }
     }
 
