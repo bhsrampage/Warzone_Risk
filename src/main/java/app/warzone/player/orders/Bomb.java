@@ -31,7 +31,6 @@ public class Bomb extends Order {
      * @return true if the order is valid, false otherwise.
      */
     public boolean isValid() {
-
         if (d_player.d_holdingCards.contains("bomb")) {
             if (d_country.getCurrentArmyCount() > 0) {
                 ArrayList<String> l_countriesList = new ArrayList<>();
@@ -72,7 +71,7 @@ public class Bomb extends Order {
      * Print details of the Bomb order.
      */
     public void printOrder() {
-        System.out.println("Order Type : Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country + " \nSuccessfully Executed\n");
+        System.out.println("Order Type : Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
    }
 
     /**
