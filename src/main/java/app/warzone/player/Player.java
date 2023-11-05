@@ -75,6 +75,10 @@ public class Player {
      */
     public void printPlayerStatus() {
         System.out.printf("\nPlayer Name:- %s\nArmies Left:- %d\n", d_playerName, d_currentArmyCount);
+        System.out.println("Owned_Cards:- ");
+        for(String card : d_holdingCards){
+            System.out.print(card + "\t");
+        }
         for (Country l_country : d_holdingCountries) {
             System.out.printf("%s\t Army Count:- %d\n", l_country.getD_countryName(), l_country.getCurrentArmyCount());
         }
@@ -135,6 +139,7 @@ public class Player {
                 System.out.println("Advance order Received!!");
                 if(l_cmdTokens.length < 4){
                     System.out.println("Invalid Arguments");
+                    break;
                 }
                 d_givenOrders.add(new Advance(this,
                                 GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]),
