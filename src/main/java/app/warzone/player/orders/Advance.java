@@ -43,7 +43,7 @@ public class Advance extends Order {
 	public boolean isValid() {
 		// Check for validity conditions and provide error messages if conditions are
 		// not met.
-		if (!d_attackingPlayer.d_diplomacyPlayers.contains(d_targetCountry.getCountryHolder())) {
+		if (d_attackingPlayer.d_diplomacyPlayers.contains(d_targetCountry.getCountryHolder())) {
 			System.out.println("The player cannot attack " + d_targetCountry.getD_countryName() + " as it is owned by "
 					+ d_targetCountry.getCountryHolder() + " who is on the diplomacy list");
 			return false;
