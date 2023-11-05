@@ -26,6 +26,7 @@ public class Player {
     public boolean d_hasLost;
 
     public List<String> d_holdingCards;
+    public List<Player> d_diplomacyPlayers;
 
     /**
      * Constructor for the Player class.
@@ -39,7 +40,26 @@ public class Player {
         d_givenOrders = new ArrayList<>();
         d_hasCommittedOrders = false;
         d_hasLost = false;
-        d_holdingCards = new ArrayList<>();
+        d_holdingCards = new ArrayList<String>();
+        d_diplomacyPlayers = new ArrayList<Player>();
+    }
+    
+    /**
+     * adds a new card to the list of holding cards.
+     *
+     * @param p_card card to be added.
+     */
+    public void addCardToHolding(String p_card) {
+        d_holdingCards.add(p_card);
+    }
+
+    /**
+     * Removes a card from the holding list if it is present
+     *
+     * @param p_card card to be removed
+     */
+    public void removeCardFromHolding(String p_card) {
+        d_holdingCards.remove(p_card);
     }
 
     /**
@@ -162,4 +182,23 @@ public class Player {
         d_givenOrders.remove(0);
         return l_nextOrder;
     }
+
+    /**
+     * To add a player to the Diplomacy Players list
+     *
+     * @param p_player player name
+     */
+    public void addDiplomacyPlayer(Player p_player) {
+    	d_diplomacyPlayers.add(p_player);
+    }
+
+    /**
+     * To remove a player from the Diplomacy Players list
+     *
+     * @param p_player player name
+     */
+    public void removeDiplomacyPlayer(Player p_player) {
+        d_diplomacyPlayers.remove(p_player);
+    }
+
 }
