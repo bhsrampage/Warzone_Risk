@@ -6,6 +6,9 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+/**
+ * AirliftTest class to test the Airlift order implementation.
+ */
 public class AirliftTest {
 
     private Airlift airlift;
@@ -28,11 +31,17 @@ public class AirliftTest {
         airlift = new Airlift(player, sourceCountry, targetCountry, 10);
     }
 
+    /**
+     * Test case to validate the Airlift order when it is valid.
+     */
     @Test
     public void testIsValid() {
         assertTrue(airlift.isValid());
     }
 
+    /**
+     * Test case to validate the Airlift order when the source country is invalid.
+     */
     @Test
     public void testIsValidWithInvalidSourceCountry() {
         sourceCountry = null;
@@ -40,6 +49,9 @@ public class AirliftTest {
         assertFalse(airlift.isValid());
     }
 
+    /**
+     * Test case to validate the Airlift order when the target country is invalid.
+     */
     @Test
     public void testIsValidWithInvalidTargetCountry() {
         targetCountry = null;
@@ -47,12 +59,18 @@ public class AirliftTest {
         assertFalse(airlift.isValid());
     }
 
+    /**
+     * Test case to validate the Airlift order when the number of armies is invalid (zero).
+     */
     @Test
     public void testIsValidWithInvalidArmyCount() {
         airlift = new Airlift(player, sourceCountry, targetCountry, 0);
         assertFalse(airlift.isValid());
     }
 
+    /**
+     * Test case to execute the Airlift order and validate its effects.
+     */
     @Test
     public void testExecute() {
         airlift.execute();
