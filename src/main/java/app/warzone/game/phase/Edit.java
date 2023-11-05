@@ -1,4 +1,3 @@
-
 package app.warzone.game.phase;
 
 import app.warzone.game.GameEngine;
@@ -41,4 +40,3 @@ public abstract class Edit extends Phase {
 		printInvalidCommandMessage(); 
 	}
 }
-
