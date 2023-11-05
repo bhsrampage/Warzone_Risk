@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import app.warzone.game.phase.LogEntryBuffer;
 import app.warzone.map.Country;
 import app.warzone.map.Map;
 import app.warzone.map.MapFileParser;
@@ -19,6 +20,28 @@ public class GameUtils {
 
 	public static Map d_currTargetMap = null;
 	public List<Player> d_playerList;
+
+
+	LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
+
+	/**
+	 * Message to be added in the log.
+	 *
+	 * @param p_logMessage Log Message to be set in the Object
+	 * @param p_logType    Type of Log Message to be Added
+	 */
+	public void updateLog(String p_logMessage, String p_logType) {
+		d_logEntryBuffer.currentLog(p_logMessage, p_logType);
+	}
+
+	/**
+	 * Fetches the most recent Log in current GameState.
+	 *
+	 * @return recent Log Message
+	 */
+	public String getRecentLog() {
+		return d_logEntryBuffer.getD_logMessage();
+	}
 
 	/**
 	 * Constructor for GameUtils, initializes the player list.
@@ -87,17 +110,17 @@ public class GameUtils {
 		assignReinforcementArmies();
 		showMap();
 	}
-	
+
 	/**
 	 * Calculate reinforcement armies and assign it to each player object
 	 */
 
 	public void assignReinforcementArmies() {
 
-        for (Player player : d_playerList) {
-            int l_count = player.d_holdingCountries.size();
-            player.d_currentArmyCount = Math.max((l_count / 3), 3);
-        }
+		for (Player player : d_playerList) {
+			int l_count = player.d_holdingCountries.size();
+			player.d_currentArmyCount = Math.max((l_count / 3), 3);
+		}
 	}
 
 	/**
@@ -110,7 +133,7 @@ public class GameUtils {
 	public static int generateRandomNumber(int p_minValue, int p_maxValue) {
 		Random l_random = new Random();
 		int l_range = p_maxValue - p_minValue + 1;
-        return l_random.nextInt(l_range) + p_minValue;
+		return l_random.nextInt(l_range) + p_minValue;
 	}
 
 	/**
