@@ -57,8 +57,8 @@ public class Diplomacy extends Order {
 	public void execute() {
 		printOrder();	
 		if (isValid()) {
-			d_issuingPlayer.addDiplomacyPlayer(d_targetPlayer);
-			d_targetPlayer.addDiplomacyPlayer(d_issuingPlayer);
+			d_issuingPlayer.addDiplomacyPlayer(d_targetPlayer.d_playerName);
+			d_targetPlayer.addDiplomacyPlayer(d_issuingPlayer.d_playerName);
 			d_issuingPlayer.removeCardFromHolding("negotiate");
 		}
 	}

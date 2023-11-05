@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import com.risk.models.Player;
-
 import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.orders.Advance;
@@ -49,7 +47,7 @@ public class Player {
      * @param p_card card to be added.
      */
     public void addCardToHolding(String p_card) {
-    	d_holdingCards.add(p_card);
+        d_holdingCards.add(p_card);
     }
 
     /**
@@ -58,9 +56,7 @@ public class Player {
      * @param p_card card to be removed
      */
     public void removeCardFromHolding(String p_card) {
-    	if (d_holdingCards.contains(p_card)) {
-    		d_holdingCards.remove(p_card);
-        }
+        d_holdingCards.remove(p_card);
     }
 
     /**
@@ -174,8 +170,8 @@ public class Player {
      *
      * @param p_player player name
      */
-    public void addDiplomacyPlayer(Player p_player) {
-    	d_diplomacyPlayers.add(p_player);
+    public void addDiplomacyPlayer(String p_player) {
+    	d_diplomacyPlayers.add(p_playerName);
     }
 
     /**
@@ -184,7 +180,7 @@ public class Player {
      * @param p_player player name
      */
     public void removeDiplomacyPlayer(String p_player) {
-        Player l_player = GameUtils.getPlayerByName(p_player);
-        d_diplomacyPlayers.remove(l_player);
+        d_diplomacyPlayers.remove(p_player);
     }
+
 }

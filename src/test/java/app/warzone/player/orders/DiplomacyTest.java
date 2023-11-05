@@ -1,3 +1,5 @@
+package app.warzone.player.orders;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -13,8 +15,8 @@ public class DiplomacyTest {
     public void testIsValidDiplomacyOrder() {
         Player issuingPlayer = new Player("Player1");
         issuingPlayer.addCardToHolding("negotiate");
-        Player targetPlayer = new Player("Player2");
-        Diplomacy diplomacy = new Diplomacy(issuingPlayer, "Player2");
+        String targetPlayer = "Player2";
+        Diplomacy diplomacy = new Diplomacy(issuingPlayer, targetPlayer);
         assertTrue(diplomacy.isValid());
     }
 
