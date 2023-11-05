@@ -1,131 +1,152 @@
 package app.warzone.game;
 
-import app.warzone.Main.Phase;
-import app.warzone.map.MapFileParser;
+import app.warzone.game.phase.*;
 import app.warzone.map.MapUtils;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 /**
- * This class is responsible for maintaining the rules for the Warzone game along with generating the flow
- * of gameplay.
+ * This class is responsible for generating the flow of game play by maintaining
+ * the rules of the Warzone game.
  */
 public class GameEngine {
     Scanner SCAN;
-    Phase d_currPhase = null;
+    public MapUtils d_targetMapUtil;
 
-    public GameEngine() {
-        SCAN = new Scanner(System.in);
+    public GameUtils d_gameUtil;
+    Phase gamePhase;
+
+    /**
+     * Method that allows the GameEngine object to change its state.
+     *
+     * @param p_phase new state to be set for the GameEngine object.
+     */
+    public void setPhase(Phase p_phase) {
+        gamePhase = p_phase;
+        System.out.println("New phase: " + (p_phase == null ? "Main Menu" : p_phase.getClass().getSimpleName()));
     }
 
-    public Phase getD_currPhase() {
-        return d_currPhase;
-    }
-
+    /**
+     * Listen to map editing commands and perform corresponding actions.
+     */
     void listenMapCommands() {
         System.out.println("**Map Editor**\n");
-        MapUtils l_targetMapUtil = new MapUtils();
-        boolean l_isEditing = true;
+        d_targetMapUtil = new MapUtils();
 
-        while (l_isEditing) {
+        while (gamePhase instanceof Edit) {
             String l_userInput = SCAN.nextLine();
             String[] l_cmdTokens = l_userInput.split(" ");
             List<String> arguments = Arrays.asList(Arrays.copyOfRange(l_cmdTokens, 1, l_cmdTokens.length));
 
             switch (l_cmdTokens[0]) {
                 case "editcontinent":
-                    l_targetMapUtil.editContinent(arguments);
+                    gamePhase.editContinent(arguments);
                     break;
                 case "editcountry":
-                    l_targetMapUtil.editCountry(arguments);
+                    gamePhase.editCountry(arguments);
                     break;
                 case "editneighbor":
-                    l_targetMapUtil.editNeighbour(arguments);
+                    gamePhase.editNeighbour(arguments);
                     break;
                 case "savemap":
-                    l_targetMapUtil.saveMap();
-                    l_isEditing = false;
+                    gamePhase.saveMap();
                     break;
                 case "editmap":
-                    l_targetMapUtil.editMap(arguments);
+                    gamePhase.loadMap(arguments);
                     break;
                 case "validatemap":
-                    l_targetMapUtil.validateMap();
+                    gamePhase.validateMap();
                     break;
                 case "showmap":
-                    l_targetMapUtil.showMap();
+                    gamePhase.showMap();
                     break;
                 case "exit":
-                    l_isEditing = false;
+                    setPhase(new End(this));
                     break;
                 default:
                     System.out.println("Invalid Command try again..");
+                    break;
             }
         }
 
-
     }
 
-    void listenGameCommands() {
+    /**
+     * Listen to startup commands to set up the game.
+     */
+    void listenStartupCommands() {
         System.out.println("**Gameplay**\n");
-        GameUtils l_gameUtil = new GameUtils();
-        boolean l_isEditing = true;
+        d_gameUtil = new GameUtils();
 
-        while (l_isEditing) {
+        while (gamePhase instanceof PlaySetup) {
             String l_userInput = SCAN.nextLine();
             String[] l_cmdTokens = l_userInput.split(" ");
             List<String> arguments = Arrays.asList(Arrays.copyOfRange(l_cmdTokens, 1, l_cmdTokens.length));
 
             switch (l_cmdTokens[0]) {
                 case "loadmap":
-                    l_gameUtil.loadMap(arguments);
+                    gamePhase.loadMap(arguments);
                     break;
                 case "gameplayer":
-                    l_gameUtil.addRemovePlayers(arguments);
+                    gamePhase.setPlayers(arguments);
                     break;
                 case "assigncountries":
-                    l_gameUtil.assignCountries();
+                    gamePhase.assignCountries();
                     break;
                 case "showmap":
-                    l_gameUtil.showMap();
+                    gamePhase.showMap();
                     break;
                 default:
                     System.out.println("Invalid Command try again..");
                     break;
             }
         }
+        listenGameplayCommands();
+    }
+
+    /**
+     * Take the game command as the input and execute it. Display map after
+     * execution
+     */
+    private void listenGameplayCommands() {
+        while(!(gamePhase instanceof End)) {
+            gamePhase.createOrders();
+            gamePhase.executeOrders();
+        }
 
     }
 
-
+    /**
+     * Initialize the game and provide options for map editing or gameplay.
+     */
 
     public void initialize() {
+        SCAN = new Scanner(System.in);
         System.out.println("Welcome to Risk (Warzone) by U6 build1");
-        String choice;
-        boolean playing = true;
-        while (playing) {
-            System.out.println("1. Map Editor\n2. Play Game\nEnter your choice:- ");
-            choice = SCAN.nextLine();
-            switch (choice) {
+        String l_choice;
+        while (!(gamePhase instanceof End)) {
+            System.out.println("1. Map Editor\n2. Play Game\n3. Exit\n Enter your choice:- ");
+            l_choice = SCAN.nextLine();
+            switch (l_choice) {
                 case "1":
-                    d_currPhase = Phase.MAP_ACTIONS;
+                    setPhase(new Preload(this));
                     listenMapCommands();
                     break;
                 case "2":
-                    d_currPhase = Phase.GAMEPLAY;
-                    listenGameCommands();
+                    setPhase(new PlaySetup(this));
+                    listenStartupCommands();
                     break;
+                case "3":
+                    setPhase(new End(this));
                 default:
-                    playing = false;
+                    System.out.println("Invalid command Try again");
                     break;
             }
             System.out.println("Quitting...");
         }
 
     }
-
 
 }
