@@ -110,17 +110,17 @@ public class GameUtils {
 		assignReinforcementArmies();
 		showMap();
 	}
-	
+
 	/**
 	 * Calculate reinforcement armies and assign it to each player object
 	 */
 
 	public void assignReinforcementArmies() {
 
-        for (Player player : d_playerList) {
-            int l_count = player.d_holdingCountries.size();
-            player.d_currentArmyCount = Math.max((l_count / 3), 3);
-        }
+		for (Player player : d_playerList) {
+			int l_count = player.d_holdingCountries.size();
+			player.d_currentArmyCount = Math.max((l_count / 3), 3);
+		}
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class GameUtils {
 	public static int generateRandomNumber(int p_minValue, int p_maxValue) {
 		Random l_random = new Random();
 		int l_range = p_maxValue - p_minValue + 1;
-        return l_random.nextInt(l_range) + p_minValue;
+		return l_random.nextInt(l_range) + p_minValue;
 	}
 
 	/**
