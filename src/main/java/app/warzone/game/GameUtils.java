@@ -150,7 +150,7 @@ public class GameUtils {
 	 * @param p_name The name of the player to find.
 	 * @return The Player object if found, or null if not found.
 	 */
-	public static Player getPlayerByName(String p_name) {
+	public Player getPlayerByName(String p_name) {
 		for (Player l_player : d_playerList) {
 			if (l_player.d_playerName.equals(p_name)) {
 				return l_player;

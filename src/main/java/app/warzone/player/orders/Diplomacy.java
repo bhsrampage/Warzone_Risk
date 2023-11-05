@@ -1,7 +1,6 @@
 package app.warzone.player.orders;
 
 import app.warzone.player.Player;
-import app.warzone.game.GameUtils;
 
 /**
  * The Diplomacy class represents an order for a player to negotiate with another player in the Warzone game.
@@ -17,9 +16,9 @@ public class Diplomacy extends Order {
      * @param p_issuingPlayer    The player issuing the order
      * @param p_targetPlayer     The player with whom diplomacy is to be negotiated
      */
-	public Diplomacy(Player p_issuingPlayer, String p_targetPlayer){		
+	public Diplomacy(Player p_issuingPlayer, Player p_targetPlayer){
 		d_issuingPlayer = p_issuingPlayer;
-		d_targetPlayer = GameUtils.getPlayerByName(p_targetPlayer);
+		d_targetPlayer = p_targetPlayer;
 	}
 
     /**
@@ -57,8 +56,8 @@ public class Diplomacy extends Order {
 	public void execute() {
 		printOrder();	
 		if (isValid()) {
-			d_issuingPlayer.addDiplomacyPlayer(d_targetPlayer.d_playerName);
-			d_targetPlayer.addDiplomacyPlayer(d_issuingPlayer.d_playerName);
+			d_issuingPlayer.addDiplomacyPlayer(d_targetPlayer);
+			d_targetPlayer.addDiplomacyPlayer(d_issuingPlayer);
 			d_issuingPlayer.removeCardFromHolding("negotiate");
 		}
 	}

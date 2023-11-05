@@ -24,7 +24,7 @@ public class Player {
     public boolean d_hasLost;
 
     public List<String> d_holdingCards;
-    public List<String> d_diplomacyPlayers;
+    public List<Player> d_diplomacyPlayers;
 
     /**
      * Constructor for the Player class.
@@ -38,7 +38,8 @@ public class Player {
         d_givenOrders = new ArrayList<>();
         d_hasCommittedOrders = false;
         d_hasLost = false;
-        d_holdingCards = new ArrayList<>();
+        d_holdingCards = new ArrayList<String>();
+        d_diplomacyPlayers = new ArrayList<Player>();
     }
     
     /**
@@ -170,8 +171,8 @@ public class Player {
      *
      * @param p_player player name
      */
-    public void addDiplomacyPlayer(String p_player) {
-    	d_diplomacyPlayers.add(p_playerName);
+    public void addDiplomacyPlayer(Player p_player) {
+    	d_diplomacyPlayers.add(p_player);
     }
 
     /**
@@ -179,7 +180,7 @@ public class Player {
      *
      * @param p_player player name
      */
-    public void removeDiplomacyPlayer(String p_player) {
+    public void removeDiplomacyPlayer(Player p_player) {
         d_diplomacyPlayers.remove(p_player);
     }
 
