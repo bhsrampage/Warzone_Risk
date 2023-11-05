@@ -10,20 +10,22 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * The class updates the Log File composed of logs derived from LogEntryBuffer Class.
+ * The class updates the Log File with logs from LogEntryBuffer Class.
  */
 public class LogFileWriter implements Observer {
 
     /**
-     * Updated LogEntry Buffer Observable Object.
+     * The updated LogEntry Buffer Observable Object.
      */
     LogEntryBuffer d_logEntryBuffer;
 
+
+
     /**
-     * Writes the updated LogEntryBuffer Object into Log file.
+     * The function writes the updated LogEntryBuffer Object into the Log File.
      *
      * @param p_observable LogEntryBuffer Object.
-     * @param p_object Object
+     * @param p_object Object.
      */
     @Override
     public void update(Observable p_observable, Object p_object) {
@@ -32,7 +34,7 @@ public class LogFileWriter implements Observer {
         String l_logMessage = d_logEntryBuffer.getD_logMessage();
 
         try{
-            if(l_logMessage.equals("Initializing the Game ......"+System.lineSeparator()+System.lineSeparator())) {
+            if(l_logMessage.equals("Welcome to Risk (Warzone) by U6 build1\n\n")) {
                 Files.newBufferedWriter(Paths.get("LogFile.txt"), StandardOpenOption.TRUNCATE_EXISTING).write(" ");
             }
             Files.write(Paths.get("LogFile.txt"), l_logMessage.getBytes(StandardCharsets.US_ASCII), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
