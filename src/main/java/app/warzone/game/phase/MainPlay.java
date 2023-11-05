@@ -1,3 +1,4 @@
+
 package app.warzone.game.phase;
 
 import app.warzone.game.GameEngine;
@@ -36,6 +37,4 @@ public abstract class MainPlay extends Play {
     public void assignCountries() {
         this.printInvalidCommandMessage();
     }
-
-
 }

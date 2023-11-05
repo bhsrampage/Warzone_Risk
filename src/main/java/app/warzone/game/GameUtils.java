@@ -21,6 +21,7 @@ public class GameUtils {
 	public static Map d_currTargetMap = null;
 	public List<Player> d_playerList;
 
+
 	LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
 
 	/**
