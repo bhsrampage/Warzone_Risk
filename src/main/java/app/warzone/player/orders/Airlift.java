@@ -18,7 +18,7 @@ public class Airlift extends Order {
     /**
      * Constructor for the Airlift order.
      *
-     * @param p_player       The player issuing the order.
+     * @param p_player        The player issuing the order.
      * @param p_sourceCountry The source country from which armies are airlifted.
      * @param p_targetCountry The target country where armies are airlifted to.
      * @param p_armyCount     The number of armies to airlift.
@@ -37,8 +37,16 @@ public class Airlift extends Order {
      * @return True if the order is valid, false otherwise.
      */
     public boolean isValid() {
+        if (!d_player.d_holdingCards.contains("airlift")) {
+            System.out.println("Player need to hold the airlift card inorder to execute this command");
+            return false;
+        }
         if (d_sourceCountry == null || d_targetCountry == null) {
             System.out.println("Either the source or target country doesn't exist.");
+            return false;
+        }
+        if (d_sourceCountry.getCurrentArmyCount() < d_armyCount) {
+            System.out.println("Player has less army than ordered for airlift.");
             return false;
         }
         if (!d_player.d_holdingCountries.contains(d_sourceCountry)) {
@@ -68,6 +76,8 @@ public class Airlift extends Order {
      */
     @Override
     public void execute() {
+        // Print the order details
+        printOrder();
         if (isValid()) {
             // Remove armies from the source country
             int sourceArmyCount = d_sourceCountry.getCurrentArmyCount();
@@ -87,9 +97,6 @@ public class Airlift extends Order {
 
             // Remove the Airlift card from the player's card list
             d_player.d_holdingCards.remove("airlift");
-
-            // Print the order details
-            printOrder();
         }
     }
 }

@@ -35,7 +35,7 @@ public class Diplomacy extends Order {
                 return false;
             }
         } else {
-            System.out.println("Invalid: Issuing player does not contain diplomacy card");
+            System.out.println("Invalid: Issuing player does not hold diplomacy card");
             return false;
         }
     }

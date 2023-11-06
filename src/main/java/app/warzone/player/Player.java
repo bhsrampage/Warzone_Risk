@@ -36,14 +36,14 @@ public class Player {
     public Player(String p_name) {
         d_playerName = p_name;
         d_holdingCountries = new ArrayList<>();
-        d_currentArmyCount = 3;
+        d_currentArmyCount = 0;
         d_givenOrders = new ArrayList<>();
         d_hasCommittedOrders = false;
         d_hasLost = false;
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
     }
-    
+
     /**
      * adds a new card to the list of holding cards.
      *
@@ -78,11 +78,11 @@ public class Player {
     public void printPlayerStatus() {
         System.out.printf("\nPlayer Name:- %s\nArmies Left:- %d\n", d_playerName, d_currentArmyCount);
 
-        System.out.println("Owned_Cards:- ");
-        for(String card : d_holdingCards){
+        System.out.println("Owned_Cards:- " + (d_holdingCards.isEmpty() ? "none" : " "));
+        for (String card : d_holdingCards) {
             System.out.print(card + "\t");
         }
-
+        System.out.print("\nHolding Countries:-\n");
         for (Country l_country : d_holdingCountries) {
             System.out.printf("%s\t Army Count:- %d\n", l_country.getD_countryName(), l_country.getCurrentArmyCount());
         }
@@ -96,8 +96,10 @@ public class Player {
      * @param p_armyCount The number of armies to assign to the country.
      */
     public void addCountryToHolderList(Country p_country, int p_armyCount) {
-        if(p_country.getCountryHolder() != null) {
-            p_country.getCountryHolder().d_holdingCountries.remove(p_country); //Remove country from previous owners holding list
+        if (p_country.getCountryHolder() != null) {
+            Player l_previousOwner = p_country.getCountryHolder();
+            l_previousOwner.d_holdingCountries.remove(p_country); //Remove country from previous owners holding list
+           if (l_previousOwner.d_holdingCountries.isEmpty()) l_previousOwner.d_hasLost = true;
         }
         p_country.assignHolderWithArmies(this, p_armyCount);
         d_holdingCountries.add(p_country);
@@ -132,7 +134,7 @@ public class Player {
         switch (l_cmdTokens[0]) {
             case "deploy":
                 System.out.println("Deploy order Received!!");
-                if(l_cmdTokens.length < 3){
+                if (l_cmdTokens.length < 3) {
                     System.out.println("Invalid Arguments");
                 }
                 int l_armyToDeploy = Integer.parseInt(l_cmdTokens[2]);
@@ -141,7 +143,7 @@ public class Player {
                 break;
             case "advance":
                 System.out.println("Advance order Received!!");
-                if(l_cmdTokens.length < 4){
+                if (l_cmdTokens.length < 4) {
                     System.out.println("Invalid Arguments");
 
                     break;
@@ -156,7 +158,8 @@ public class Player {
                 break;
 
             case "bomb":
-                System.out.println("Bomb Order");;
+                System.out.println("Bomb Order");
+                ;
                 d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
 
@@ -189,7 +192,7 @@ public class Player {
      * @param p_player player name
      */
     public void addDiplomacyPlayer(Player p_player) {
-    	d_diplomacyPlayers.add(p_player);
+        d_diplomacyPlayers.add(p_player);
     }
 
     /**
