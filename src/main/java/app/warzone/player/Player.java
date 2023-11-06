@@ -6,10 +6,7 @@ import java.util.Scanner;
 
 import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
-import app.warzone.player.orders.Advance;
-import app.warzone.player.orders.Deploy;
-import app.warzone.player.orders.Order;
-import app.warzone.player.orders.Bomb;
+import app.warzone.player.orders.*;
 
 
 /**
@@ -42,6 +39,12 @@ public class Player {
         d_hasLost = false;
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
+
+        d_holdingCards.add("blockade");
+        d_holdingCards.add("bomb");
+        d_holdingCards.add("airlift");
+        d_holdingCards.add("diplomacy");
+
     }
 
     /**
@@ -162,7 +165,11 @@ public class Player {
                 ;
                 d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
-
+            case "blockade":
+                System.out.println("Blockade Order");
+                ;
+                d_givenOrders.add(new Blockade(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
+                break;
             case "commit":
                 System.out.println("Committing orders for " + d_playerName);
                 d_hasCommittedOrders = true;

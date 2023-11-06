@@ -60,6 +60,7 @@ public class Blockade extends Order {
      */
     @Override
     public void execute() {
+        printOrder();
         if (isValid()) {
             int l_previousArmy = d_country.getCurrentArmyCount();
             System.out.println("Before Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount());
@@ -67,9 +68,13 @@ public class Blockade extends Order {
             System.out.println(d_player.d_playerName + " applied Blockade Card successfully");
             System.out.println("After Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount());
             d_player.d_holdingCards.remove("blockade");
-            System.out.println("Order Type : Blockade \nPlayer : " + d_player.d_playerName + "\n Country to block : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
             d_player.d_holdingCountries.remove(d_country);
 
         }
     }
+
+    public void printOrder() {
+        System.out.println("Order Type : Blockade \nPlayer : " + d_player.d_playerName + "\n Country to block : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
+    }
+
 }
