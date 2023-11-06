@@ -20,6 +20,7 @@ public class AirliftTest {
     public void setUp() {
         // Initialize the player, source country, and target country for testing
         player = new Player("TestPlayer");
+        player.d_holdingCards.add("airlift");
         sourceCountry = new Country(0, "Source Country", null);
         targetCountry = new Country(0, "Target Country", null);
 

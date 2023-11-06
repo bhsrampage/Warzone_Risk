@@ -103,6 +103,10 @@ public class Map {
 		return null;
 	}
 
+	public List<Continent> getD_continents() {
+		return d_continents;
+	}
+
 	/**
 	 * Prints the map, including its continents and countries.
 	 *

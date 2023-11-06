@@ -7,10 +7,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import app.warzone.game.phase.LogEntryBuffer;
-import app.warzone.map.Country;
-import app.warzone.map.Map;
-import app.warzone.map.MapFileParser;
-import app.warzone.map.MapValidator;
+import app.warzone.map.*;
 import app.warzone.player.Player;
 
 /**
@@ -107,7 +104,6 @@ public class GameUtils {
 			l_assignableList.remove(l_assignablecountry);
 			l_i++;
 		}
-		assignReinforcementArmies();
 		showMap();
 	}
 
@@ -116,10 +112,22 @@ public class GameUtils {
 	 */
 
 	public void assignReinforcementArmies() {
+		ArrayList<Country> l_holdingCountries;
+		for (Player l_player : d_playerList) {
+			if(l_player.d_hasLost) continue;
+			int l_count = 0;
+			l_holdingCountries = new ArrayList<>(l_player.d_holdingCountries);
+			for(Continent l_continent : d_currTargetMap.getD_continents()){
+				if(l_continent.getHolder() == l_player){
+					l_count += l_continent.getArmyBonusCount();
+					for(Country l_country : l_continent.getMemberCountries()){
+						l_holdingCountries.remove(l_country);
+					}
+				}
+			}
 
-		for (Player player : d_playerList) {
-			int l_count = player.d_holdingCountries.size();
-			player.d_currentArmyCount = Math.max((l_count / 3), 3);
+			l_count+= (l_holdingCountries.size()/3);
+			l_player.d_currentArmyCount += Math.max(l_count, 3);
 		}
 	}
 
