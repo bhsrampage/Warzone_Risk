@@ -8,21 +8,30 @@ import java.util.ArrayList;
 
 public class Blockade extends Order {
 
+    /** The player who is issuing the Blockade order. */
     Player d_player;
+
+    /** The country on which the Blockade order is being applied. */
     Country d_country;
-    Map d_map;
-    String d_countryName;
 
-    public Blockade(Player p_player, String p_countryName) {
-        this.d_player = p_player;
+    /**
+     * Constructs a new Blockade order.
+     *
+     * @param p_player The player issuing the order.
+     * @param p_country The country on which the order is applied.
+     */
+    public Blockade(Player p_player, Country p_country) {
+        d_player = p_player;
 
-        d_country = new Country();
-        d_country = d_map.getCountryByName(p_countryName);
-
-        this.d_countryName = p_countryName;
+        d_country = p_country;
     }
 
-    public boolean valid() {
+    /**
+     * Checks if the Blockade order is valid.
+     *
+     * @return true if the order is valid, false otherwise.
+     */
+    public boolean isValid() {
 
         if (d_player.d_holdingCards.contains("blockade")) {
             if (d_country.getCurrentArmyCount() > 0) {
@@ -30,28 +39,37 @@ public class Blockade extends Order {
                 for (Country l_country : d_player.d_holdingCountries) {
                     l_countriesOwnedList.add(l_country.getD_countryName());
                 }
-                if (!l_countriesOwnedList.contains(d_countryName)) {
+                if (!l_countriesOwnedList.contains(d_country.getD_countryName())) {
                     System.out.println(d_player.d_playerName + " cannot use Blockade card since it is opponent’s country");
-                    //d_Log.notify(d_player.getD_PlayerName() + " can not use Blockade card on opponent’s country");
                     return false;
                 }
                 return true;
             } else {
-                System.out.println(d_countryName + " has no army. So you cannot use Blockade card there");
-                //d_Log.notify(d_countryName + " has a 0 army so you can not apply Blockade order there");
+                System.out.println(d_country.getD_countryName() + " has no army. So you cannot use Blockade card there");
                 return false;
             }
-
-
         } else {
             System.out.println("Player do not have a blockade card");
-            //d_Log.notify("Player doesnot contain blockade card");
             return false;
         }
 
     }
+
+    /**
+     * Executes the Blockade order if it is valid. It triples the number of armies in the country and make it neutral.
+     */
     @Override
     public void execute() {
+        if (isValid()) {
+            int l_previousArmy = d_country.getCurrentArmyCount();
+            System.out.println("Before Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount());
+            d_country.setD_currentArmyCount((l_previousArmy * 3));
+            System.out.println(d_player.d_playerName + " applied Blockade Card successfully");
+            System.out.println("After Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount());
+            d_player.d_holdingCards.remove("blockade");
+            System.out.println("Order Type : Blockade \nPlayer : " + d_player.d_playerName + "\n Country to block : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
+            d_player.d_holdingCountries.remove(d_country);
 
+        }
     }
 }
