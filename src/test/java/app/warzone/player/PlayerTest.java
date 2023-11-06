@@ -39,7 +39,7 @@ public class PlayerTest {
 	public void testConstructor() {
 		assertEquals("TestPlayer", d_player.d_playerName);
 		assertEquals(0, d_player.d_holdingCountries.size());
-		assertEquals(3, d_player.d_currentArmyCount);
+		assertEquals(0, d_player.d_currentArmyCount);
 		assertEquals(0, d_player.getD_givenOrders().size());
 	}
 

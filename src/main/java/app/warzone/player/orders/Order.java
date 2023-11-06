@@ -7,4 +7,6 @@ package app.warzone.player.orders;
  */
 public abstract class Order {
 	public abstract void execute();
+	public abstract void printOrder();
+	public abstract boolean isValid();
 }

@@ -88,6 +88,10 @@ public class Continent {
 		return d_memberCountries;
 	}
 
+	public void setD_holder(Player d_holder) {
+		this.d_holder = d_holder;
+	}
+
 	/**
 	 * Constructs a Continent object with the given parameters.
 	 *

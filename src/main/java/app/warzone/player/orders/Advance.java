@@ -84,6 +84,13 @@ public class Advance extends Order {
 				+ "\nNumber Of Armies: " + d_armyCount);
 	}
 
+	public void checkIfOwnsContinent() {
+		for(Country l_country:d_targetCountry.getContinentality().getMemberCountries()){
+			if(l_country.getCountryHolder() != d_attackingPlayer) break;
+		}
+		d_targetCountry.getContinentality().setD_holder(d_attackingPlayer);
+	}
+
 	/**
 	 * Execute the Advance order, including potential battles and transfers of
 	 * armies between countries.
@@ -119,7 +126,11 @@ public class Advance extends Order {
 					d_attackingPlayer.addCountryToHolderList(d_targetCountry, l_attackingNum);
 					System.out.println(d_attackingPlayer.d_playerName + " has successfully advanced and captured "
 							+ d_targetCountry.getD_countryName());
-					d_attackingPlayer.d_holdingCards.add(getCard());
+					String l_card = getCard();
+					System.out.println(d_attackingPlayer.d_playerName + " has received " + l_card + " card.");
+					d_attackingPlayer.d_holdingCards.add(l_card);
+					d_targetCountry.getContinentality().setD_holder(null);
+					checkIfOwnsContinent();
 				} else {
 					d_sourceCountry.setD_currentArmyCount(d_sourceCountry.getCurrentArmyCount() - d_armyCount);
 					d_targetCountry.setD_currentArmyCount(l_defendingNum);

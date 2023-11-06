@@ -1,5 +1,6 @@
 package app.warzone.player.orders;
 
+import app.warzone.map.Continent;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,11 +14,14 @@ public class AdvanceTest {
     private Country targetCountry;
     private Advance advanceOrder;
 
+    private Continent continent;
+
     @BeforeEach
     public void setup() {
         player = new Player("Player 1");
-        sourceCountry = new Country(0,"Source Country",null);
-        targetCountry = new Country(0,"Target Country",null);
+        continent = new Continent(1,"Test",5);
+        sourceCountry = new Country(0,"Source Country",continent);
+        targetCountry = new Country(0,"Target Country",continent);
         sourceCountry.addRemoveNeighbour(targetCountry,true);
         targetCountry.addRemoveNeighbour(sourceCountry,true);
         advanceOrder = new Advance(player, sourceCountry, targetCountry, 5);
@@ -59,6 +63,29 @@ public class AdvanceTest {
         assertTrue(advanceOrder.d_isExecuted);
     }
 
+    @Test
+    public void testExecuteLosingPlayer() {
+        player.addCountryToHolderList(sourceCountry,10);
+        targetCountry.setD_currentArmyCount(5);
+        Player otherPlayer = new Player("Player 2");
+        targetCountry.assignHolderWithArmies(otherPlayer,3);
+
+        advanceOrder.execute();
+
+        assertTrue(advanceOrder.d_isExecuted);
+        assertTrue(otherPlayer.d_hasLost);
+    }
+
+    @Test
+    public void testExecuteCapturingContinent() {
+        player.addCountryToHolderList(sourceCountry,10);
+        targetCountry.setD_currentArmyCount(5);
+        Player otherPlayer = new Player("Player 2");
+        targetCountry.assignHolderWithArmies(otherPlayer,3);
+        advanceOrder.execute();
+        assertTrue(advanceOrder.d_isExecuted);
+        assertEquals(continent.getHolder(),player);
+    }
     @Test
     public void testGenerateBooleanWithProbability() {
         assertTrue(Advance.generateBooleanWithProbability(1.0));
