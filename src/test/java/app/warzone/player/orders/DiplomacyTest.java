@@ -39,7 +39,7 @@ public class DiplomacyTest {
      * Test the validity of a Diplomacy order when the issuing player does not have a diplomacy card.
      */
     @Test
-    public void testInvalidDiplomacyOrderWithNoDiplomacyCard() {
+    public void testInvalidDiplomacyOrderNoDiplomacyCard() {
         d_issuingPlayer = new Player("Player1");
         d_targetPlayer = new Player("Player2");
         Diplomacy d_diplomacy = new Diplomacy(d_issuingPlayer, d_targetPlayer);
