@@ -1,9 +1,0 @@
-<<<<<<< Updated upstream
-Welcome to Risk (Warzone) by U6 build1
-
-
-=======
->>>>>>> Stashed changes
-
-=======New phase: End=======
-
