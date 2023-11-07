@@ -39,7 +39,7 @@ public class PlayerTest {
 	public void testConstructor() {
 		assertEquals("TestPlayer", d_player.d_playerName);
 		assertEquals(0, d_player.d_holdingCountries.size());
-		assertEquals(3, d_player.d_currentArmyCount);
+		assertEquals(0, d_player.d_currentArmyCount);
 		assertEquals(0, d_player.getD_givenOrders().size());
 	}
 
@@ -67,9 +67,9 @@ public class PlayerTest {
 	public void testNextOrder() {
 		assertNull(d_player.next_order());
 		d_player.getD_givenOrders().add(new Deploy(d_player, 3, d_country));
-		Order nextOrder = d_player.next_order();
-		assertNotNull(nextOrder);
-		assertTrue(nextOrder instanceof Deploy);
+		Order l_nextOrder = d_player.next_order();
+		assertNotNull(l_nextOrder);
+		assertTrue(l_nextOrder instanceof Deploy);
 		assertEquals(0, d_player.getD_givenOrders().size());
 	}
 }

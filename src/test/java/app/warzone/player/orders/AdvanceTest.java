@@ -1,5 +1,6 @@
 package app.warzone.player.orders;
 
+import app.warzone.map.Continent;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,57 +9,83 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AdvanceTest {
 
-    private Player player;
-    private Country sourceCountry;
+    private Player d_player;
+    private Country d_d_targetCountry;
     private Country targetCountry;
-    private Advance advanceOrder;
+    private Advance d_advanceOrder;
+
+    private Continent d_continent;
 
     @BeforeEach
     public void setup() {
-        player = new Player("Player 1");
-        sourceCountry = new Country(0,"Source Country",null);
-        targetCountry = new Country(0,"Target Country",null);
-        sourceCountry.addRemoveNeighbour(targetCountry,true);
-        targetCountry.addRemoveNeighbour(sourceCountry,true);
-        advanceOrder = new Advance(player, sourceCountry, targetCountry, 5);
+        d_player = new Player("d_player 1");
+        d_continent = new Continent(1,"Test",5);
+        d_d_targetCountry = new Country(0,"Source Country",d_continent);
+        targetCountry = new Country(0,"Target Country",d_continent);
+        d_d_targetCountry.addRemoveNeighbour(targetCountry,true);
+        targetCountry.addRemoveNeighbour(d_d_targetCountry,true);
+        d_advanceOrder = new Advance(d_player, d_d_targetCountry, targetCountry, 5);
     }
 
     @Test
     public void testIsValidWithValidOrder() {
-        player.addCountryToHolderList(sourceCountry,10);
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
 
-        assertTrue(advanceOrder.isValid());
+        assertTrue(d_advanceOrder.isValid());
     }
 
     @Test
     public void testIsValidWithInvalidOrder() {
-        assertFalse(advanceOrder.isValid());
+        assertFalse(d_advanceOrder.isValid());
     }
 
     @Test
     public void testExecuteValidOrderSameOwner() {
-        player.addCountryToHolderList(sourceCountry,10);
-        player.addCountryToHolderList(targetCountry,5);
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+        d_player.addCountryToHolderList(targetCountry,5);
 
-        advanceOrder.execute();
+        d_advanceOrder.execute();
 
-        assertEquals(5, sourceCountry.getCurrentArmyCount());
+        assertEquals(5, d_d_targetCountry.getCurrentArmyCount());
         assertEquals(10, targetCountry.getCurrentArmyCount());
-        assertTrue(advanceOrder.d_isExecuted);
+        assertTrue(d_advanceOrder.d_isExecuted);
     }
 
     @Test
     public void testExecuteValidOrderDifferentOwners() {
-        player.addCountryToHolderList(sourceCountry,10);
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
         targetCountry.setD_currentArmyCount(5);
-        Player otherPlayer = new Player("Player 2");
-        targetCountry.assignHolderWithArmies(otherPlayer,3);
+        Player d_otherplayer = new Player("d_player 2");
+        targetCountry.assignHolderWithArmies(d_otherplayer,3);
 
-        advanceOrder.execute();
+        d_advanceOrder.execute();
 
-        assertTrue(advanceOrder.d_isExecuted);
+        assertTrue(d_advanceOrder.d_isExecuted);
     }
 
+    @Test
+    public void testExecuteLosingPlayer() {
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+        targetCountry.setD_currentArmyCount(5);
+        Player d_otherplayer = new Player("d_player 2");
+        targetCountry.assignHolderWithArmies(d_otherplayer,3);
+
+        d_advanceOrder.execute();
+
+        assertTrue(d_advanceOrder.d_isExecuted);
+        assertTrue(d_otherplayer.d_hasLost);
+    }
+
+    @Test
+    public void testExecuteCapturingContinent() {
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+        targetCountry.setD_currentArmyCount(5);
+        Player d_otherplayer = new Player("d_player 2");
+        targetCountry.assignHolderWithArmies(d_otherplayer,3);
+        d_advanceOrder.execute();
+        assertTrue(d_advanceOrder.d_isExecuted);
+        assertEquals(d_continent.getHolder(),d_player);
+    }
     @Test
     public void testGenerateBooleanWithProbability() {
         assertTrue(Advance.generateBooleanWithProbability(1.0));

@@ -11,24 +11,25 @@ import static org.junit.Assert.*;
  */
 public class AirliftTest {
 
-    private Airlift airlift;
-    private Player player;
-    private Country sourceCountry;
-    private Country targetCountry;
+    private Airlift d_airlift;
+    private Player d_player;
+    private Country d_sourceCountry;
+    private Country d_targetCountry;
 
     @Before
     public void setUp() {
-        // Initialize the player, source country, and target country for testing
-        player = new Player("TestPlayer");
-        sourceCountry = new Country(0, "Source Country", null);
-        targetCountry = new Country(0, "Target Country", null);
+        // Initialize the d_player, source country, and target country for testing
+        d_player = new Player("TestPlayer");
+        d_player.d_holdingCards.add("d_airlift");
+        d_sourceCountry = new Country(0, "Source Country", null);
+        d_targetCountry = new Country(0, "Target Country", null);
 
-        // Assign source and target countries to the player
-        player.addCountryToHolderList(sourceCountry, 10);
-        player.addCountryToHolderList(targetCountry, 10);
+        // Assign source and target countries to the d_player
+        d_player.addCountryToHolderList(d_sourceCountry, 10);
+        d_player.addCountryToHolderList(d_targetCountry, 10);
 
         // Create an Airlift order with 10 armies
-        airlift = new Airlift(player, sourceCountry, targetCountry, 10);
+        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 10);
     }
 
     /**
@@ -36,7 +37,7 @@ public class AirliftTest {
      */
     @Test
     public void testIsValid() {
-        assertTrue(airlift.isValid());
+        assertTrue(d_airlift.isValid());
     }
 
     /**
@@ -44,9 +45,9 @@ public class AirliftTest {
      */
     @Test
     public void testIsValidWithInvalidSourceCountry() {
-        sourceCountry = null;
-        airlift = new Airlift(player, sourceCountry, targetCountry, 5);
-        assertFalse(airlift.isValid());
+        d_sourceCountry = null;
+        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 5);
+        assertFalse(d_airlift.isValid());
     }
 
     /**
@@ -54,9 +55,9 @@ public class AirliftTest {
      */
     @Test
     public void testIsValidWithInvalidTargetCountry() {
-        targetCountry = null;
-        airlift = new Airlift(player, sourceCountry, targetCountry, 5);
-        assertFalse(airlift.isValid());
+        d_targetCountry = null;
+        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 5);
+        assertFalse(d_airlift.isValid());
     }
 
     /**
@@ -64,8 +65,8 @@ public class AirliftTest {
      */
     @Test
     public void testIsValidWithInvalidArmyCount() {
-        airlift = new Airlift(player, sourceCountry, targetCountry, 0);
-        assertFalse(airlift.isValid());
+        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 0);
+        assertFalse(d_airlift.isValid());
     }
 
     /**
@@ -73,13 +74,13 @@ public class AirliftTest {
      */
     @Test
     public void testExecute() {
-        airlift.execute();
+        d_airlift.execute();
 
         // Check if armies were moved from the source to the target country
-        assertEquals(0, sourceCountry.getCurrentArmyCount());
-        assertEquals(20, targetCountry.getCurrentArmyCount());
+        assertEquals(0, d_sourceCountry.getCurrentArmyCount());
+        assertEquals(20, d_targetCountry.getCurrentArmyCount());
 
-        // Check if the Airlift card was removed from the player's card list
-        assertFalse(player.d_holdingCards.contains("airlift"));
+        // Check if the Airlift card was removed from the d_player's card list
+        assertFalse(d_player.d_holdingCards.contains("d_airlift"));
     }
 }

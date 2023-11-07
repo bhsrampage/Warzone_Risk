@@ -13,8 +13,8 @@ class BombTest {
 
     private Player d_player1, d_player2;
     private Country d_country1, d_country2, d_country3;
-    private Bomb bombOrder;
-    Phase gamePhase;
+    private Bomb d_bombOrder;
+    Phase d_gamePhase;
 
     @BeforeEach
     void setUp() {
@@ -33,24 +33,24 @@ class BombTest {
     void testIsValidWithValidOrder() {
         d_player1.addCountryToHolderList(d_country1,10);
         d_player2.addCountryToHolderList(d_country2,6);
-        bombOrder = new Bomb(d_player1, d_country2);
-        assertTrue(bombOrder.isValid());
+        d_bombOrder = new Bomb(d_player1, d_country2);
+        assertTrue(d_bombOrder.isValid());
     }
 
     @Test
     void testIsValidWithInvalidOrder() {
         d_player1.addCountryToHolderList(d_country1,10);
-        bombOrder = new Bomb(d_player1, d_country3);
-        assertFalse(bombOrder.isValid());
+        d_bombOrder = new Bomb(d_player1, d_country3);
+        assertFalse(d_bombOrder.isValid());
     }
 
     @Test
     void testExecute() {
-        bombOrder = new Bomb(d_player1, d_country2);
+        d_bombOrder = new Bomb(d_player1, d_country2);
         d_player1.addCountryToHolderList(d_country1,10);
         d_player2.addCountryToHolderList(d_country2,6);
-        bombOrder.execute();
+        d_bombOrder.execute();
         assertEquals(3, d_country2.getCurrentArmyCount());
-        assertTrue(bombOrder.d_isExecuted);
+        assertTrue(d_bombOrder.d_isExecuted);
     }
 }
