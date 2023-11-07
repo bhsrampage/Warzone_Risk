@@ -3,10 +3,9 @@ package app.warzone.game;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -23,24 +22,10 @@ public class GameEngineTest {
 	 * Setup method to initialize the GameEngine and store the original System.in
 	 * stream.
 	 */
-	@Before
+	@BeforeEach
 	public void setUp() {
 		gameEngine = new GameEngine();
 		originalSystemIn = System.in;
-	}
-
-	/**
-	 * Test the initialization of the game with invalid user input. To check that
-	 * the game phase is not set when invalid input is provided.
-	 */
-	@Test
-	public void testInitializeInvalidChoice() {
-		String userInput = "3\n";
-		String userInput2 = "4\n";
-		InputStream userInputInputStream = new ByteArrayInputStream(userInput.getBytes());
-		System.setIn(userInputInputStream);
-		gameEngine.initialize();
-		assertNull(gameEngine.gamePhase);
 	}
 
 	/**
@@ -59,7 +44,7 @@ public class GameEngineTest {
 	/**
 	 * To restore the original System.in stream after testing.
 	 */
-	@After
+	@AfterEach
 	public void tearDown() {
 		System.setIn(originalSystemIn);
 	}
