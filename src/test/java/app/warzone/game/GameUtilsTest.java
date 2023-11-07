@@ -1,11 +1,12 @@
 package app.warzone.game;
 
-import static org.junit.Assert.assertEquals;
-
 import app.warzone.map.Continent;
 import app.warzone.map.Map;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 
 import app.warzone.map.Country;
 import app.warzone.player.Player;
@@ -22,7 +23,7 @@ public class GameUtilsTest {
     /**
      * Setup method to initialize the GameUtils instance for testing.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         gameUtil = new GameUtils();
         GameUtils.d_currTargetMap = new Map("Test");
@@ -42,9 +43,9 @@ public class GameUtilsTest {
         Continent l_continent = new Continent(1, "Test", 5);
         GameUtils.d_currTargetMap.addContinent(l_continent);
 
-        gameUtil.d_playerList.add(l_player1);
-        gameUtil.d_playerList.add(l_player2);
-        gameUtil.d_playerList.add(l_player3);
+        GameUtils.d_playerList.add(l_player1);
+        GameUtils.d_playerList.add(l_player2);
+        GameUtils.d_playerList.add(l_player3);
 
 
         // Add countries to Player1

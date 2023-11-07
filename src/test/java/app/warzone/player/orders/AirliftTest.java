@@ -2,9 +2,10 @@ package app.warzone.player.orders;
 
 import app.warzone.map.Country;
 import app.warzone.player.Player;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * AirliftTest class to test the Airlift order implementation.
@@ -16,7 +17,7 @@ public class AirliftTest {
     private Country sourceCountry;
     private Country targetCountry;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         // Initialize the player, source country, and target country for testing
         player = new Player("TestPlayer");

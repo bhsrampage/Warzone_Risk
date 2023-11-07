@@ -3,9 +3,9 @@ package app.warzone.player.orders;
 import app.warzone.map.Continent;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Javadoc for the BlockadeTest class.
@@ -23,11 +23,11 @@ public class BlockadeTest {
     /**
      * Sets up initial state for each test case.
      */
-    @Before
+    @BeforeEach
     public void setUp() {
         d_player = new Player("Player1"); // You need to create a Player class if it doesn't exist
         d_country = new Country(1, "Country1", new Continent(1, "Continent1", 8));
-        ; // You need to create a Country class if it doesn't exist
+        // You need to create a Country class if it doesn't exist
     }
 
     /**
