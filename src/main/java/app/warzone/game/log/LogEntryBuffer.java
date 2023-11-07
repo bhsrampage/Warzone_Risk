@@ -1,4 +1,4 @@
-package app.warzone.game.phase;
+package app.warzone.game.log;
 
 import java.io.Serializable;
 import java.util.Observable;
@@ -17,7 +17,6 @@ public class LogEntryBuffer extends Observable implements Serializable {
      * Initialises the Class Instance by adding LogWriter Observer object.
      */
     public LogEntryBuffer(){
-        //d_logMessages = new ArrayList<String>();
         LogFileWriter l_logWriter = new LogFileWriter();
         this.addObserver(l_logWriter);
     }

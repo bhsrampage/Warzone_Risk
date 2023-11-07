@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import app.warzone.game.phase.LogEntryBuffer;
+import app.warzone.game.log.LogEntryBuffer;
 import app.warzone.map.Country;
 import app.warzone.map.Map;
 import app.warzone.map.MapFileParser;
