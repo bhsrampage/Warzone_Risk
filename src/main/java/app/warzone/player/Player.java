@@ -40,10 +40,10 @@ public class Player {
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
 
-        d_holdingCards.add("blockade");
-        d_holdingCards.add("bomb");
-        d_holdingCards.add("airlift");
-        d_holdingCards.add("diplomacy");
+//        d_holdingCards.add("blockade");
+//        d_holdingCards.add("bomb");
+//        d_holdingCards.add("airlift");
+//        d_holdingCards.add("negotiate");
 
     }
 
@@ -162,17 +162,20 @@ public class Player {
 
             case "bomb":
                 System.out.println("Bomb Order");
-                ;
+
                 d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
             case "blockade":
                 System.out.println("Blockade Order");
-                ;
                 d_givenOrders.add(new Blockade(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
             case "commit":
                 System.out.println("Committing orders for " + d_playerName);
                 d_hasCommittedOrders = true;
+                break;
+            case "negotiate":
+                System.out.println("Negotiate Order");
+                d_givenOrders.add(new Diplomacy(this, GameUtils.getPlayerByName(l_cmdTokens[1])));
                 break;
             default:
                 System.out.println("Invalid Game Command");

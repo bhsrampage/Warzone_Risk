@@ -15,8 +15,15 @@ import app.warzone.player.Player;
  */
 public class GameUtils {
 
+	/**
+	 * Variable holding the loaded map for gameplay
+	 */
 	public static Map d_currTargetMap = null;
-	public List<Player> d_playerList;
+
+	/**
+	 * List of players currently playing the game
+	 */
+	public static List<Player> d_playerList;
 
 
 	LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
@@ -181,7 +188,7 @@ public class GameUtils {
 	 * @param p_name The name of the player to find.
 	 * @return The Player object if found, or null if not found.
 	 */
-	public Player getPlayerByName(String p_name) {
+	public static Player getPlayerByName(String p_name) {
 		for (Player l_player : d_playerList) {
 			if (l_player.d_playerName.equals(p_name)) {
 				return l_player;
