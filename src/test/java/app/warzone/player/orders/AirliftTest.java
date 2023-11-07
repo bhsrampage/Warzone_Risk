@@ -1,86 +1,94 @@
 package app.warzone.player.orders;
 
+import app.warzone.map.Continent;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
-import org.junit.Before;
-import org.junit.Test;
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * AirliftTest class to test the Airlift order implementation.
- */
-public class AirliftTest {
+public class AdvanceTest {
 
-    private Airlift d_airlift;
     private Player d_player;
-    private Country d_sourceCountry;
-    private Country d_targetCountry;
+    private Country d_d_targetCountry;
+    private Country targetCountry;
+    private Advance d_advanceOrder;
 
-    @Before
-    public void setUp() {
-        // Initialize the d_player, source country, and target country for testing
-        d_player = new Player("TestPlayer");
-        d_player.d_holdingCards.add("d_airlift");
-        d_sourceCountry = new Country(0, "Source Country", null);
-        d_targetCountry = new Country(0, "Target Country", null);
+    private Continent d_continent;
 
-        // Assign source and target countries to the d_player
-        d_player.addCountryToHolderList(d_sourceCountry, 10);
-        d_player.addCountryToHolderList(d_targetCountry, 10);
-
-        // Create an Airlift order with 10 armies
-        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 10);
+    @BeforeEach
+    public void setup() {
+        d_player = new Player("d_player 1");
+        d_continent = new Continent(1,"Test",5);
+        d_d_targetCountry = new Country(0,"Source Country",d_continent);
+        targetCountry = new Country(0,"Target Country",d_continent);
+        d_d_targetCountry.addRemoveNeighbour(targetCountry,true);
+        targetCountry.addRemoveNeighbour(d_d_targetCountry,true);
+        d_advanceOrder = new Advance(d_player, d_d_targetCountry, targetCountry, 5);
     }
 
-    /**
-     * Test case to validate the Airlift order when it is valid.
-     */
     @Test
-    public void testIsValid() {
-        assertTrue(d_airlift.isValid());
+    public void testIsValidWithValidOrder() {
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+
+        assertTrue(d_advanceOrder.isValid());
     }
 
-    /**
-     * Test case to validate the Airlift order when the source country is invalid.
-     */
     @Test
-    public void testIsValidWithInvalidSourceCountry() {
-        d_sourceCountry = null;
-        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 5);
-        assertFalse(d_airlift.isValid());
+    public void testIsValidWithInvalidOrder() {
+        assertFalse(d_advanceOrder.isValid());
     }
 
-    /**
-     * Test case to validate the Airlift order when the target country is invalid.
-     */
     @Test
-    public void testIsValidWithInvalidTargetCountry() {
-        d_targetCountry = null;
-        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 5);
-        assertFalse(d_airlift.isValid());
+    public void testExecuteValidOrderSameOwner() {
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+        d_player.addCountryToHolderList(targetCountry,5);
+
+        d_advanceOrder.execute();
+
+        assertEquals(5, d_d_targetCountry.getCurrentArmyCount());
+        assertEquals(10, targetCountry.getCurrentArmyCount());
+        assertTrue(d_advanceOrder.d_isExecuted);
     }
 
-    /**
-     * Test case to validate the Airlift order when the number of armies is invalid (zero).
-     */
     @Test
-    public void testIsValidWithInvalidArmyCount() {
-        d_airlift = new Airlift(d_player, d_sourceCountry, d_targetCountry, 0);
-        assertFalse(d_airlift.isValid());
+    public void testExecuteValidOrderDifferentOwners() {
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+        targetCountry.setD_currentArmyCount(5);
+        Player d_otherplayer = new Player("d_player 2");
+        targetCountry.assignHolderWithArmies(d_otherplayer,3);
+
+        d_advanceOrder.execute();
+
+        assertTrue(d_advanceOrder.d_isExecuted);
     }
 
-    /**
-     * Test case to execute the Airlift order and validate its effects.
-     */
     @Test
-    public void testExecute() {
-        d_airlift.execute();
+    public void testExecuteLosingPlayer() {
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+        targetCountry.setD_currentArmyCount(5);
+        Player d_otherplayer = new Player("d_player 2");
+        targetCountry.assignHolderWithArmies(d_otherplayer,3);
 
-        // Check if armies were moved from the source to the target country
-        assertEquals(0, d_sourceCountry.getCurrentArmyCount());
-        assertEquals(20, d_targetCountry.getCurrentArmyCount());
+        d_advanceOrder.execute();
 
-        // Check if the Airlift card was removed from the d_player's card list
-        assertFalse(d_player.d_holdingCards.contains("d_airlift"));
+        assertTrue(d_advanceOrder.d_isExecuted);
+        assertTrue(d_otherplayer.d_hasLost);
+    }
+
+    @Test
+    public void testExecuteCapturingContinent() {
+        d_player.addCountryToHolderList(d_d_targetCountry,10);
+        targetCountry.setD_currentArmyCount(5);
+        Player d_otherplayer = new Player("d_player 2");
+        targetCountry.assignHolderWithArmies(d_otherplayer,3);
+        d_advanceOrder.execute();
+        assertTrue(d_advanceOrder.d_isExecuted);
+        assertEquals(d_continent.getHolder(),d_player);
+    }
+    @Test
+    public void testGenerateBooleanWithProbability() {
+        assertTrue(Advance.generateBooleanWithProbability(1.0));
+        assertFalse(Advance.generateBooleanWithProbability(0.0));
     }
 }
