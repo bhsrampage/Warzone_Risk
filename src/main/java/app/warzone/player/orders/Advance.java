@@ -1,4 +1,4 @@
-Cpackage app.warzone.player.orders;
+package app.warzone.player.orders;
 
 import app.warzone.map.Country;
 import app.warzone.player.Player;
