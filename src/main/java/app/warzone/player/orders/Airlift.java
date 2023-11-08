@@ -97,6 +97,7 @@ public class Airlift extends Order {
 
             // Remove the Airlift card from the player's card list
             d_player.d_holdingCards.remove("airlift");
+            d_isExecuted = true;
         }
     }
 }
