@@ -63,9 +63,9 @@ public class PlayerTest {
 	public void testNextOrder() {
 		assertNull(d_player.next_order());
 		d_player.getD_givenOrders().add(new Deploy(d_player, 3, d_country));
-		Order l_nextOrder = d_player.next_order();
-		assertNotNull(l_nextOrder);
-		assertTrue(l_nextOrder instanceof Deploy);
+		Order nextOrder = d_player.next_order();
+		assertNotNull(nextOrder);
+		assertTrue(nextOrder instanceof Deploy);
 		assertEquals(0, d_player.getD_givenOrders().size());
 	}
 }

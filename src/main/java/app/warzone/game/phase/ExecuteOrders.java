@@ -1,6 +1,7 @@
 package app.warzone.game.phase;
 
 import app.warzone.game.GameEngine;
+import app.warzone.game.GameUtils;
 import app.warzone.player.Player;
 import app.warzone.player.orders.Order;
 
@@ -26,7 +27,7 @@ public class ExecuteOrders extends MainPlay{
      */
     @Override
     public void executeOrders() {
-        ArrayList<Player> l_executingPlayers = new ArrayList<>(ge.d_gameUtil.d_playerList);
+        ArrayList<Player> l_executingPlayers = new ArrayList<>(GameUtils.d_playerList);
         Player l_targetPlayer;
         Order l_currOrder;
         int l_i = 0;

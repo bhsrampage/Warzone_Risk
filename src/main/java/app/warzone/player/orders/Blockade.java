@@ -40,7 +40,7 @@ public class Blockade extends Order {
                     l_countriesOwnedList.add(l_country.getD_countryName());
                 }
                 if (!l_countriesOwnedList.contains(d_country.getD_countryName())) {
-                    System.out.println(d_player.d_playerName + " cannot use Blockade card since it is opponent’s country");
+                    System.out.println(d_player.d_playerName + " cannot use Blockade card since it is opponent's country");
                     return false;
                 }
                 return true;

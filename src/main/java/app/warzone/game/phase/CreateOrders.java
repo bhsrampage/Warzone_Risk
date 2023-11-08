@@ -1,6 +1,7 @@
 package app.warzone.game.phase;
 
 import app.warzone.game.GameEngine;
+import app.warzone.game.GameUtils;
 import app.warzone.player.Player;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class CreateOrders extends MainPlay {
      */
     @Override
     public void createOrders() {
-        List<Player> l_currPlayingPlayers = new ArrayList<>(ge.d_gameUtil.d_playerList);
+        List<Player> l_currPlayingPlayers = new ArrayList<>(GameUtils.d_playerList);
         l_currPlayingPlayers.removeIf(p -> p.d_hasLost); //Removing lost players from currently playing player list
         if (l_currPlayingPlayers.size() == 1) {
             ge.setPhase(new End(ge));
