@@ -187,13 +187,16 @@ public class GameEngine {
             switch (l_choice) {
                 case "1":
                     setPhase(new Preload(this));
+                    getD_gameState().updateLog("Map Editor", "phase");
                     listenMapCommands();
                     break;
                 case "2":
                     setPhase(new PlaySetup(this));
+                    getD_gameState().updateLog("Play Game", "phase");
                     listenStartupCommands();
                     break;
                 case "3":
+                    getD_gameState().updateLog("End", "phase");
                     setPhase(new End(this));
                 default:
                     System.out.println("Invalid command Try again");

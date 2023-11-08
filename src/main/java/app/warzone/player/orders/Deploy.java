@@ -32,6 +32,8 @@ public class Deploy extends Order {
 	public void printOrder() {
 		System.out.println("Order Type : Deploy \nPlayer : " + d_deployingPlayer.d_playerName
 				+ " Target Country : " + d_targetCountry.getD_countryName() + " Number Of Armies : " + d_armyCount);
+		d_deployingPlayer.d_gameUtil.updateLog("Deploy \\nPlayer : " + d_deployingPlayer.d_playerName +
+				" Target Country : " + d_targetCountry.getD_countryName() + " Number Of Armies : " + d_armyCount, "order");
 	}
 	/**
 	 * Execute the deployment order by assigning armies to the target country. After

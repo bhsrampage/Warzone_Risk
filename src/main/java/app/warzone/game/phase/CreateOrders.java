@@ -24,6 +24,7 @@ public class CreateOrders extends MainPlay {
         if (l_currPlayingPlayers.size() == 1) {
             ge.setPhase(new End(ge));
             System.out.println("This game has concluded\n WINNER:" + l_currPlayingPlayers.get(0).d_playerName);
+            ge.d_gameUtil.updateLog("This game has concluded\n WINNER:" + l_currPlayingPlayers.get(0).d_playerName + "\n", "end");
             return;
         }
         int l_i = 0;
@@ -40,6 +41,7 @@ public class CreateOrders extends MainPlay {
             }
         }
         System.out.println("All orders received !! Now executing");
+        ge.d_gameUtil.updateLog("All orders received !! Now executing", "effect");
         next();
     }
 

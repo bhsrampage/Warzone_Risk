@@ -72,6 +72,7 @@ public class Bomb extends Order {
      */
     public void printOrder() {
         System.out.println("Order Type : Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
+        d_player.d_gameUtil.updateLog("Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n", "order");
    }
 
     /**
@@ -81,9 +82,12 @@ public class Bomb extends Order {
         if (isValid()) {
             int l_initialArmy = d_country.getCurrentArmyCount();
             System.out.println(d_country.getD_countryName() + "'s army count before deploying the bomb : " + l_initialArmy);
+            d_player.d_gameUtil.updateLog(d_country.getD_countryName() + "'s army count before deploying the bomb : " + l_initialArmy, "effect");
             d_country.setD_currentArmyCount(l_initialArmy/2);
             System.out.println(d_player.d_playerName + " applied Bomb Card successfully");
+            d_player.d_gameUtil.updateLog(d_player.d_playerName + " applied Bomb Card successfully", "effect");
             System.out.println(d_country.getD_countryName() + "'s army count after deploying the bomb : " + d_country.getCurrentArmyCount());
+            d_player.d_gameUtil.updateLog(d_country.getD_countryName() + "'s army count after deploying the bomb : " + d_country.getCurrentArmyCount(), "effect");
             d_player.d_holdingCards.remove("bomb");
             printOrder();
             d_isExecuted = true;
