@@ -83,5 +83,6 @@ public class AirliftTest {
 
         // Check if the Airlift card was removed from the player's card list
         assertFalse(player.d_holdingCards.contains("airlift"));
+        assertTrue(airlift.d_isExecuted);
     }
 }

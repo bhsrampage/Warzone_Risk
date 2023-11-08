@@ -59,7 +59,7 @@ public class MapUtils {
 			}
 			d_currTargetMap.addCountry(
 					new Country(
-							d_currTargetMap.d_countries.isEmpty() ? 0 : (d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1),
+							d_currTargetMap.d_countries.isEmpty() ? 1 : (d_currTargetMap.d_countries.get(d_currTargetMap.d_countries.size() - 1).d_countryId + 1),
 							l_modifiable.get(l_i + 1),
 							d_currTargetMap.getContinentByName(l_modifiable.get(l_i + 2))
 					)
@@ -101,7 +101,7 @@ public class MapUtils {
 				System.out.println("Incorrect arguments for add try again..");
 				break;
 			}
-			d_currTargetMap.addContinent(new Continent(d_currTargetMap.d_continents.size(), l_modifiable.get(l_i + 1),
+			d_currTargetMap.addContinent(new Continent(d_currTargetMap.d_continents.size() + 1, l_modifiable.get(l_i + 1),
 					Integer.parseInt(l_modifiable.get(l_i + 2))));
 			l_modifiable.remove(l_i);
 		}

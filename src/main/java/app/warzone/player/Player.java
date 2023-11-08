@@ -40,10 +40,6 @@ public class Player {
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
 
-//        d_holdingCards.add("blockade");
-//        d_holdingCards.add("bomb");
-//        d_holdingCards.add("airlift");
-//        d_holdingCards.add("negotiate");
 
     }
 
@@ -102,7 +98,7 @@ public class Player {
         if (p_country.getCountryHolder() != null) {
             Player l_previousOwner = p_country.getCountryHolder();
             l_previousOwner.d_holdingCountries.remove(p_country); //Remove country from previous owners holding list
-           if (l_previousOwner.d_holdingCountries.isEmpty()) l_previousOwner.d_hasLost = true;
+            if (l_previousOwner.d_holdingCountries.isEmpty()) l_previousOwner.d_hasLost = true;
         }
         p_country.assignHolderWithArmies(this, p_armyCount);
         d_holdingCountries.add(p_country);
@@ -148,9 +144,7 @@ public class Player {
                 System.out.println("Advance order Received!!");
                 if (l_cmdTokens.length < 4) {
                     System.out.println("Invalid Arguments");
-
                     break;
-
                 }
                 d_givenOrders.add(new Advance(this,
                                 GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]),
@@ -162,11 +156,18 @@ public class Player {
 
             case "bomb":
                 System.out.println("Bomb Order");
-
+                if (l_cmdTokens.length < 2) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
                 d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
             case "blockade":
                 System.out.println("Blockade Order");
+                if (l_cmdTokens.length < 2) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
                 d_givenOrders.add(new Blockade(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
             case "commit":
@@ -175,7 +176,19 @@ public class Player {
                 break;
             case "negotiate":
                 System.out.println("Negotiate Order");
+                if (l_cmdTokens.length < 2) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
                 d_givenOrders.add(new Diplomacy(this, GameUtils.getPlayerByName(l_cmdTokens[1])));
+                break;
+            case "airlift":
+                System.out.println("Airlift Order");
+                if (l_cmdTokens.length < 4) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
+                d_givenOrders.add(new Airlift(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]), GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[2]), Integer.parseInt(l_cmdTokens[3])));
                 break;
             default:
                 System.out.println("Invalid Game Command");
