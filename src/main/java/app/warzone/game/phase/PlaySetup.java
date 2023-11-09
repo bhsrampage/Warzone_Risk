@@ -2,6 +2,7 @@
 package app.warzone.game.phase;
 
 import app.warzone.game.GameEngine;
+import app.warzone.game.GameUtils;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public class PlaySetup extends Play {
             System.out.println("No players are added");
             return;
         }
-        if(ge.d_gameUtil.d_currTargetMap == null){
+        if(GameUtils.d_currTargetMap == null){
             System.out.println("Map isn't loaded");
             return;
         }

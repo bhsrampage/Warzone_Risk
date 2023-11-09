@@ -6,10 +6,7 @@ import java.util.Scanner;
 
 import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
-import app.warzone.player.orders.Advance;
-import app.warzone.player.orders.Deploy;
-import app.warzone.player.orders.Order;
-import app.warzone.player.orders.Bomb;
+import app.warzone.player.orders.*;
 
 
 /**
@@ -28,6 +25,7 @@ public class Player {
     public boolean d_hasLost;
 
     public List<String> d_holdingCards;
+    public List<Player> d_diplomacyPlayers;
 
     /**
      * Constructor for the Player class.
@@ -37,11 +35,32 @@ public class Player {
     public Player(String p_name) {
         d_playerName = p_name;
         d_holdingCountries = new ArrayList<>();
-        d_currentArmyCount = 3;
+        d_currentArmyCount = 0;
         d_givenOrders = new ArrayList<>();
         d_hasCommittedOrders = false;
         d_hasLost = false;
-        d_holdingCards = new ArrayList<>();
+        d_holdingCards = new ArrayList<String>();
+        d_diplomacyPlayers = new ArrayList<Player>();
+
+
+    }
+
+    /**
+     * adds a new card to the list of holding cards.
+     *
+     * @param p_card card to be added.
+     */
+    public void addCardToHolding(String p_card) {
+        d_holdingCards.add(p_card);
+    }
+
+    /**
+     * Removes a card from the holding list if it is present
+     *
+     * @param p_card card to be removed
+     */
+    public void removeCardFromHolding(String p_card) {
+        d_holdingCards.remove(p_card);
     }
 
     /**
@@ -60,13 +79,15 @@ public class Player {
     public void printPlayerStatus() {
         System.out.printf("\nPlayer Name:- %s\nArmies Left:- %d\n", d_playerName, d_currentArmyCount);
         d_gameUtil.updateLog("\nPlayer Name:- " + d_playerName + "\nArmies Left:- " + d_currentArmyCount + "\n",  "effect");
-        System.out.println("Owned_Cards:- ");
-        d_gameUtil.updateLog("Owned_Cards:- \n", "start");
-        for(String card : d_holdingCards){
+        System.out.println("Owned_Cards:- " + (d_holdingCards.isEmpty() ? "none" : " "));
+        d_gameUtil.updateLog("Owned_Cards:- " + (d_holdingCards.isEmpty() ? "none" : " ") + "\n", "start");
+        for (String card : d_holdingCards) {
             System.out.print(card + "\t");
             d_gameUtil.updateLog(card + "\t", "start");
         }
+
         d_gameUtil.updateLog("\n", "start");
+        System.out.print("\nHolding Countries:-\n");
         for (Country l_country : d_holdingCountries) {
             System.out.printf("%s\t Army Count:- %d\n", l_country.getD_countryName(), l_country.getCurrentArmyCount());
             d_gameUtil.updateLog(l_country.getD_countryName() + "\t Army Count:- " + l_country.getCurrentArmyCount() + "\n",  "effect");
@@ -81,8 +102,10 @@ public class Player {
      * @param p_armyCount The number of armies to assign to the country.
      */
     public void addCountryToHolderList(Country p_country, int p_armyCount) {
-        if(p_country.getCountryHolder() != null) {
-            p_country.getCountryHolder().d_holdingCountries.remove(p_country); //Remove country from previous owners holding list
+        if (p_country.getCountryHolder() != null) {
+            Player l_previousOwner = p_country.getCountryHolder();
+            l_previousOwner.d_holdingCountries.remove(p_country); //Remove country from previous owners holding list
+            if (l_previousOwner.d_holdingCountries.isEmpty()) l_previousOwner.d_hasLost = true;
         }
         p_country.assignHolderWithArmies(this, p_armyCount);
         d_holdingCountries.add(p_country);
@@ -132,9 +155,7 @@ public class Player {
                 d_gameUtil.updateLog("Advance order Received!!", "order");
                 if(l_cmdTokens.length < 4){
                     System.out.println("Invalid Arguments");
-
                     break;
-
                 }
                 d_givenOrders.add(new Advance(this,
                                 GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]),
@@ -147,13 +168,40 @@ public class Player {
             case "bomb":
                 System.out.println("Bomb Order");
                 d_gameUtil.updateLog("Bomb order Received!!", "order");
+                if (l_cmdTokens.length < 2) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
                 d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                 break;
-
+            case "blockade":
+                System.out.println("Blockade Order");
+                if (l_cmdTokens.length < 2) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
+                d_givenOrders.add(new Blockade(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
+                break;
             case "commit":
                 System.out.println("Committing orders for " + d_playerName);
                 d_gameUtil.updateLog("Committing orders for " + d_playerName, "order");
                 d_hasCommittedOrders = true;
+                break;
+            case "negotiate":
+                System.out.println("Negotiate Order");
+                if (l_cmdTokens.length < 2) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
+                d_givenOrders.add(new Diplomacy(this, GameUtils.getPlayerByName(l_cmdTokens[1])));
+                break;
+            case "airlift":
+                System.out.println("Airlift Order");
+                if (l_cmdTokens.length < 4) {
+                    System.out.println("Invalid Arguments");
+                    break;
+                }
+                d_givenOrders.add(new Airlift(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]), GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[2]), Integer.parseInt(l_cmdTokens[3])));
                 break;
             default:
                 System.out.println("Invalid Game Command");
@@ -173,4 +221,23 @@ public class Player {
         d_givenOrders.remove(0);
         return l_nextOrder;
     }
+
+    /**
+     * To add a player to the Diplomacy Players list
+     *
+     * @param p_player player name
+     */
+    public void addDiplomacyPlayer(Player p_player) {
+        d_diplomacyPlayers.add(p_player);
+    }
+
+    /**
+     * To remove a player from the Diplomacy Players list
+     *
+     * @param p_player player name
+     */
+    public void removeDiplomacyPlayer(Player p_player) {
+        d_diplomacyPlayers.remove(p_player);
+    }
+
 }

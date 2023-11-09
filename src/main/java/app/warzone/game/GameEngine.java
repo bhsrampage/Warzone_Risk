@@ -119,11 +119,13 @@ public class GameEngine {
     }
 
     /**
-     * Take the game command as the input and execute it. Display map after
-     * execution
+     * Assign Reinforcement armies
+     * Take the game command as the input and execute it.
+     * Display map after execution
      */
     private void listenGameplayCommands() {
         while(!(gamePhase instanceof End)) {
+            d_gameUtil.assignReinforcementArmies();
             gamePhase.createOrders();
             gamePhase.executeOrders();
         }

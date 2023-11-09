@@ -7,3 +7,542 @@ Welcome to Risk (Warzone) by U6 build1
 
 =======New phase: End=======
 
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: Preload=======
+
+
+=======**Map Editor**=======
+
+
+Command Entered: exit
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: Preload=======
+
+
+=======**Map Editor**=======
+
+
+Command Entered: loadmap Tester
+
+Command Entered: editmap Tester
+
+=======New phase: PostLoad=======
+
+
+Command Entered: editcontinent -add C1 -add C2
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: Preload=======
+
+
+=======**Map Editor**=======
+
+
+Command Entered: editmap Tester
+
+=======New phase: PostLoad=======
+
+
+Command Entered: editcontinent -add C1 5 -add C2 6
+
+Command Entered: showmap
+
+Command Entered: editcountry -add Cont1 -add Cont 2 -add Cont3
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: Preload=======
+
+
+=======**Map Editor**=======
+
+
+Command Entered: editmap Tester
+
+=======New phase: PostLoad=======
+
+
+Command Entered: showmap
+
+Command Entered: editmap Teter
+
+Command Entered: editcontinent -add Con1 5 -add Con2 6
+
+Command Entered: editcountry -add C1 Con1 -add C2 Con1 -add C3 Con2
+
+Command Entered: editneighbor -add C1 C2 -add C2 C3
+
+Command Entered: showmap
+
+Command Entered: savemap
+
+=======New phase: Main Menu=======
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: Preload=======
+
+
+=======**Map Editor**=======
+
+
+Command Entered: editmap Test2
+
+=======New phase: PostLoad=======
+
+
+Command Entered: editcontinent -add Cont1 5 -add Cont2 3
+
+Command Entered: editcountry -add C1 Cont1 -add C2 Cont1 -add C3 Cont2
+
+Command Entered: shwomap
+
+Command Entered: showmap
+
+Command Entered: editneighbors -add C1 C2 -add C2 C3 
+
+Command Entered: editneighbor -add C1 C2 -add C2 C3 
+
+Command Entered: showmap
+
+Command Entered: savemap
+
+=======New phase: Main Menu=======
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: PlaySetup=======
+
+**Gameplay**
+
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======New phase: End=======
+

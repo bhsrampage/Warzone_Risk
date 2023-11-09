@@ -35,6 +35,24 @@ public class Deploy extends Order {
 		d_deployingPlayer.d_gameUtil.updateLog("Deploy \\nPlayer : " + d_deployingPlayer.d_playerName +
 				" Target Country : " + d_targetCountry.getD_countryName() + " Number Of Armies : " + d_armyCount, "order");
 	}
+
+	public boolean isValid() {
+		if(d_armyCount <= 0) {
+			System.out.println("Army count is less that 1..");
+			return false;
+		}
+		if (d_deployingPlayer.d_currentArmyCount<0) {
+			System.out.println("cannot deploy more armies than you have..");
+			return false;
+		}
+		if (d_targetCountry == null) {
+			System.out.println("You do not own the country you are trying to deploy to..");
+
+			return false;
+		}
+		return true;
+	}
+
 	/**
 	 * Execute the deployment order by assigning armies to the target country. After
 	 * execution, the deployment order is marked as executed.
@@ -42,17 +60,12 @@ public class Deploy extends Order {
 	@Override
 	public void execute() {
 		printOrder();
-		if (d_deployingPlayer.d_currentArmyCount<0) {
-			System.out.println("cannot deploy more armies than you have..");
+		if(isValid()){
+			d_targetCountry.assignHolderWithArmies(d_deployingPlayer, d_targetCountry.getCurrentArmyCount() + d_armyCount);
+			d_isExecuted = true;
+		}else {
 			d_deployingPlayer.d_currentArmyCount+=d_armyCount;
-			return;
 		}
-		if (d_targetCountry == null) {
-			System.out.println("You do not own the country you are trying to deploy to..");
-			d_deployingPlayer.d_currentArmyCount+=d_armyCount;
-			return;
-		}
-		d_targetCountry.assignHolderWithArmies(d_deployingPlayer, d_targetCountry.getCurrentArmyCount() + d_armyCount);
-		d_isExecuted = true;
+
 	}
 }

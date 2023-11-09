@@ -8,7 +8,8 @@ import java.util.Random;
 import static app.warzone.game.GameUtils.generateRandomNumber;
 
 /**
- * The Advance class represents an order for a player to advance armies from one country to another in the Warzone game.
+ * The Advance class represents an order for a player to advance armies from one
+ * country to another in the Warzone game.
  */
 public class Advance extends Order {
 

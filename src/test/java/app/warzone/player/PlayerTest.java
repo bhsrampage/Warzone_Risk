@@ -1,12 +1,8 @@
 package app.warzone.player;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 import app.warzone.map.Country;
 import app.warzone.player.orders.Deploy;
@@ -25,7 +21,7 @@ public class PlayerTest {
 	/**
 	 * Setup method to initialize the Player and Country instances for testing.
 	 */
-	@Before
+	@BeforeEach
 	public void setUp() {
 		d_player = new Player("TestPlayer");
 		d_country = new Country(0, "TestCountry", null);
@@ -39,7 +35,7 @@ public class PlayerTest {
 	public void testConstructor() {
 		assertEquals("TestPlayer", d_player.d_playerName);
 		assertEquals(0, d_player.d_holdingCountries.size());
-		assertEquals(3, d_player.d_currentArmyCount);
+		assertEquals(0, d_player.d_currentArmyCount);
 		assertEquals(0, d_player.getD_givenOrders().size());
 	}
 

@@ -79,6 +79,7 @@ public class Bomb extends Order {
      * Execute the Bomb order and reduce the opponent's army count in that country.
      */
     public void execute() {
+        printOrder();
         if (isValid()) {
             int l_initialArmy = d_country.getCurrentArmyCount();
             System.out.println(d_country.getD_countryName() + "'s army count before deploying the bomb : " + l_initialArmy);
@@ -89,7 +90,6 @@ public class Bomb extends Order {
             System.out.println(d_country.getD_countryName() + "'s army count after deploying the bomb : " + d_country.getCurrentArmyCount());
             d_player.d_gameUtil.updateLog(d_country.getD_countryName() + "'s army count after deploying the bomb : " + d_country.getCurrentArmyCount(), "effect");
             d_player.d_holdingCards.remove("bomb");
-            printOrder();
             d_isExecuted = true;
         }
     }

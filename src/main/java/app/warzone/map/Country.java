@@ -58,6 +58,10 @@ public class Country {
 		d_holder = null;
 	}
 
+	public Country() {
+		d_neighbours = new ArrayList<>();
+	}
+
 	/**
 	 * Getter for country id
 	 *

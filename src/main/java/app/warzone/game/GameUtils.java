@@ -6,11 +6,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-import app.warzone.game.log.LogEntryBuffer;
-import app.warzone.map.Country;
-import app.warzone.map.Map;
-import app.warzone.map.MapFileParser;
-import app.warzone.map.MapValidator;
+import app.warzone.game.phase.LogEntryBuffer;
+import app.warzone.map.*;
 import app.warzone.player.Player;
 
 /**
@@ -18,8 +15,15 @@ import app.warzone.player.Player;
  */
 public class GameUtils {
 
+	/**
+	 * Variable holding the loaded map for gameplay
+	 */
 	public static Map d_currTargetMap = null;
-	public List<Player> d_playerList;
+
+	/**
+	 * List of players currently playing the game
+	 */
+	public static List<Player> d_playerList;
 
 
 	LogEntryBuffer  d_logEntryBuffer = new LogEntryBuffer();
@@ -108,20 +112,31 @@ public class GameUtils {
 			l_assignableList.remove(l_assignablecountry);
 			l_i++;
 		}
-		assignReinforcementArmies();
 		showMap();
 	}
-	
+
 	/**
 	 * Calculate reinforcement armies and assign it to each player object
 	 */
 
 	public void assignReinforcementArmies() {
+		ArrayList<Country> l_holdingCountries;
+		for (Player l_player : d_playerList) {
+			if(l_player.d_hasLost) continue;
+			int l_count = 0;
+			l_holdingCountries = new ArrayList<>(l_player.d_holdingCountries);
+			for(Continent l_continent : d_currTargetMap.getD_continents()){
+				if(l_continent.getHolder() == l_player){
+					l_count += l_continent.getArmyBonusCount();
+					for(Country l_country : l_continent.getMemberCountries()){
+						l_holdingCountries.remove(l_country);
+					}
+				}
+			}
 
-        for (Player player : d_playerList) {
-            int l_count = player.d_holdingCountries.size();
-            player.d_currentArmyCount = Math.max((l_count / 3), 3);
-        }
+			l_count+= (l_holdingCountries.size()/3);
+			l_player.d_currentArmyCount += Math.max(l_count, 3);
+		}
 	}
 
 	/**
@@ -134,7 +149,7 @@ public class GameUtils {
 	public static int generateRandomNumber(int p_minValue, int p_maxValue) {
 		Random l_random = new Random();
 		int l_range = p_maxValue - p_minValue + 1;
-        return l_random.nextInt(l_range) + p_minValue;
+		return l_random.nextInt(l_range) + p_minValue;
 	}
 
 	/**
@@ -174,7 +189,7 @@ public class GameUtils {
 	 * @param p_name The name of the player to find.
 	 * @return The Player object if found, or null if not found.
 	 */
-	private Player getPlayerByName(String p_name) {
+	public static Player getPlayerByName(String p_name) {
 		for (Player l_player : d_playerList) {
 			if (l_player.d_playerName.equals(p_name)) {
 				return l_player;

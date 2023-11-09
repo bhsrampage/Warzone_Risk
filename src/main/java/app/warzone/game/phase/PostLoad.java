@@ -54,7 +54,7 @@ public class PostLoad extends Edit {
      */
     @Override
     public void editContinent(List<String> arguments) {
-        ge.d_targetMapUtil.editCountry(arguments);
+        ge.d_targetMapUtil.editContinent(arguments);
     }
 
     /**
