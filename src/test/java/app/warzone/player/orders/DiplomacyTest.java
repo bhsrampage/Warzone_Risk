@@ -2,7 +2,9 @@ package app.warzone.player.orders;
 
 import app.warzone.player.Player;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * JUnit test class for the Diplomacy class.

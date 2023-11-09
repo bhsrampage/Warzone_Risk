@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Invalidates all the methods declared in Phase Class
+ *
  * @see Phase
  */
 public class End extends Phase {
