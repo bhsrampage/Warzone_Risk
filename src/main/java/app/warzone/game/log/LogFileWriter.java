@@ -1,5 +1,7 @@
-package app.warzone.game.phase;
+package app.warzone.game.log;
 
+
+import app.warzone.game.log.LogEntryBuffer;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -17,7 +19,7 @@ public class LogFileWriter implements Observer {
     /**
      * The updated LogEntry Buffer Observable Object.
      */
-    LogEntryBuffer d_logEntryBuffer;
+    private static LogEntryBuffer d_logEntryBuffer;
 
 
 

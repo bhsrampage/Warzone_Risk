@@ -129,14 +129,19 @@ public class Country {
 	 */
 	public void printCountryStatus(boolean isMapPhase) {
 		System.out.printf("\n**%s**\n", d_countryName);
+		d_holder.d_gameUtil.updateLog(d_countryName, "effect");
 		if (!isMapPhase) {
 			System.out.printf("Armies present :- %d\n", d_currentArmyCount);
 			System.out.printf("Current holder :- %s\n", d_holder == null ? "No holder" : d_holder.d_playerName);
+			d_holder.d_gameUtil.updateLog("Armies present :- " + d_currentArmyCount, "effect");
+			d_holder.d_gameUtil.updateLog("Current holder :- " + d_holder == null ? "No holder" : d_holder.d_playerName, "effect");
 		}
 		for (Country neighbour : d_neighbours) {
 			System.out.printf("%s\t", neighbour.d_countryName);
+			d_holder.d_gameUtil.updateLog(neighbour.d_countryName + "\t", "start");
 		}
 		System.out.print("\n");
+		d_holder.d_gameUtil.updateLog("\n", "start");
 	}
 
 	/**

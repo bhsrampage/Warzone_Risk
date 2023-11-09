@@ -26,7 +26,7 @@ public class GameUtils {
 	public static List<Player> d_playerList;
 
 
-	LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
+	LogEntryBuffer  d_logEntryBuffer = new LogEntryBuffer();
 
 	/**
 	 * Message to be added in the log.
@@ -35,6 +35,7 @@ public class GameUtils {
 	 * @param p_logType    Type of Log Message to be Added
 	 */
 	public void updateLog(String p_logMessage, String p_logType) {
+
 		d_logEntryBuffer.currentLog(p_logMessage, p_logType);
 	}
 

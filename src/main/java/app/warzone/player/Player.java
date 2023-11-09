@@ -15,6 +15,8 @@ import app.warzone.player.orders.*;
  */
 public class Player {
 
+    public GameUtils d_gameUtil;
+
     public String d_playerName;
     public List<Country> d_holdingCountries;
     public int d_currentArmyCount;
@@ -76,14 +78,19 @@ public class Player {
      */
     public void printPlayerStatus() {
         System.out.printf("\nPlayer Name:- %s\nArmies Left:- %d\n", d_playerName, d_currentArmyCount);
-
+        d_gameUtil.updateLog("\nPlayer Name:- " + d_playerName + "\nArmies Left:- " + d_currentArmyCount + "\n",  "effect");
         System.out.println("Owned_Cards:- " + (d_holdingCards.isEmpty() ? "none" : " "));
+        d_gameUtil.updateLog("Owned_Cards:- " + (d_holdingCards.isEmpty() ? "none" : " ") + "\n", "start");
         for (String card : d_holdingCards) {
             System.out.print(card + "\t");
+            d_gameUtil.updateLog(card + "\t", "start");
         }
+
+        d_gameUtil.updateLog("\n", "start");
         System.out.print("\nHolding Countries:-\n");
         for (Country l_country : d_holdingCountries) {
             System.out.printf("%s\t Army Count:- %d\n", l_country.getD_countryName(), l_country.getCurrentArmyCount());
+            d_gameUtil.updateLog(l_country.getD_countryName() + "\t Army Count:- " + l_country.getCurrentArmyCount() + "\n",  "effect");
         }
     }
 
@@ -123,17 +130,20 @@ public class Player {
      */
     public void issue_order() {
         System.out.printf("\n PLAYING:-  %s\n", d_playerName);
+        d_gameUtil.updateLog("\n PLAYING:-  " + d_playerName +"\n", "effect");
         System.out.println("Note: Your current status is:");
         printPlayerStatus();
         System.out.printf("\nEnter your command %s\n", d_playerName);
         Scanner l_scanner = new Scanner(System.in);
         String l_userCommand = l_scanner.nextLine();
+        d_gameUtil.updateLog(l_userCommand, "command");
 
         String[] l_cmdTokens = l_userCommand.split(" ");
         switch (l_cmdTokens[0]) {
             case "deploy":
                 System.out.println("Deploy order Received!!");
-                if (l_cmdTokens.length < 3) {
+                d_gameUtil.updateLog("Deploy order Received!!", "order");
+                if(l_cmdTokens.length < 3){
                     System.out.println("Invalid Arguments");
                 }
                 int l_armyToDeploy = Integer.parseInt(l_cmdTokens[2]);
@@ -142,7 +152,8 @@ public class Player {
                 break;
             case "advance":
                 System.out.println("Advance order Received!!");
-                if (l_cmdTokens.length < 4) {
+                d_gameUtil.updateLog("Advance order Received!!", "order");
+                if(l_cmdTokens.length < 4){
                     System.out.println("Invalid Arguments");
                     break;
                 }
@@ -156,6 +167,7 @@ public class Player {
 
             case "bomb":
                 System.out.println("Bomb Order");
+                d_gameUtil.updateLog("Bomb order Received!!", "order");
                 if (l_cmdTokens.length < 2) {
                     System.out.println("Invalid Arguments");
                     break;
@@ -172,6 +184,7 @@ public class Player {
                 break;
             case "commit":
                 System.out.println("Committing orders for " + d_playerName);
+                d_gameUtil.updateLog("Committing orders for " + d_playerName, "order");
                 d_hasCommittedOrders = true;
                 break;
             case "negotiate":
