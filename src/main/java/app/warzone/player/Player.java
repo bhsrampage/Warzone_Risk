@@ -66,7 +66,7 @@ public class Player {
             System.out.print(card + "\t");
             d_gameUtil.updateLog(card + "\t", "start");
         }
-
+        d_gameUtil.updateLog("\n", "start");
         for (Country l_country : d_holdingCountries) {
             System.out.printf("%s\t Army Count:- %d\n", l_country.getD_countryName(), l_country.getCurrentArmyCount());
             d_gameUtil.updateLog(l_country.getD_countryName() + "\t Army Count:- " + l_country.getCurrentArmyCount() + "\n",  "effect");
