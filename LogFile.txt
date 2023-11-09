@@ -7,179 +7,38 @@ Welcome to Risk (Warzone) by U6 build1
 
 =======New phase: End=======
 
-Welcome to Risk (Warzone) by U6 build1
 
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-
- Order Issued: Advance
+Order Issued: Advance
 Player: Player 1
 Source Country: Source Country
 Target Country: Target Country
 Number Of Armies: 5
 Log: Player 1 has successfully advanced and captured Target Country
 
- Order Issued: Advance
+Order Issued: Advance
 Player: Player 1
 Source Country: Source Country
 Target Country: Target Country
 Number Of Armies: 5
 
- Order Issued: 
+Order Issued: 
 Moved 5 armies to Target Country from Source Country
 
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has lost the battle for Target Country
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-
- Order Issued: 
-Moved 5 armies to Target Country from Source Country
-
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
- Order Issued: Airlift
-Player: TestPlayer
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 10
-Log: Before Airlift Card, the number of armies in Target Country is: 10
-Log: TestPlayer applied Airlift Card successfully
-Log: After Airlift Card, the number of armies in Target Country is: 20
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======End=======
-
-
-=======New phase: End=======
-
-
- Order Issued: Advance
+Order Issued: Advance
 Player: Player 1
 Source Country: Source Country
 Target Country: Target Country
 Number Of Armies: 5
 Log: Player 1 has lost the battle for Target Country
 
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-
- Order Issued: 
-Moved 5 armies to Target Country from Source Country
-
- Order Issued: Advance
+Order Issued: Advance
 Player: Player 1
 Source Country: Source Country
 Target Country: Target Country
 Number Of Armies: 5
 Log: Player 1 has successfully advanced and captured Target Country
 
- Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has lost the battle for Target Country
-
- Order Issued: Airlift
+Order Issued: Airlift
 Player: TestPlayer
 Source Country: Source Country
 Target Country: Target Country
@@ -188,7 +47,7 @@ Log: Before Airlift Card, the number of armies in Target Country is: 10
 Log: TestPlayer applied Airlift Card successfully
 Log: After Airlift Card, the number of armies in Target Country is: 20
 
- Order Issued: Bomb 
+Order Issued: Bomb 
 Player : player_1 Target Country : Target1 Country 
 Successfully Executed
 
@@ -196,12 +55,210 @@ Log: Target1 Country's army count before deploying the bomb : 6
 Log: player_1 applied Bomb Card successfully
 Log: Target1 Country's army count after deploying the bomb : 3
 
- Order Issued: Deploy 
+Order Issued: Deploy 
 Player : Player1 Target Country : Country 1 Number Of Armies : 5
 
- Order Issued: Deploy 
+Order Issued: Deploy 
 Player : Player1 Target Country : Country 1 Number Of Armies : 0
 
- Order Issued: Diplomacy
+Order Issued: Diplomacy
+Issuing Player: Player1
+Target Player: Player2
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======End=======
+
+
+=======New phase: End=======
+
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+
+Order Issued: 
+Moved 5 armies to Target Country from Source Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Airlift
+Player: TestPlayer
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 10
+Log: Before Airlift Card, the number of armies in Target Country is: 10
+Log: TestPlayer applied Airlift Card successfully
+Log: After Airlift Card, the number of armies in Target Country is: 20
+
+Order Issued: Bomb 
+Player : player_1 Target Country : Target1 Country 
+Successfully Executed
+
+Log: Target1 Country's army count before deploying the bomb : 6
+Log: player_1 applied Bomb Card successfully
+Log: Target1 Country's army count after deploying the bomb : 3
+
+Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 5
+
+Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 0
+
+Order Issued: Diplomacy
+Issuing Player: Player1
+Target Player: Player2
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======End=======
+
+
+=======New phase: End=======
+
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+
+Order Issued: 
+Moved 5 armies to Target Country from Source Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Airlift
+Player: TestPlayer
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 10
+Log: Before Airlift Card, the number of armies in Target Country is: 10
+Log: TestPlayer applied Airlift Card successfully
+Log: After Airlift Card, the number of armies in Target Country is: 20
+
+Order Issued: Bomb 
+Player : player_1 Target Country : Target1 Country 
+Successfully Executed
+
+Log: Target1 Country's army count before deploying the bomb : 6
+Log: player_1 applied Bomb Card successfully
+Log: Target1 Country's army count after deploying the bomb : 3
+
+Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 5
+
+Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 0
+
+Order Issued: Diplomacy
+Issuing Player: Player1
+Target Player: Player2
+Welcome to Risk (Warzone) by U6 build1
+
+
+
+=======End=======
+
+
+=======New phase: End=======
+
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+
+Order Issued: 
+Moved 5 armies to Target Country from Source Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+Order Issued: Airlift
+Player: TestPlayer
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 10
+Log: Before Airlift Card, the number of armies in Target Country is: 10
+Log: TestPlayer applied Airlift Card successfully
+Log: After Airlift Card, the number of armies in Target Country is: 20
+
+Order Issued: Bomb 
+Player : player_1 Target Country : Target1 Country 
+Successfully Executed
+
+Log: Target1 Country's army count before deploying the bomb : 6
+Log: player_1 applied Bomb Card successfully
+Log: Target1 Country's army count after deploying the bomb : 3
+
+Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 5
+
+Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 0
+
+Order Issued: Diplomacy
 Issuing Player: Player1
 Target Player: Player2
