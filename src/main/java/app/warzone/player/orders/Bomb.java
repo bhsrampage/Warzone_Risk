@@ -1,6 +1,8 @@
 package app.warzone.player.orders;
 
 import java.util.ArrayList;
+
+import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 
@@ -8,6 +10,7 @@ import app.warzone.player.Player;
  * The Bomb class represents an order for a player to bomb an adjacent country in the Warzone game.
  */
 public class Bomb extends Order {
+    GameUtils d_gameUtil = new GameUtils();
     Country d_country;
     Player d_player;
     public boolean d_isExecuted;
@@ -72,7 +75,7 @@ public class Bomb extends Order {
      */
     public void printOrder() {
         System.out.println("Order Type : Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
-        d_player.d_gameUtil.updateLog("Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n", "order");
+        d_gameUtil.updateLog("Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n", "order");
    }
 
     /**
@@ -83,12 +86,12 @@ public class Bomb extends Order {
         if (isValid()) {
             int l_initialArmy = d_country.getCurrentArmyCount();
             System.out.println(d_country.getD_countryName() + "'s army count before deploying the bomb : " + l_initialArmy);
-            d_player.d_gameUtil.updateLog(d_country.getD_countryName() + "'s army count before deploying the bomb : " + l_initialArmy, "effect");
+            d_gameUtil.updateLog(d_country.getD_countryName() + "'s army count before deploying the bomb : " + l_initialArmy, "effect");
             d_country.setD_currentArmyCount(l_initialArmy/2);
             System.out.println(d_player.d_playerName + " applied Bomb Card successfully");
-            d_player.d_gameUtil.updateLog(d_player.d_playerName + " applied Bomb Card successfully", "effect");
+            d_gameUtil.updateLog(d_player.d_playerName + " applied Bomb Card successfully", "effect");
             System.out.println(d_country.getD_countryName() + "'s army count after deploying the bomb : " + d_country.getCurrentArmyCount());
-            d_player.d_gameUtil.updateLog(d_country.getD_countryName() + "'s army count after deploying the bomb : " + d_country.getCurrentArmyCount(), "effect");
+            d_gameUtil.updateLog(d_country.getD_countryName() + "'s army count after deploying the bomb : " + d_country.getCurrentArmyCount(), "effect");
             d_player.d_holdingCards.remove("bomb");
             d_isExecuted = true;
         }

@@ -1,5 +1,6 @@
 package app.warzone.player.orders;
 
+import app.warzone.game.GameUtils;
 import app.warzone.player.Player;
 
 /**
@@ -7,6 +8,7 @@ import app.warzone.player.Player;
  */
 public class Diplomacy extends Order {
 
+    GameUtils d_gameUtil = new GameUtils();
 	Player d_issuingPlayer;
 	Player d_targetPlayer;
 
@@ -47,7 +49,7 @@ public class Diplomacy extends Order {
     public void printOrder() {
         System.out.println("Order Type: Diplomacy\nIssuing Player: " + d_issuingPlayer.d_playerName +
                 "\nTarget Player: " + d_targetPlayer.d_playerName);
-        d_issuingPlayer.d_gameUtil.updateLog("Diplomacy\nIssuing Player: " + d_issuingPlayer.d_playerName +
+        d_gameUtil.updateLog("Diplomacy\nIssuing Player: " + d_issuingPlayer.d_playerName +
                 "\nTarget Player: " + d_targetPlayer.d_playerName, "order");
     }
 

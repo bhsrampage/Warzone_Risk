@@ -1,5 +1,6 @@
 package app.warzone.player.orders;
 
+import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 
@@ -13,6 +14,7 @@ import static app.warzone.game.GameUtils.generateRandomNumber;
  */
 public class Advance extends Order {
 
+    GameUtils d_gameUtil = new GameUtils();
     Player d_attackingPlayer;
     int d_armyCount;
     Country d_sourceCountry;
@@ -72,7 +74,7 @@ public class Advance extends Order {
         System.out.println("Order Type: Advance\nPlayer: " + d_attackingPlayer.d_playerName +
                 "\nSource Country: " + d_sourceCountry.getD_countryName()
                 + "\nTarget Country: " + d_targetCountry.getD_countryName() + "\nNumber Of Armies: " + d_armyCount);
-        d_attackingPlayer.d_gameUtil.updateLog("Advance\nPlayer: " + d_attackingPlayer.d_playerName +
+        d_gameUtil.updateLog("Advance\nPlayer: " + d_attackingPlayer.d_playerName +
                 "\nSource Country: " + d_sourceCountry.getD_countryName()
                 + "\nTarget Country: " + d_targetCountry.getD_countryName() + "\nNumber Of Armies: " + d_armyCount, "order");
     }
@@ -88,7 +90,7 @@ public class Advance extends Order {
                 d_sourceCountry.setD_currentArmyCount(d_sourceCountry.getCurrentArmyCount() - d_armyCount);
                 d_targetCountry.setD_currentArmyCount(d_targetCountry.getCurrentArmyCount() + d_armyCount);
                 System.out.printf("\nMoved %d armies to %s from %s", d_armyCount, d_targetCountry.getD_countryName(), d_sourceCountry.getD_countryName());
-                d_attackingPlayer.d_gameUtil.updateLog("\nMoved " + d_armyCount + " armies to " + d_targetCountry.getD_countryName() + " from " + d_sourceCountry.getD_countryName(), "order");
+                d_gameUtil.updateLog("\nMoved " + d_armyCount + " armies to " + d_targetCountry.getD_countryName() + " from " + d_sourceCountry.getD_countryName(), "order");
             } else {
                 int l_defendingNum = d_targetCountry.getCurrentArmyCount();
                 int l_attackingNum = d_armyCount;
@@ -108,13 +110,13 @@ public class Advance extends Order {
                     d_sourceCountry.setD_currentArmyCount(d_sourceCountry.getCurrentArmyCount() - d_armyCount);
                     d_attackingPlayer.addCountryToHolderList(d_targetCountry, l_attackingNum);
                     System.out.println(d_attackingPlayer.d_playerName + " has successfully advanced and captured " + d_targetCountry.getD_countryName());
-                    d_attackingPlayer.d_gameUtil.updateLog(d_attackingPlayer.d_playerName + " has successfully advanced and captured " + d_targetCountry.getD_countryName(), "effect");
+                    d_gameUtil.updateLog(d_attackingPlayer.d_playerName + " has successfully advanced and captured " + d_targetCountry.getD_countryName(), "effect");
                     d_attackingPlayer.d_holdingCards.add(getCard());
                 } else {
                     d_sourceCountry.setD_currentArmyCount(d_sourceCountry.getCurrentArmyCount() - d_armyCount);
                     d_targetCountry.setD_currentArmyCount(l_defendingNum);
                     System.out.println(d_attackingPlayer.d_playerName + " has lost the battle for " + d_targetCountry.getD_countryName());
-                    d_attackingPlayer.d_gameUtil.updateLog(d_attackingPlayer.d_playerName + " has lost the battle for " + d_targetCountry.getD_countryName(), "effect");
+                    d_gameUtil.updateLog(d_attackingPlayer.d_playerName + " has lost the battle for " + d_targetCountry.getD_countryName(), "effect");
                 }
             }
 

@@ -1,5 +1,6 @@
 package app.warzone.player.orders;
 
+import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 
@@ -9,6 +10,7 @@ import app.warzone.player.Player;
  */
 public class Deploy extends Order {
 
+	GameUtils d_gameUtil = new GameUtils();
 	Player d_deployingPlayer;
 	int d_armyCount;
 	Country d_targetCountry;
@@ -32,7 +34,7 @@ public class Deploy extends Order {
 	public void printOrder() {
 		System.out.println("Order Type : Deploy \nPlayer : " + d_deployingPlayer.d_playerName
 				+ " Target Country : " + d_targetCountry.getD_countryName() + " Number Of Armies : " + d_armyCount);
-		d_deployingPlayer.d_gameUtil.updateLog("Deploy \\nPlayer : " + d_deployingPlayer.d_playerName +
+		d_gameUtil.updateLog("Deploy \nPlayer : " + d_deployingPlayer.d_playerName +
 				" Target Country : " + d_targetCountry.getD_countryName() + " Number Of Armies : " + d_armyCount, "order");
 	}
 

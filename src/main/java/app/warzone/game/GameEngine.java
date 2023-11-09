@@ -136,7 +136,7 @@ public class GameEngine {
 
      * d_gameState stores the information about current GamePlay.
      */
-    GameUtils d_gameState = new GameUtils();
+    static GameUtils d_gameState = new GameUtils();
 
     /**
      * Gets current state of the game.
