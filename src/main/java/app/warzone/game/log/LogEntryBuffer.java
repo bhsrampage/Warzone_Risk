@@ -43,7 +43,7 @@ public class LogEntryBuffer extends Observable implements Serializable {
                 d_logMessage = System.lineSeparator()+ "Command Entered: "+ p_messageToUpdate + System.lineSeparator();
                 break;
             case "order":
-                d_logMessage = System.lineSeparator()+ " Order Issued: "+p_messageToUpdate+System.lineSeparator();
+                d_logMessage = System.lineSeparator()+ "Order Issued: "+p_messageToUpdate+System.lineSeparator();
                 break;
             case "phase":
                 d_logMessage = System.lineSeparator()+ "======="+ p_messageToUpdate + "======="+System.lineSeparator()+System.lineSeparator();
