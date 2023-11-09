@@ -14,6 +14,7 @@ public class PlaySetup extends Play {
 
     /**
      * Function to load the map for the game
+     *
      * @param arguments For reading the name of the map
      */
     @Override
@@ -31,6 +32,7 @@ public class PlaySetup extends Play {
 
     /**
      * Function to create or remove players
+     *
      * @param arguments for options to add remove players with their names
      */
     @Override
@@ -42,11 +44,11 @@ public class PlaySetup extends Play {
      * Assign countries randomly to  all players
      */
     public void assignCountries() {
-        if(ge.d_gameUtil.d_playerList.isEmpty()) {
+        if (ge.d_gameUtil.d_playerList.isEmpty()) {
             System.out.println("No players are added");
             return;
         }
-        if(GameUtils.d_currTargetMap == null){
+        if (GameUtils.d_currTargetMap == null) {
             System.out.println("Map isn't loaded");
             return;
         }

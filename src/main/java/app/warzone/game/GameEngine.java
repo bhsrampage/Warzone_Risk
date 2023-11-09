@@ -27,7 +27,7 @@ public class GameEngine {
         gamePhase = p_phase;
         System.out.println("New phase: " + (p_phase == null ? "Main Menu" : p_phase.getClass().getSimpleName()));
 
-        getD_gameState().updateLog("New phase: " + (p_phase == null ? "Main Menu" : p_phase.getClass().getSimpleName()), "phase");
+        GameUtils.updateLog("New phase: " + (p_phase == null ? "Main Menu" : p_phase.getClass().getSimpleName()), "phase");
 
     }
 
@@ -37,14 +37,14 @@ public class GameEngine {
     void listenMapCommands() {
         System.out.println("**Map Editor**\n");
 
-        getD_gameState().updateLog("**Map Editor**", "phase");
+        GameUtils.updateLog("**Map Editor**", "phase");
 
         d_targetMapUtil = new MapUtils();
 
         while (gamePhase instanceof Edit) {
             String l_userInput = SCAN.nextLine();
 
-            getD_gameState().updateLog(l_userInput, "command");
+            GameUtils.updateLog(l_userInput, "command");
 
             String[] l_cmdTokens = l_userInput.split(" ");
             List<String> arguments = Arrays.asList(Arrays.copyOfRange(l_cmdTokens, 1, l_cmdTokens.length));
@@ -88,7 +88,7 @@ public class GameEngine {
     void listenStartupCommands() {
         System.out.println("**Gameplay**\n");
 
-        getD_gameState().updateLog("**Gameplay**\n\n", "start");
+        GameUtils.updateLog("**Gameplay**\n\n", "start");
 
         d_gameUtil = new GameUtils();
 
@@ -124,7 +124,7 @@ public class GameEngine {
      * Display map after execution
      */
     private void listenGameplayCommands() {
-        while(!(gamePhase instanceof End)) {
+        while (!(gamePhase instanceof End)) {
             d_gameUtil.assignReinforcementArmies();
             gamePhase.createOrders();
             gamePhase.executeOrders();
@@ -133,7 +133,6 @@ public class GameEngine {
     }
 
     /**
-
      * d_gameState stores the information about current GamePlay.
      */
     static GameUtils d_gameState = new GameUtils();
@@ -153,7 +152,7 @@ public class GameEngine {
      * @param p_gameState state of the game
      */
     public void setD_gameState(GameUtils p_gameState) {
-        this.d_gameState = p_gameState;
+        d_gameState = p_gameState;
     }
 
     /**
@@ -163,7 +162,7 @@ public class GameEngine {
      * @param p_logType       Type of Log.
      */
     public void setD_gameEngineLog(String p_gameEngineLog, String p_logType) {
-        getD_gameState().updateLog(p_gameEngineLog, p_logType);
+        GameUtils.updateLog(p_gameEngineLog, p_logType);
         String l_consoleLogger = p_logType.toLowerCase().equals("phase")
                 ? "\n************ " + p_gameEngineLog + " ************\n"
                 : p_gameEngineLog;
@@ -172,7 +171,6 @@ public class GameEngine {
 
 
     /**
-
      * Initialize the game and provide options for map editing or gameplay.
      */
 

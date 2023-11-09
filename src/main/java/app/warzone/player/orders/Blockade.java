@@ -1,23 +1,27 @@
 package app.warzone.player.orders;
 
-import app.warzone.map.Map;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
+import app.warzone.game.GameUtils;
 
 import java.util.ArrayList;
 
 public class Blockade extends Order {
 
-    /** The player who is issuing the Blockade order. */
+    /**
+     * The player who is issuing the Blockade order.
+     */
     Player d_player;
 
-    /** The country on which the Blockade order is being applied. */
+    /**
+     * The country on which the Blockade order is being applied.
+     */
     Country d_country;
 
     /**
      * Constructs a new Blockade order.
      *
-     * @param p_player The player issuing the order.
+     * @param p_player  The player issuing the order.
      * @param p_country The country on which the order is applied.
      */
     public Blockade(Player p_player, Country p_country) {
@@ -64,12 +68,12 @@ public class Blockade extends Order {
         if (isValid()) {
             int l_previousArmy = d_country.getCurrentArmyCount();
             System.out.println("Before Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount());
-            d_player.d_gameUtil.updateLog("Before Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount(), "effect");
+            GameUtils.updateLog("Before Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount(), "effect");
             d_country.setD_currentArmyCount((l_previousArmy * 3));
             System.out.println(d_player.d_playerName + " applied Blockade Card successfully");
-            d_player.d_gameUtil.updateLog(d_player.d_playerName + " applied Blockade Card successfully", "effect");
+            GameUtils.updateLog(d_player.d_playerName + " applied Blockade Card successfully", "effect");
             System.out.println("After Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount());
-            d_player.d_gameUtil.updateLog("After Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount(), "effect");
+            GameUtils.updateLog("After Blockade Card number of army in " + d_country.getD_countryName() + " is : " + d_country.getCurrentArmyCount(), "effect");
             d_player.d_holdingCards.remove("blockade");
             d_player.d_holdingCountries.remove(d_country);
 
@@ -78,7 +82,7 @@ public class Blockade extends Order {
 
     public void printOrder() {
         System.out.println("Order Type : Blockade \nPlayer : " + d_player.d_playerName + "\n Country to block : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
-        d_player.d_gameUtil.updateLog("Blockade \nPlayer : " + d_player.d_playerName + "\n Country to block : " + d_country.getD_countryName() + " \nSuccessfully Executed\n", "order");
+        GameUtils.updateLog("Blockade \nPlayer : " + d_player.d_playerName + "\n Country to block : " + d_country.getD_countryName() + " \nSuccessfully Executed\n", "order");
     }
 
 }
