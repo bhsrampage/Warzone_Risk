@@ -73,8 +73,8 @@ public class Bomb extends Order {
      * Print details of the Bomb order.
      */
     public void printOrder() {
-        System.out.println("Order Type : Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n");
-        GameUtils.updateLog("Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName() + " \nSuccessfully Executed\n", "order");
+        System.out.println("Order Type : Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName());
+        GameUtils.updateLog("Bomb \nPlayer : " + d_player.d_playerName + " Target Country : " + d_country.getD_countryName(), "order");
     }
 
     /**
