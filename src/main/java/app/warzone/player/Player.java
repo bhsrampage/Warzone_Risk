@@ -39,7 +39,6 @@ public class Player {
         d_hasLost = false;
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
-
     }
 
     /**

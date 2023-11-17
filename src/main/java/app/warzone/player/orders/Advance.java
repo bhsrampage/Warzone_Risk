@@ -46,6 +46,10 @@ public class Advance extends Order {
             System.out.println("Either one of the countries doesn't exist.");
             return false;
         }
+        if(d_attackingPlayer.d_diplomacyPlayers.contains(d_targetCountry.getCountryHolder())){
+            System.out.println("The owner of the target country is in your diplomacy list.");
+            return false;
+        }
         if (!d_attackingPlayer.d_holdingCountries.contains(d_sourceCountry)) {
             System.out.println(d_attackingPlayer.d_playerName + " doesn't hold " + d_sourceCountry.getD_countryName());
             return false;
