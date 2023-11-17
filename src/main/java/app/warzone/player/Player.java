@@ -39,11 +39,6 @@ public class Player {
         d_hasLost = false;
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
-
-//        d_holdingCards.add("blockade");
-//        d_holdingCards.add("bomb");
-//        d_holdingCards.add("airlift");
-//        d_holdingCards.add("negotiate");
     }
 
     /**
