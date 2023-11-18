@@ -8,6 +8,7 @@ import app.warzone.map.writer.MapFileWriter;
 import app.warzone.map.writer.MapWriterAdapter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -196,6 +197,35 @@ public class MapUtils {
 
     }
 
+    public static String checkMapType(String p_fileName) {
+        String l_path = "src/main/resources/maps/";
+        String l_fileName = p_fileName + ".map";
+        File l_map = new File(l_path + l_fileName);
+
+        if (!l_map.exists()) {
+            return "Domination";
+        } else {
+            Scanner l_mapReader;
+            try {
+                l_mapReader = new Scanner(l_map);
+                while (l_mapReader.hasNextLine()) {
+                    String l_line = l_mapReader.nextLine();
+                    if (l_line.equals("[Continents]")) {
+                        l_line = l_mapReader.nextLine();
+                        if (l_line.contains("=")) {
+                            return "Conquest";
+                        } else {
+
+                            return "Domination";
+                        }
+                    }
+                }
+            } catch (FileNotFoundException e) {
+            }
+        }
+        return "Domination";
+    }
+
     /**
      * Sets focus of the Maputils object to either an existing .map file or a new
      * one.
@@ -205,11 +235,7 @@ public class MapUtils {
      */
     public void editMap(List<String> p_arguments) {
         try {
-            Scanner l_scan = new Scanner(System.in);
-            int l_choice;
-            System.out.println("Choose the map type \n1. Domination\n2. Conquest");
-            l_choice = l_scan.nextInt();
-            String l_mapType = l_choice == 1 ? "Domination" : "Conquest";
+            String l_mapType = checkMapType(p_arguments.get(0));
             System.out.println("Selected Map Type:- " + l_mapType);
             File l_myObj = new File("src/main/resources/maps/" + p_arguments.get(0) + ".map");
             if (!l_myObj.exists()) {

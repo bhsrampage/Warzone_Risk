@@ -72,11 +72,7 @@ public class GameUtils {
                 System.out.println("No such map is present");
                 return;
             }
-            Scanner l_scan = new Scanner(System.in);
-            int l_choice;
-            System.out.println("Choose the map type \n1. Domination\n2. Conquest");
-            l_choice = l_scan.nextInt();
-            String l_mapType = l_choice == 1 ? "Domination" : "Conquest";
+            String l_mapType = MapUtils.checkMapType(p_arguments.get(0));
             System.out.println("Selected Map Type:- " + l_mapType);
             // Parse the map file using MapFileParser
             MapFileParser l_fileParser;
