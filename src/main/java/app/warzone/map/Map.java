@@ -9,10 +9,16 @@ import java.util.List;
  * @author Burhanuddin
  */
 public class Map {
+
     /**
      * The name of the map.
      */
     String d_mapName;
+
+    /**
+     * The type of map.
+     */
+    String d_mapType;
 
     /**
      * The list of continents in the map.
@@ -28,6 +34,23 @@ public class Map {
         return d_countries;
     }
 
+    public String getD_mapName() {
+        return d_mapName;
+    }
+
+    /**
+     * Constructs a Map object with the given name.
+     *
+     * @param p_name The name of the map.
+     * @param p_mapType The type of mapfile used to build the map
+     */
+    public Map(String p_name, String p_mapType) {
+        d_mapName = p_name;
+        d_mapType = p_mapType;
+        d_continents = new ArrayList<>();
+        d_countries = new ArrayList<>();
+    }
+
     /**
      * Constructs a Map object with the given name.
      *
@@ -35,6 +58,7 @@ public class Map {
      */
     public Map(String p_name) {
         d_mapName = p_name;
+        d_mapType = "Domination";
         d_continents = new ArrayList<>();
         d_countries = new ArrayList<>();
     }
@@ -45,7 +69,7 @@ public class Map {
      * @param p_id The unique identifier of the country.
      * @return The country with the specified identifier, or null if not found.
      */
-    Country getCountryById(int p_id) {
+    public Country getCountryById(int p_id) {
         for (Country l_country : d_countries) {
             if (p_id == l_country.d_countryId) {
                 return l_country;
@@ -75,7 +99,7 @@ public class Map {
      * @param p_id The unique identifier of the continent.
      * @return The continent with the specified identifier, or null if not found.
      */
-    Continent getContinentById(int p_id) {
+    public Continent getContinentById(int p_id) {
         for (Continent l_continent : d_continents) {
             if (l_continent == null)
                 continue;

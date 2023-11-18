@@ -1,7 +1,8 @@
-package app.warzone.map;
+package app.warzone.map.parser;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import app.warzone.map.Map;
 
 import java.io.ByteArrayInputStream;
 import java.util.Scanner;
@@ -39,8 +40,8 @@ public class MapFileParserTest {
 
         Map l_parsedMap = d_mapFileParser.parseMapFile(l_scanner);
 
-        assertEquals("Test Map", l_parsedMap.d_mapName);
-        assertEquals(2, l_parsedMap.d_continents.size());
-        assertEquals(2, l_parsedMap.d_countries.size());
+        assertEquals("Test Map", l_parsedMap.getD_mapName());
+        assertEquals(2, l_parsedMap.getD_continents().size());
+        assertEquals(2, l_parsedMap.getD_countries().size());
     }
 }

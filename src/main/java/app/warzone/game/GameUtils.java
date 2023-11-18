@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 import app.warzone.game.log.LogEntryBuffer;
 import app.warzone.map.*;
+import app.warzone.map.parser.ConquestFileParser;
+import app.warzone.map.parser.MapFileAdapter;
+import app.warzone.map.parser.MapFileParser;
 import app.warzone.player.Player;
 
 /**
@@ -69,8 +72,17 @@ public class GameUtils {
                 System.out.println("No such map is present");
                 return;
             }
+            Scanner l_scan = new Scanner(System.in);
+            int l_choice;
+            System.out.println("Choose the map type \n1. Domination\n2. Conquest");
+            l_choice = l_scan.nextInt();
+            String l_mapType = l_choice == 1 ? "Domination" : "Conquest";
+            System.out.println("Selected Map Type:- " + l_mapType);
             // Parse the map file using MapFileParser
-            MapFileParser l_fileParser = new MapFileParser(p_arguments.get(0));
+            MapFileParser l_fileParser;
+            if(l_mapType.equals("Domination"))
+                l_fileParser= new MapFileParser(p_arguments.get(0));
+            else l_fileParser = new MapFileAdapter(new ConquestFileParser(p_arguments.get(0)));
             Scanner l_fileScanner = new Scanner(l_myObj);
             d_currTargetMap = l_fileParser.parseMapFile(l_fileScanner);
             boolean l_result = MapValidator.validateMap(d_currTargetMap);

@@ -16,7 +16,7 @@ public class MapTest {
 
     @BeforeEach
     void setUp() {
-        d_map = new Map("Test Map");
+        d_map = new Map("Test Map","Domination");
     }
 
     /**
