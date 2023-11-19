@@ -2,16 +2,63 @@ Welcome to Risk (Warzone) by U6 build1
 
 
 
-=======New phase: Preload=======
+=======End=======
 
 
-=======Map Editor=======
+=======New phase: End=======
 
 
-=======**Map Editor**=======
+ Order Issued: Diplomacy
+Issuing Player: Player1
+Target Player: Player2
 
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
 
-Command Entered: editmap canada
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
 
-=======New phase: PostLoad=======
+ Order Issued: 
+Moved 5 armies to Target Country from Source Country
 
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+ Order Issued: Bomb 
+Player : player_1 Target Country : Target1 Country
+Log: Target1 Country's army count before deploying the bomb : 6
+Log: player_1 applied Bomb Card successfully
+Log: Target1 Country's army count after deploying the bomb : 3
+
+ Order Issued: Airlift
+Player: TestPlayer
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 10
+Log: Before Airlift Card, the number of armies in Target Country is: 10
+Log: TestPlayer applied Airlift Card successfully
+Log: After Airlift Card, the number of armies in Target Country is: 20
+
+ Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 5
+
+ Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 0
