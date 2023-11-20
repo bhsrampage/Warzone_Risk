@@ -40,4 +40,8 @@ public class CheaterStrategy extends PlayerStrategy {
         }
         return null;
     }
+
+    public String getStrategyName() {
+        return "cheater";
+    }
 }

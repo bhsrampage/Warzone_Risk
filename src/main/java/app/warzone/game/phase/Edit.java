@@ -37,6 +37,16 @@ public abstract class Edit extends Phase {
         printInvalidCommandMessage();
     }
 
+    @Override
+    public void saveGame(List<String> p_arguments) {
+        printInvalidCommandMessage();
+    }
+
+    @Override
+    public void loadGame(List<String> p_arguments) {
+        printInvalidCommandMessage();
+    }
+
     public void endGame() {
         printInvalidCommandMessage();
     }

@@ -12,4 +12,8 @@ public class RandomStrategy extends PlayerStrategy{
     public Order createOrder() {
         return null;
     }
+
+    public String getStrategyName() {
+        return "random";
+    }
 }

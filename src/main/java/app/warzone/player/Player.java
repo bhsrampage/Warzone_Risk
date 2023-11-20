@@ -1,11 +1,13 @@
 package app.warzone.player;
 
+import app.warzone.game.GameEngine;
 import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.orders.*;
 import app.warzone.player.strategy.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -235,6 +237,10 @@ public class Player {
                         break;
                     }
                     d_givenOrders.add(new Airlift(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]), GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[2]), Integer.parseInt(l_cmdTokens[3])));
+                    break;
+                case "savegame":
+                    System.out.println("Saving game progress...");
+                    GameEngine.gamePhase.saveGame(Arrays.asList(l_cmdTokens));
                     break;
                 default:
                     System.out.println("Invalid Game Command");

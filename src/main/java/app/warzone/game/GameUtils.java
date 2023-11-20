@@ -26,7 +26,7 @@ public class GameUtils {
     /**
      * List of players currently playing the game
      */
-    public static List<Player> d_playerList;
+    public static List<Player> d_playerList = new ArrayList<>();
 
 
     public static LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
@@ -134,6 +134,7 @@ public class GameUtils {
             int l_count = 0;
             l_holdingCountries = new ArrayList<>(l_player.d_holdingCountries);
             for (Continent l_continent : d_currTargetMap.getD_continents()) {
+                if (l_continent == null) continue;
                 if (l_continent.getHolder() == l_player) {
                     l_count += l_continent.getArmyBonusCount();
                     for (Country l_country : l_continent.getMemberCountries()) {

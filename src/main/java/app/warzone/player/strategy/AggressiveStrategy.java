@@ -15,4 +15,9 @@ public class AggressiveStrategy extends PlayerStrategy{
     public Order createOrder() {
         return null;
     }
+
+    @Override
+    public String getStrategyName() {
+        return "aggressive";
+    }
 }

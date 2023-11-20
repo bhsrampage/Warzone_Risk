@@ -16,7 +16,7 @@ public class GameEngine {
     public MapUtils d_targetMapUtil;
 
     public GameUtils d_gameUtil;
-    Phase gamePhase;
+    public static Phase gamePhase;
 
     /**
      * Method that allows the GameEngine object to change its state.
@@ -110,6 +110,9 @@ public class GameEngine {
                 case "showmap":
                     gamePhase.showMap();
                     break;
+                case "loadgame":
+                    gamePhase.loadGame(arguments);
+                    break;
                 default:
                     System.out.println("Invalid Command try again..");
                     break;
@@ -178,7 +181,7 @@ public class GameEngine {
         SCAN = new Scanner(System.in);
         System.out.println("Welcome to Risk (Warzone) by U6 build1");
 
-        getD_gameState().updateLog("Welcome to Risk (Warzone) by U6 build1\n\n", "start");
+        GameUtils.updateLog("Welcome to Risk (Warzone) by U6 build1\n\n", "start");
 
         String l_choice;
         while (!(gamePhase instanceof End)) {
@@ -187,16 +190,16 @@ public class GameEngine {
             switch (l_choice) {
                 case "1":
                     setPhase(new Preload(this));
-                    getD_gameState().updateLog("Map Editor", "phase");
+                    GameUtils.updateLog("Map Editor", "phase");
                     listenMapCommands();
                     break;
                 case "2":
                     setPhase(new PlaySetup(this));
-                    getD_gameState().updateLog("Play Game", "phase");
+                    GameUtils.updateLog("Play Game", "phase");
                     listenStartupCommands();
                     break;
                 case "3":
-                    getD_gameState().updateLog("End", "phase");
+                    GameUtils.updateLog("End", "phase");
                     setPhase(new End(this));
                 default:
                     System.out.println("Invalid command Try again");

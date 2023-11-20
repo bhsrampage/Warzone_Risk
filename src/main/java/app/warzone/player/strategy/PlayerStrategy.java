@@ -11,4 +11,6 @@ public abstract class PlayerStrategy {
     }
 
     abstract public Order createOrder();
+
+    abstract public String getStrategyName();
 }

@@ -25,6 +25,8 @@ public abstract class MainPlay extends Play {
         printInvalidCommandMessage();
     }
 
+    public void loadGa() {printInvalidCommandMessage();}
+
     public void setPlayers(List<String> p_arguments) {
         printInvalidCommandMessage();
     }
