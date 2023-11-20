@@ -6,6 +6,7 @@ import app.warzone.player.Player;
 import app.warzone.player.orders.Order;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Concrete Class for executing the received orders for all players
@@ -17,6 +18,16 @@ public class ExecuteOrders extends MainPlay {
 
     @Override
     public void createOrders() {
+        printInvalidCommandMessage();
+    }
+
+    @Override
+    public void saveGame(List<String> p_arguments) {
+        printInvalidCommandMessage();
+    }
+
+    @Override
+    public void loadGame(List<String> p_arguments) {
         printInvalidCommandMessage();
     }
 

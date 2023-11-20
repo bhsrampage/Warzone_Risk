@@ -8,6 +8,9 @@ import java.util.Scanner;
 
 import app.warzone.game.log.LogEntryBuffer;
 import app.warzone.map.*;
+import app.warzone.map.parser.ConquestFileParser;
+import app.warzone.map.parser.MapFileAdapter;
+import app.warzone.map.parser.MapFileParser;
 import app.warzone.player.Player;
 
 /**
@@ -23,7 +26,7 @@ public class GameUtils {
     /**
      * List of players currently playing the game
      */
-    public static List<Player> d_playerList;
+    public static List<Player> d_playerList = new ArrayList<>();
 
 
     public static LogEntryBuffer d_logEntryBuffer = new LogEntryBuffer();
@@ -69,8 +72,13 @@ public class GameUtils {
                 System.out.println("No such map is present");
                 return;
             }
+            String l_mapType = MapUtils.checkMapType(p_arguments.get(0));
+            System.out.println("Selected Map Type:- " + l_mapType);
             // Parse the map file using MapFileParser
-            MapFileParser l_fileParser = new MapFileParser(p_arguments.get(0));
+            MapFileParser l_fileParser;
+            if(l_mapType.equals("Domination"))
+                l_fileParser= new MapFileParser(p_arguments.get(0));
+            else l_fileParser = new MapFileAdapter(new ConquestFileParser(p_arguments.get(0)));
             Scanner l_fileScanner = new Scanner(l_myObj);
             d_currTargetMap = l_fileParser.parseMapFile(l_fileScanner);
             boolean l_result = MapValidator.validateMap(d_currTargetMap);
@@ -126,6 +134,7 @@ public class GameUtils {
             int l_count = 0;
             l_holdingCountries = new ArrayList<>(l_player.d_holdingCountries);
             for (Continent l_continent : d_currTargetMap.getD_continents()) {
+                if (l_continent == null) continue;
                 if (l_continent.getHolder() == l_player) {
                     l_count += l_continent.getArmyBonusCount();
                     for (Country l_country : l_continent.getMemberCountries()) {

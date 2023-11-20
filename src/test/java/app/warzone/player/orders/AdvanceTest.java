@@ -69,7 +69,7 @@ public class AdvanceTest {
         player.addCountryToHolderList(sourceCountry, 10);
         targetCountry.setD_currentArmyCount(5);
         Player otherPlayer = new Player("Player 2");
-        targetCountry.assignHolderWithArmies(otherPlayer, 3);
+        targetCountry.assignHolderWithArmies(otherPlayer, 0);
 
         advanceOrder.execute();
 
@@ -82,7 +82,7 @@ public class AdvanceTest {
         player.addCountryToHolderList(sourceCountry, 10);
         targetCountry.setD_currentArmyCount(5);
         Player otherPlayer = new Player("Player 2");
-        targetCountry.assignHolderWithArmies(otherPlayer, 1);
+        targetCountry.assignHolderWithArmies(otherPlayer, 0);
         advanceOrder.execute();
         assertTrue(advanceOrder.d_isExecuted);
         assertEquals(continent.getHolder(), player);

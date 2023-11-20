@@ -66,6 +66,10 @@ public abstract class Phase {
 
     abstract public void executeOrders();
 
+    abstract public void saveGame(List<String> p_arguments);
+
+    abstract public void loadGame(List<String> p_arguments);
+
     // go to next phase
     abstract public void next();
 

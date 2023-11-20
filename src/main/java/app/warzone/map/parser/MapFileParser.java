@@ -1,4 +1,8 @@
-package app.warzone.map;
+package app.warzone.map.parser;
+
+import app.warzone.map.Continent;
+import app.warzone.map.Country;
+import app.warzone.map.Map;
 
 import java.util.Scanner;
 
@@ -20,7 +24,7 @@ public class MapFileParser {
      * @param name The name of the map.
      */
     public MapFileParser(String name) {
-        d_parsedMap = new Map(name);
+        d_parsedMap = new Map(name,"Domination");
     }
 
     /**
@@ -32,7 +36,10 @@ public class MapFileParser {
      * @param p_end   The end marker.
      * @return An array of extracted lines.
      */
-    String[] lineExtractor(StringBuilder p_file, String p_start, String p_end) {
+    public static String[] lineExtractor(StringBuilder p_file, String p_start, String p_end) {
+        return getStrings(p_file, p_start, p_end);
+    }
+    static String[] getStrings(StringBuilder p_file, String p_start, String p_end) {
         int l_sectionStart = p_file.indexOf(p_start);
         if (p_end != null) {
             int l_sectionEnd = p_file.indexOf(p_end);
@@ -111,14 +118,14 @@ public class MapFileParser {
      * @return The constructed map.
      */
     public Map parseMapFile(Scanner p_fileScan) {
-        StringBuilder file = new StringBuilder();
+        StringBuilder l_file = new StringBuilder();
         while (p_fileScan.hasNextLine()) {
-            file.append("\n");
-            file.append(p_fileScan.nextLine());
+            l_file.append("\n");
+            l_file.append(p_fileScan.nextLine());
         }
-        parseContinents(file);
-        parseCountries(file);
-        parseConnections(file);
+        parseContinents(l_file);
+        parseCountries(l_file);
+        parseConnections(l_file);
 
         return d_parsedMap;
     }
