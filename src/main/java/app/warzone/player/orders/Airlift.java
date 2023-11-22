@@ -1,5 +1,6 @@
 package app.warzone.player.orders;
 
+import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 
@@ -8,7 +9,6 @@ import app.warzone.player.Player;
  * countries to another country they own.
  */
 public class Airlift extends Order {
-
     Player d_player;
     int d_armyCount;
     Country d_sourceCountry;
@@ -68,6 +68,10 @@ public class Airlift extends Order {
                 "\nSource Country: " + d_sourceCountry.getD_countryName() +
                 "\nTarget Country: " + d_targetCountry.getD_countryName() +
                 "\nNumber Of Armies: " + d_armyCount);
+        GameUtils.updateLog("Airlift\nPlayer: " + d_player.d_playerName +
+                "\nSource Country: " + d_sourceCountry.getD_countryName() +
+                "\nTarget Country: " + d_targetCountry.getD_countryName() +
+                "\nNumber Of Armies: " + d_armyCount, "order");
     }
 
     /**
@@ -90,10 +94,13 @@ public class Airlift extends Order {
             d_targetCountry.setD_currentArmyCount(targetArmyCount);
 
             System.out.println("Before Airlift Card, the number of armies in " + d_targetCountry.getD_countryName() + " is: " + (targetArmyCount - d_armyCount));
+            GameUtils.updateLog("Before Airlift Card, the number of armies in " + d_targetCountry.getD_countryName() + " is: " + (targetArmyCount - d_armyCount), "effect");
 
             System.out.println(d_player.d_playerName + " applied Airlift Card successfully");
+            GameUtils.updateLog(d_player.d_playerName + " applied Airlift Card successfully", "effect");
 
             System.out.println("After Airlift Card, the number of armies in " + d_targetCountry.getD_countryName() + " is: " + targetArmyCount);
+            GameUtils.updateLog("After Airlift Card, the number of armies in " + d_targetCountry.getD_countryName() + " is: " + targetArmyCount, "effect");
 
             // Remove the Airlift card from the player's card list
             d_player.d_holdingCards.remove("airlift");

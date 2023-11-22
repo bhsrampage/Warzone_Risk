@@ -2,544 +2,63 @@ Welcome to Risk (Warzone) by U6 build1
 
 
 
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: Preload=======
-
-
-=======**Map Editor**=======
-
-
-Command Entered: exit
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
+=======End=======
 
 
 =======New phase: End=======
 
-Welcome to Risk (Warzone) by U6 build1
 
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: Preload=======
-
-
-=======**Map Editor**=======
-
-
-Command Entered: loadmap Tester
-
-Command Entered: editmap Tester
-
-=======New phase: PostLoad=======
-
-
-Command Entered: editcontinent -add C1 -add C2
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: Preload=======
-
-
-=======**Map Editor**=======
-
-
-Command Entered: editmap Tester
-
-=======New phase: PostLoad=======
-
-
-Command Entered: editcontinent -add C1 5 -add C2 6
-
-Command Entered: showmap
-
-Command Entered: editcountry -add Cont1 -add Cont 2 -add Cont3
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: Preload=======
-
-
-=======**Map Editor**=======
-
-
-Command Entered: editmap Tester
-
-=======New phase: PostLoad=======
-
-
-Command Entered: showmap
-
-Command Entered: editmap Teter
-
-Command Entered: editcontinent -add Con1 5 -add Con2 6
-
-Command Entered: editcountry -add C1 Con1 -add C2 Con1 -add C3 Con2
-
-Command Entered: editneighbor -add C1 C2 -add C2 C3
-
-Command Entered: showmap
-
-Command Entered: savemap
-
-=======New phase: Main Menu=======
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: Preload=======
-
-
-=======**Map Editor**=======
-
-
-Command Entered: editmap Test2
-
-=======New phase: PostLoad=======
-
-
-Command Entered: editcontinent -add Cont1 5 -add Cont2 3
-
-Command Entered: editcountry -add C1 Cont1 -add C2 Cont1 -add C3 Cont2
-
-Command Entered: shwomap
-
-Command Entered: showmap
-
-Command Entered: editneighbors -add C1 C2 -add C2 C3 
-
-Command Entered: editneighbor -add C1 C2 -add C2 C3 
-
-Command Entered: showmap
-
-Command Entered: savemap
-
-=======New phase: Main Menu=======
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: PlaySetup=======
-
-**Gameplay**
-
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: ExecuteOrders=======
-
-
-=======New phase: CreateOrders=======
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
-Welcome to Risk (Warzone) by U6 build1
-
-
-
-=======New phase: End=======
-
+ Order Issued: Diplomacy
+Issuing Player: Player1
+Target Player: Player2
+
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+
+ Order Issued: 
+Moved 5 armies to Target Country from Source Country
+
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+ Order Issued: Advance
+Player: Player 1
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 5
+Log: Player 1 has successfully advanced and captured Target Country
+
+ Order Issued: Bomb 
+Player : player_1 Target Country : Target1 Country
+Log: Target1 Country's army count before deploying the bomb : 6
+Log: player_1 applied Bomb Card successfully
+Log: Target1 Country's army count after deploying the bomb : 3
+
+ Order Issued: Airlift
+Player: TestPlayer
+Source Country: Source Country
+Target Country: Target Country
+Number Of Armies: 10
+Log: Before Airlift Card, the number of armies in Target Country is: 10
+Log: TestPlayer applied Airlift Card successfully
+Log: After Airlift Card, the number of armies in Target Country is: 20
+
+ Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 5
+
+ Order Issued: Deploy 
+Player : Player1 Target Country : Country 1 Number Of Armies : 0

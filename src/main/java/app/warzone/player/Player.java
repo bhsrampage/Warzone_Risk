@@ -1,12 +1,15 @@
 package app.warzone.player;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
+import app.warzone.game.GameEngine;
 import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.orders.*;
+import app.warzone.player.strategy.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 
 /**
@@ -24,6 +27,8 @@ public class Player {
 
     public List<String> d_holdingCards;
     public List<Player> d_diplomacyPlayers;
+    public boolean d_isHuman;
+    public PlayerStrategy d_strategy;
 
     /**
      * Constructor for the Player class.
@@ -39,8 +44,39 @@ public class Player {
         d_hasLost = false;
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
+        d_strategy = null;
+        d_isHuman = true;
+    }
 
+    public Player(String p_name, String p_strategy) {
+        d_playerName = p_name;
+        d_holdingCountries = new ArrayList<>();
+        d_currentArmyCount = 0;
+        d_givenOrders = new ArrayList<>();
+        d_hasCommittedOrders = false;
+        d_hasLost = false;
+        d_holdingCards = new ArrayList<String>();
+        d_diplomacyPlayers = new ArrayList<Player>();
+        d_strategy = null;
 
+        switch (p_strategy) {
+            case "aggressive":
+                d_strategy = new AggressiveStrategy(this);
+                break;
+            case "benevolent":
+                d_strategy = new BenevolentStrategy(this);
+                break;
+            case "random":
+                d_strategy = new RandomStrategy(this);
+                break;
+            case "cheater":
+                d_strategy = new CheaterStrategy(this);
+                break;
+            default:
+                d_isHuman = true;
+                break;
+
+        }
     }
 
     /**
@@ -76,14 +112,19 @@ public class Player {
      */
     public void printPlayerStatus() {
         System.out.printf("\nPlayer Name:- %s\nArmies Left:- %d\n", d_playerName, d_currentArmyCount);
-
+        GameUtils.updateLog("\nPlayer Name:- " + d_playerName + "\nArmies Left:- " + d_currentArmyCount + "\n", "effect");
         System.out.println("Owned_Cards:- " + (d_holdingCards.isEmpty() ? "none" : " "));
+        GameUtils.updateLog("Owned_Cards:- " + (d_holdingCards.isEmpty() ? "none" : " ") + "\n", "start");
         for (String card : d_holdingCards) {
             System.out.print(card + "\t");
+            GameUtils.updateLog(card + "\t", "start");
         }
+
+        GameUtils.updateLog("\n", "start");
         System.out.print("\nHolding Countries:-\n");
         for (Country l_country : d_holdingCountries) {
             System.out.printf("%s\t Army Count:- %d\n", l_country.getD_countryName(), l_country.getCurrentArmyCount());
+            GameUtils.updateLog(l_country.getD_countryName() + "\t Army Count:- " + l_country.getCurrentArmyCount() + "\n", "effect");
         }
     }
 
@@ -123,77 +164,92 @@ public class Player {
      */
     public void issue_order() {
         System.out.printf("\n PLAYING:-  %s\n", d_playerName);
+        GameUtils.updateLog("\n PLAYING:-  " + d_playerName + "\n", "effect");
         System.out.println("Note: Your current status is:");
         printPlayerStatus();
-        System.out.printf("\nEnter your command %s\n", d_playerName);
-        Scanner l_scanner = new Scanner(System.in);
-        String l_userCommand = l_scanner.nextLine();
+        if (d_isHuman) {
+            System.out.printf("\nEnter your command %s\n", d_playerName);
+            Scanner l_scanner = new Scanner(System.in);
+            String l_userCommand = l_scanner.nextLine();
+            GameUtils.updateLog(l_userCommand, "command");
 
-        String[] l_cmdTokens = l_userCommand.split(" ");
-        switch (l_cmdTokens[0]) {
-            case "deploy":
-                System.out.println("Deploy order Received!!");
-                if (l_cmdTokens.length < 3) {
-                    System.out.println("Invalid Arguments");
-                }
-                int l_armyToDeploy = Integer.parseInt(l_cmdTokens[2]);
-                Country l_deployingToCountry = getHoldingCountryByName(l_cmdTokens[1]);
-                d_givenOrders.add(new Deploy(this, l_armyToDeploy, l_deployingToCountry));
-                break;
-            case "advance":
-                System.out.println("Advance order Received!!");
-                if (l_cmdTokens.length < 4) {
-                    System.out.println("Invalid Arguments");
+            String[] l_cmdTokens = l_userCommand.split(" ");
+            switch (l_cmdTokens[0]) {
+                case "deploy":
+                    System.out.println("Deploy order Received!!");
+                    GameUtils.updateLog("Deploy order Received!!", "order");
+                    if (l_cmdTokens.length < 3) {
+                        System.out.println("Invalid Arguments");
+                    }
+                    int l_armyToDeploy = Integer.parseInt(l_cmdTokens[2]);
+                    Country l_deployingToCountry = getHoldingCountryByName(l_cmdTokens[1]);
+                    d_givenOrders.add(new Deploy(this, l_armyToDeploy, l_deployingToCountry));
                     break;
-                }
-                d_givenOrders.add(new Advance(this,
-                                GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]),
-                                GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[2]),
-                                Integer.parseInt(l_cmdTokens[3])
-                        )
-                );
-                break;
+                case "advance":
+                    System.out.println("Advance order Received!!");
+                    GameUtils.updateLog("Advance order Received!!", "order");
+                    if (l_cmdTokens.length < 4) {
+                        System.out.println("Invalid Arguments");
+                        break;
+                    }
+                    d_givenOrders.add(new Advance(this,
+                                    GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]),
+                                    GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[2]),
+                                    Integer.parseInt(l_cmdTokens[3])
+                            )
+                    );
+                    break;
 
-            case "bomb":
-                System.out.println("Bomb Order");
-                if (l_cmdTokens.length < 2) {
-                    System.out.println("Invalid Arguments");
+                case "bomb":
+                    System.out.println("Bomb Order");
+                    GameUtils.updateLog("Bomb order Received!!", "order");
+                    if (l_cmdTokens.length < 2) {
+                        System.out.println("Invalid Arguments");
+                        break;
+                    }
+                    d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                     break;
-                }
-                d_givenOrders.add(new Bomb(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
-                break;
-            case "blockade":
-                System.out.println("Blockade Order");
-                if (l_cmdTokens.length < 2) {
-                    System.out.println("Invalid Arguments");
+                case "blockade":
+                    System.out.println("Blockade Order");
+                    if (l_cmdTokens.length < 2) {
+                        System.out.println("Invalid Arguments");
+                        break;
+                    }
+                    d_givenOrders.add(new Blockade(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
                     break;
-                }
-                d_givenOrders.add(new Blockade(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1])));
-                break;
-            case "commit":
-                System.out.println("Committing orders for " + d_playerName);
-                d_hasCommittedOrders = true;
-                break;
-            case "negotiate":
-                System.out.println("Negotiate Order");
-                if (l_cmdTokens.length < 2) {
-                    System.out.println("Invalid Arguments");
+                case "commit":
+                    System.out.println("Committing orders for " + d_playerName);
+                    GameUtils.updateLog("Committing orders for " + d_playerName, "order");
+                    d_hasCommittedOrders = true;
                     break;
-                }
-                d_givenOrders.add(new Diplomacy(this, GameUtils.getPlayerByName(l_cmdTokens[1])));
-                break;
-            case "airlift":
-                System.out.println("Airlift Order");
-                if (l_cmdTokens.length < 4) {
-                    System.out.println("Invalid Arguments");
+                case "negotiate":
+                    System.out.println("Negotiate Order");
+                    if (l_cmdTokens.length < 2) {
+                        System.out.println("Invalid Arguments");
+                        break;
+                    }
+                    d_givenOrders.add(new Diplomacy(this, GameUtils.getPlayerByName(l_cmdTokens[1])));
                     break;
-                }
-                d_givenOrders.add(new Airlift(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]), GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[2]), Integer.parseInt(l_cmdTokens[3])));
-                break;
-            default:
-                System.out.println("Invalid Game Command");
-                break;
+                case "airlift":
+                    System.out.println("Airlift Order");
+                    if (l_cmdTokens.length < 4) {
+                        System.out.println("Invalid Arguments");
+                        break;
+                    }
+                    d_givenOrders.add(new Airlift(this, GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[1]), GameUtils.d_currTargetMap.getCountryByName(l_cmdTokens[2]), Integer.parseInt(l_cmdTokens[3])));
+                    break;
+                case "savegame":
+                    System.out.println("Saving game progress...");
+                    GameEngine.gamePhase.saveGame(Arrays.asList(l_cmdTokens));
+                    break;
+                default:
+                    System.out.println("Invalid Game Command");
+                    break;
+            }
+        } else {
+            d_givenOrders.add(d_strategy.createOrder());
         }
+
     }
 
     /**
