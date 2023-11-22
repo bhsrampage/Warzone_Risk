@@ -107,6 +107,9 @@ public class GameEngine {
                 case "assigncountries":
                     gamePhase.assignCountries();
                     break;
+                case "tournament":
+                    Tournament.begin(arguments);
+                    break;
                 case "showmap":
                     gamePhase.showMap();
                     break;
