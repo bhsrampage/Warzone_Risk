@@ -1,0 +1,25 @@
+[continents]
+Atlantic_Provinces 3
+Ontario_and_Quebec 4
+[countries]
+1 New_Brunswick 1
+2 Prince_Edward_Island 1
+3 Nova_Scotia 1
+4 N&L-Newfoundland 1
+5 N&L-Labrador 1
+6 Quebec-North 2
+7 Quebec-Central 2
+8 Quebec-South 2
+9 Ontario-South 2
+10 Ontario-West 2
+[borders]
+1 8 2 3
+2 1 3
+3 1 2 4
+4 3 5 7
+5 4 7 6
+6 5 7
+7 4 5 6 8
+8 1 7 9
+9 8 10
+10 9
