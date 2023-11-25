@@ -40,7 +40,7 @@ Player: Player 1
 Source Country: Source Country
 Target Country: Target Country
 Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
+Log: Player 1 has lost the battle for Target Country
 
  Order Issued: Bomb 
 Player : player_1 Target Country : Target1 Country
