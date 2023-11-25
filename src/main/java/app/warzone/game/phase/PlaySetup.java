@@ -84,6 +84,6 @@ public class PlaySetup extends Play {
      */
     public void next() {
         System.out.println("Now play");
-        ge.setPhase(new CreateOrders(ge));
+        GameEngine.setPhase(new CreateOrders(ge));
     }
 }

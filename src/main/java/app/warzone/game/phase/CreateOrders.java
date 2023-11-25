@@ -24,7 +24,7 @@ public class CreateOrders extends MainPlay {
         List<Player> l_currPlayingPlayers = new ArrayList<>(GameUtils.d_playerList);
         l_currPlayingPlayers.removeIf(p -> p.d_hasLost); //Removing lost players from currently playing player list
         if (l_currPlayingPlayers.size() == 1) {
-            ge.setPhase(new End(ge));
+            GameEngine.setPhase(new End(ge));
             System.out.println("This game has concluded\n WINNER:" + l_currPlayingPlayers.get(0).d_playerName);
             GameUtils.updateLog("This game has concluded\n WINNER:" + l_currPlayingPlayers.get(0).d_playerName + "\n", "end");
             return;
@@ -44,6 +44,7 @@ public class CreateOrders extends MainPlay {
                 l_currPlayingPlayers.remove(l_targetPlayer);
             } else {
                 showMap();
+                System.out.println("Issueing " + l_currPlayingPlayers.size() + l_targetPlayer.d_playerName);
                 l_targetPlayer.issue_order();
                 l_i++;
             }
@@ -62,7 +63,7 @@ public class CreateOrders extends MainPlay {
     public void saveGame(List<String> p_arguments) {
         new SaveGame(GameUtils.d_playerList, GameUtils.d_currTargetMap).gameSave(p_arguments.get(1));
         System.out.printf("\n Saved this game to %s.game",p_arguments.get(1));
-        ge.setPhase(new End(ge));
+        GameEngine.setPhase(new End(ge));
     }
 
     @Override
@@ -76,6 +77,6 @@ public class CreateOrders extends MainPlay {
      */
     @Override
     public void next() {
-        ge.setPhase(new ExecuteOrders(ge));
+        GameEngine.setPhase(new ExecuteOrders(ge));
     }
 }
