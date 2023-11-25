@@ -36,6 +36,8 @@ class LoadGameTest {
     @Test
     void testParsePlayers() {
         StringBuilder fileText = new StringBuilder("[players]\nplayer1,human,100,card1,card2\nplayer2,aggressive,50,card3,card4,card5[continents]");
+        GameUtils.d_playerList.clear();
+        GameUtils.d_currTargetMap = null;
         loadGame.parsePlayers(fileText);
 
         assertEquals(2, GameUtils.d_playerList.size());

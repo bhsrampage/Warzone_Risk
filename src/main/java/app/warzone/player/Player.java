@@ -6,10 +6,7 @@ import app.warzone.map.Country;
 import app.warzone.player.orders.*;
 import app.warzone.player.strategy.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -46,6 +43,7 @@ public class Player {
         d_diplomacyPlayers = new ArrayList<Player>();
         d_strategy = null;
         d_isHuman = true;
+        System.out.println(p_name + " made human");
     }
 
     public Player(String p_name, String p_strategy) {
@@ -58,7 +56,7 @@ public class Player {
         d_holdingCards = new ArrayList<String>();
         d_diplomacyPlayers = new ArrayList<Player>();
         d_strategy = null;
-
+        d_isHuman = false;
         switch (p_strategy) {
             case "aggressive":
                 d_strategy = new AggressiveStrategy(this);
@@ -77,6 +75,7 @@ public class Player {
                 break;
 
         }
+        System.out.println(p_name + " made " + p_strategy);
     }
 
     /**
@@ -163,6 +162,11 @@ public class Player {
      * Issue a deployment order based on user input.
      */
     public void issue_order() {
+        if (d_holdingCountries.isEmpty()) {
+            d_hasLost = true;
+            d_hasCommittedOrders = true;
+            return;
+        }
         System.out.printf("\n PLAYING:-  %s\n", d_playerName);
         GameUtils.updateLog("\n PLAYING:-  " + d_playerName + "\n", "effect");
         System.out.println("Note: Your current status is:");
@@ -248,6 +252,9 @@ public class Player {
             }
         } else {
             d_givenOrders.add(d_strategy.createOrder());
+            Random random = new Random();
+            d_hasCommittedOrders = random.nextBoolean();
+
         }
 
     }

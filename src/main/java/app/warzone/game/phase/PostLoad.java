@@ -80,7 +80,7 @@ public class PostLoad extends Edit {
      */
     public void saveMap() {
         ge.d_targetMapUtil.saveMap();
-        ge.setPhase(null);
+        GameEngine.setPhase(null);
     }
 
     /**
