@@ -23,7 +23,7 @@ public class GameEngine {
      *
      * @param p_phase new state to be set for the GameEngine object.
      */
-    public void setPhase(Phase p_phase) {
+    public static void setPhase(Phase p_phase) {
         gamePhase = p_phase;
         System.out.println("New phase: " + (p_phase == null ? "Main Menu" : p_phase.getClass().getSimpleName()));
 

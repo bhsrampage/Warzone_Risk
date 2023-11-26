@@ -1,17 +1,15 @@
 package app.warzone.game;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
-
 import app.warzone.game.log.LogEntryBuffer;
 import app.warzone.map.*;
+import app.warzone.map.Map;
 import app.warzone.map.parser.ConquestFileParser;
 import app.warzone.map.parser.MapFileAdapter;
 import app.warzone.map.parser.MapFileParser;
 import app.warzone.player.Player;
+
+import java.io.File;
+import java.util.*;
 
 /**
  * Utility class for managing various game-related actions and operations.
@@ -76,8 +74,8 @@ public class GameUtils {
             System.out.println("Selected Map Type:- " + l_mapType);
             // Parse the map file using MapFileParser
             MapFileParser l_fileParser;
-            if(l_mapType.equals("Domination"))
-                l_fileParser= new MapFileParser(p_arguments.get(0));
+            if (l_mapType.equals("Domination"))
+                l_fileParser = new MapFileParser(p_arguments.get(0));
             else l_fileParser = new MapFileAdapter(new ConquestFileParser(p_arguments.get(0)));
             Scanner l_fileScanner = new Scanner(l_myObj);
             d_currTargetMap = l_fileParser.parseMapFile(l_fileScanner);
@@ -176,7 +174,10 @@ public class GameUtils {
             l_i = l_modifiable.indexOf("-add");
             if (l_i == -1)
                 break;
-            d_playerList.add(new Player(l_modifiable.get(l_i + 1)));
+            if ((l_i + 2) < l_modifiable.size() && !Objects.equals(l_modifiable.get(l_i + 2), "-add"))
+                d_playerList.add(new Player(l_modifiable.get(l_i + 1), l_modifiable.get(l_i + 2)));
+            else
+                d_playerList.add(new Player(l_modifiable.get(l_i + 1)));
             l_modifiable.remove(l_i);
         }
 

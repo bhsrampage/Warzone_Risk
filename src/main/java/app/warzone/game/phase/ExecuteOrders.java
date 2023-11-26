@@ -54,7 +54,7 @@ public class ExecuteOrders extends MainPlay {
                 l_i++;
             }
         }
-        ge.setPhase(new CreateOrders(ge));
+        GameEngine.setPhase(new CreateOrders(ge));
     }
 
     /**

@@ -1,8 +1,13 @@
 package app.warzone.player.strategy;
 
+import app.warzone.game.GameEngine;
+import app.warzone.game.GameUtils;
+import app.warzone.game.phase.End;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 import app.warzone.player.orders.Order;
+
+import java.util.ArrayList;
 
 public class CheaterStrategy extends PlayerStrategy {
     public CheaterStrategy(Player p_player) {
@@ -19,9 +24,9 @@ public class CheaterStrategy extends PlayerStrategy {
 
     @Override
     public Order createOrder() {
-
+        ArrayList<Country> l_tempHolding = new ArrayList<>(d_targetPlayer.d_holdingCountries);
         //Acquire all neighbouring countries
-        for (Country l_c : d_targetPlayer.d_holdingCountries){
+        for (Country l_c : l_tempHolding){
             for (Country l_l_c : l_c.getNeighbouringCountries()){
                 if (l_l_c.getCountryHolder().equals(d_targetPlayer)) continue;
                 l_l_c.getCountryHolder().d_holdingCountries.remove(l_l_c);
