@@ -39,7 +39,7 @@ public class BenevolentStrategy extends PlayerStrategy{
     /**
      * Deploy armies on the weakest country owned by the player.
      */
-    private Order deployOnWeakestCountry() {
+    Order deployOnWeakestCountry() {
         Country weakestCountry = getWeakestCountry();
         if (weakestCountry != null) {
             int d_deployArmyCount = new Random().nextInt(d_targetPlayer.d_currentArmyCount) + 1;
@@ -53,7 +53,7 @@ public class BenevolentStrategy extends PlayerStrategy{
      *
      * @return The airlift order.
      */
-    private Order airliftToWeakestCountry() {
+    Order airliftToWeakestCountry() {
         Country l_weakestCountry = getWeakestCountry();
         if (l_weakestCountry != null) {
             Country l_strongNeighbor = getStrongNeighbor(l_weakestCountry);
@@ -68,7 +68,7 @@ public class BenevolentStrategy extends PlayerStrategy{
     /**
      * Advance armies to reinforce the weakest country.
      */
-    private Order advanceToWeakestCountry() {
+    Order advanceToWeakestCountry() {
         Country l_weakestCountry = getWeakestCountry();
         if (l_weakestCountry != null) {
             Country l_strongNeighbor = getStrongNeighbor(l_weakestCountry);
@@ -85,7 +85,7 @@ public class BenevolentStrategy extends PlayerStrategy{
      *
      * @return Weakest country or null if no countries owned
      */
-    private Country getWeakestCountry() {
+    Country getWeakestCountry() {
         List<Country> playerCountries = new ArrayList<>(d_targetPlayer.d_holdingCountries);
         if (!playerCountries.isEmpty()) {
             // Sort countries based on the number of armies in ascending order
@@ -101,7 +101,7 @@ public class BenevolentStrategy extends PlayerStrategy{
      * @param p_country The country to find a strong neighbor for
      * @return Strong neighbor or null if no strong neighbors
      */
-    private Country getStrongNeighbor(Country p_country) {
+    Country getStrongNeighbor(Country p_country) {
         for (Country l_neighbor : p_country.getNeighbouringCountries()) {
             if (!l_neighbor.equals(p_country) && l_neighbor.getCurrentArmyCount() > 1) {
                 return l_neighbor;
