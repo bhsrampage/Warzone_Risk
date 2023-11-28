@@ -18,110 +18,42 @@ Log:
 
 Log: 
 Player Name:- A
-Armies Left:- 5
+Armies Left:- 3
 
 Owned_Cards:- none
 
 
 
-Log: Saskatchewan-North	 Army Count:- 0
+Log: Quebec-North	 Army Count:- 0
 
-Log: NU-Northern_Islands	 Army Count:- 0
+Log: N&L-Labrador	 Army Count:- 0
 
-Log: NU-Ellesmere_Island	 Army Count:- 0
+Log: Nova_Scotia	 Army Count:- 0
 
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
+Log: Prince_Edward_Island	 Army Count:- 0
 
 Log: Quebec-South	 Army Count:- 0
-
-Log: New_Brunswick	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: Burhan	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Ontario-West	 Army Count:- 0
-
-Log: Ontario-South	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
 
 Log: 
  PLAYING:-  B
 
 Log: 
 Player Name:- B
-Armies Left:- 5
+Armies Left:- 3
 
 Owned_Cards:- none
 
 
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
 
 Log: Quebec-Central	 Army Count:- 0
 
-Log: NT-Victoria_Island-West	 Army Count:- 0
+Log: Ontario-West	 Army Count:- 0
 
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
+Log: New_Brunswick	 Army Count:- 0
 
 Log: N&L-Newfoundland	 Army Count:- 0
 
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: 
- PLAYING:-  A
-
-Log: 
-Player Name:- A
-Armies Left:- 0
-
-Owned_Cards:- none
-
-
-
-Log: Burhan	 Army Count:- 0
-
-Log: 
- PLAYING:-  A
-
-Log: 
-Player Name:- A
-Armies Left:- 0
-
-Owned_Cards:- none
-
-
-
-Log: Burhan	 Army Count:- 0
+Log: Ontario-South	 Army Count:- 0
 
 Log: All orders received !! Now executing
 
@@ -129,7 +61,7 @@ Log: All orders received !! Now executing
 
 
  Order Issued: Deploy 
-Player : A Target Country : Saskatchewan-North Number Of Armies : 5
+Player : B Target Country : Quebec-Central Number Of Armies : 1
 
 =======New phase: CreateOrders=======
 
@@ -138,534 +70,166 @@ Log:
 
 Log: 
 Player Name:- A
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 0
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 5
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 0
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 1
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 0
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 2
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 0
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 0
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 0
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+ Order Issued: Deploy 
+Player : A Target Country : Prince_Edward_Island Number Of Armies : 5
+
+ Order Issued: Deploy 
+Player : B Target Country : Ontario-West Number Of Armies : 3
+
+ Order Issued: Deploy 
+Player : A Target Country : Quebec-North Number Of Armies : 0
+
+ Order Issued: Deploy 
+Player : B Target Country : Ontario-West Number Of Armies : 2
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 4
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
 Armies Left:- 3
 
 Owned_Cards:- none
 
 
 
-Log: Burhan	 Army Count:- 0
+Log: Quebec-Central	 Army Count:- 1
 
-Log: 
- PLAYING:-  B
-
-Log: 
-Player Name:- B
-Armies Left:- 22
-
-Owned_Cards:- none
-
-
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
-
-Log: Quebec-Central	 Army Count:- 0
-
-Log: NT-Victoria_Island-West	 Army Count:- 0
-
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
-
-Log: N&L-Newfoundland	 Army Count:- 0
-
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
-
-Log: NU-Ellesmere_Island	 Army Count:- 0
-
-Log: NU-Northern_Islands	 Army Count:- 0
+Log: Ontario-West	 Army Count:- 5
 
 Log: New_Brunswick	 Army Count:- 0
 
-Log: Quebec-South	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Ontario-West	 Army Count:- 0
-
-Log: Ontario-South	 Army Count:- 0
-
-Log: 
- PLAYING:-  B
-
-Log: 
-Player Name:- B
-Armies Left:- 22
-
-Owned_Cards:- none
-
-
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
-
-Log: Quebec-Central	 Army Count:- 0
-
-Log: NT-Victoria_Island-West	 Army Count:- 0
-
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
-
 Log: N&L-Newfoundland	 Army Count:- 0
 
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
-
-Log: NU-Ellesmere_Island	 Army Count:- 0
-
-Log: NU-Northern_Islands	 Army Count:- 0
-
-Log: New_Brunswick	 Army Count:- 0
-
-Log: Quebec-South	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Ontario-West	 Army Count:- 0
-
 Log: Ontario-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Burhan	 Army Count:- 0
-
-Log: 
- PLAYING:-  B
-
-Log: 
-Player Name:- B
-Armies Left:- 22
-
-Owned_Cards:- none
-
-
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
-
-Log: Quebec-Central	 Army Count:- 0
-
-Log: NT-Victoria_Island-West	 Army Count:- 0
-
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
-
-Log: N&L-Newfoundland	 Army Count:- 0
-
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
-
-Log: NU-Ellesmere_Island	 Army Count:- 0
-
-Log: NU-Northern_Islands	 Army Count:- 0
-
-Log: New_Brunswick	 Army Count:- 0
-
-Log: Quebec-South	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Ontario-West	 Army Count:- 0
-
-Log: Ontario-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Burhan	 Army Count:- 0
-
-Log: 
- PLAYING:-  B
-
-Log: 
-Player Name:- B
-Armies Left:- 22
-
-Owned_Cards:- none
-
-
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
-
-Log: Quebec-Central	 Army Count:- 0
-
-Log: NT-Victoria_Island-West	 Army Count:- 0
-
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
-
-Log: N&L-Newfoundland	 Army Count:- 0
-
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
-
-Log: NU-Ellesmere_Island	 Army Count:- 0
-
-Log: NU-Northern_Islands	 Army Count:- 0
-
-Log: New_Brunswick	 Army Count:- 0
-
-Log: Quebec-South	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Ontario-West	 Army Count:- 0
-
-Log: Ontario-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Burhan	 Army Count:- 0
-
-Log: 
- PLAYING:-  B
-
-Log: 
-Player Name:- B
-Armies Left:- 22
-
-Owned_Cards:- none
-
-
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
-
-Log: Quebec-Central	 Army Count:- 0
-
-Log: NT-Victoria_Island-West	 Army Count:- 0
-
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
-
-Log: N&L-Newfoundland	 Army Count:- 0
-
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
-
-Log: NU-Ellesmere_Island	 Army Count:- 0
-
-Log: NU-Northern_Islands	 Army Count:- 0
-
-Log: New_Brunswick	 Army Count:- 0
-
-Log: Quebec-South	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Ontario-West	 Army Count:- 0
-
-Log: Ontario-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Burhan	 Army Count:- 0
-
-Log: 
- PLAYING:-  B
-
-Log: 
-Player Name:- B
-Armies Left:- 22
-
-Owned_Cards:- none
-
-
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
-
-Log: Quebec-Central	 Army Count:- 0
-
-Log: NT-Victoria_Island-West	 Army Count:- 0
-
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
-
-Log: N&L-Newfoundland	 Army Count:- 0
-
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
-
-Log: NU-Ellesmere_Island	 Army Count:- 0
-
-Log: NU-Northern_Islands	 Army Count:- 0
-
-Log: New_Brunswick	 Army Count:- 0
-
-Log: Quebec-South	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Ontario-West	 Army Count:- 0
-
-Log: Ontario-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Burhan	 Army Count:- 0
-
-Log: 
- PLAYING:-  B
-
-Log: 
-Player Name:- B
-Armies Left:- 22
-
-Owned_Cards:- none
-
-
-
-Log: NU-Baffin_Island	 Army Count:- 0
-
-Log: Prince_Edward_Island	 Army Count:- 0
-
-Log: Quebec-Central	 Army Count:- 0
-
-Log: NT-Victoria_Island-West	 Army Count:- 0
-
-Log: Alberta-South	 Army Count:- 0
-
-Log: N&L-Labrador	 Army Count:- 0
-
-Log: BC-Vancouver_Island	 Army Count:- 0
-
-Log: Yukon_Territory	 Army Count:- 0
-
-Log: Manitoba-North	 Army Count:- 0
-
-Log: N&L-Newfoundland	 Army Count:- 0
-
-Log: Manitoba-South	 Army Count:- 0
-
-Log: Quebec-North	 Army Count:- 0
-
-Log: Ontario-North	 Army Count:- 0
-
-Log: Nova_Scotia	 Army Count:- 0
-
-Log: Saskatchewan-South	 Army Count:- 0
-
-Log: Nunavut-Continental	 Army Count:- 0
-
-Log: NU-Southern_Islands	 Army Count:- 0
-
-Log: NU-Ellesmere_Island	 Army Count:- 0
-
-Log: NU-Northern_Islands	 Army Count:- 0
-
-Log: New_Brunswick	 Army Count:- 0
-
-Log: Quebec-South	 Army Count:- 0
-
-Log: NU-Victoria_Island-East	 Army Count:- 0
-
-Log: NT-Northern_Islands	 Army Count:- 0
-
-Log: NT-Banks_Island	 Army Count:- 0
-
-Log: Northwest_Territories-Continental	 Army Count:- 0
-
-Log: Alberta-North	 Army Count:- 0
-
-Log: British_Columbia-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Ontario-West	 Army Count:- 0
-
-Log: Ontario-South	 Army Count:- 0
-
-Log: Saskatchewan-North	 Army Count:- 5
-
-Log: Burhan	 Army Count:- 0
 
 Log: All orders received !! Now executing
 
@@ -674,10 +238,521 @@ Log: All orders received !! Now executing
 
 =======New phase: CreateOrders=======
 
+Log: 
+ PLAYING:-  A
 
-=======New phase: End=======
+Log: 
+Player Name:- A
+Armies Left:- 7
 
-This game has concluded
- WINNER:B
+Owned_Cards:- none
 
-Log: Invalid command in state End
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 10
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 9
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+ Order Issued: Advance
+Player: B
+Source Country: Prince_Edward_Island
+Target Country: New_Brunswick
+Number Of Armies: 4
+
+ Order Issued: Advance
+Player: B
+Source Country: Prince_Edward_Island
+Target Country: New_Brunswick
+Number Of Armies: 5
+
+ Order Issued: Advance
+Player: B
+Source Country: Prince_Edward_Island
+Target Country: New_Brunswick
+Number Of Armies: 4
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 13
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 12
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 13
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 16
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 15
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+ Order Issued: Deploy 
+Player : B Target Country : New_Brunswick Number Of Armies : 12
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 22
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 9
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 9
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 0
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 0
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
