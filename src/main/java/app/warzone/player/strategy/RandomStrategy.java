@@ -20,8 +20,11 @@ public class RandomStrategy extends PlayerStrategy{
     protected Country anyCountry() {
         Random l_rand = new Random();
         Country attackCountry;
-        int l_rndOwnCountry;
-        l_rndOwnCountry = l_rand.nextInt(d_targetPlayer.d_holdingCountries.size() - 1);
+        int l_rndOwnCountry = 0;
+        if (d_targetPlayer.d_holdingCountries.size()>1){
+            l_rndOwnCountry = l_rand.nextInt(d_targetPlayer.d_holdingCountries.size() - 1);
+        }
+
         attackCountry = d_targetPlayer.d_holdingCountries.get(l_rndOwnCountry);
         if(attackCountry.getNeighbouringCountries().get(0)!=null){
             attackCountry = attackCountry.getNeighbouringCountries().get(0);
@@ -55,7 +58,6 @@ public class RandomStrategy extends PlayerStrategy{
         Random l_rand = new Random();
         int l_rndOrder = l_rand.nextInt(5);
         int l_numOfArmies;
-            System.out.println(l_rndOrder);
             d_isExecuted = true;
             switch (l_rndOrder) {
                 case (0):
