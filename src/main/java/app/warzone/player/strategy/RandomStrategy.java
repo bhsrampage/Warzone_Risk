@@ -76,7 +76,7 @@ public class RandomStrategy extends PlayerStrategy{
                         return new Airlift(d_targetPlayer, ownCountry(), ownCountry(), l_numOfArmies);
                     }
                     else{
-                        System.out.println("Player does not hold Bomb card");
+                        System.out.println("Player does not hold Airlift card");
                     }
                     break;
                 case (3):
@@ -86,7 +86,7 @@ public class RandomStrategy extends PlayerStrategy{
                         return new Blockade(d_targetPlayer, ownCountry());
                     }
                     else{
-                        System.out.println("Player does not hold Bomb card");
+                        System.out.println("Player does not hold Blockade card");
                     }
                     break;
                 case (4):
