@@ -2,263 +2,757 @@ Welcome to Risk (Warzone) by U6 build1
 
 
 
-=======End=======
+=======New phase: PlaySetup=======
 
 
-=======New phase: End=======
+=======Play Game=======
+
+**Gameplay**
 
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 3
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 0
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 3
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 0
+
+Log: Ontario-West	 Army Count:- 0
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+ Order Issued: Deploy 
+Player : B Target Country : Quebec-Central Number Of Armies : 1
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 0
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 5
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 0
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 1
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 0
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 2
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 0
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 0
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 0
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+ Order Issued: Deploy 
+Player : A Target Country : Prince_Edward_Island Number Of Armies : 5
+
+ Order Issued: Deploy 
+Player : B Target Country : Ontario-West Number Of Armies : 3
+
+ Order Issued: Deploy 
+Player : A Target Country : Quebec-North Number Of Armies : 0
+
+ Order Issued: Deploy 
+Player : B Target Country : Ontario-West Number Of Armies : 2
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 4
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 3
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 7
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 10
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 9
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+ Order Issued: Advance
+Player: B
+Source Country: Prince_Edward_Island
+Target Country: New_Brunswick
+Number Of Armies: 4
+
+ Order Issued: Advance
+Player: B
+Source Country: Prince_Edward_Island
+Target Country: New_Brunswick
 Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
+ Order Issued: Advance
+Player: B
+Source Country: Prince_Edward_Island
+Target Country: New_Brunswick
+Number Of Armies: 4
 
-Order Issued: 
-Moved 5 armies to Target Country from Source Country
+=======New phase: CreateOrders=======
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has lost the battle for Target Country
+Log: 
+ PLAYING:-  A
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
+Log: 
+Player Name:- A
+Armies Left:- 13
 
-Order Issued: Airlift
-Player: TestPlayer
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 10
-Log: Before Airlift Card, the number of armies in Target Country is: 10
-Log: TestPlayer applied Airlift Card successfully
-Log: After Airlift Card, the number of armies in Target Country is: 20
-
-Order Issued: Bomb 
-Player : player_1 Target Country : Target1 Country 
-Successfully Executed
-
-Log: Target1 Country's army count before deploying the bomb : 6
-Log: player_1 applied Bomb Card successfully
-Log: Target1 Country's army count after deploying the bomb : 3
-
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 5
-
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 0
-
-Order Issued: Diplomacy
-Issuing Player: Player1
-Target Player: Player2
-Welcome to Risk (Warzone) by U6 build1
+Owned_Cards:- none
 
 
 
-=======End=======
+Log: Quebec-North	 Army Count:- 0
 
+Log: N&L-Labrador	 Army Count:- 0
 
-=======New phase: End=======
+Log: Nova_Scotia	 Army Count:- 0
 
+Log: Prince_Edward_Island	 Army Count:- 5
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
+Log: Quebec-South	 Army Count:- 0
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
+Log: 
+ PLAYING:-  B
 
-Order Issued: 
-Moved 5 armies to Target Country from Source Country
+Log: 
+Player Name:- B
+Armies Left:- 12
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
-Order Issued: Airlift
-Player: TestPlayer
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 10
-Log: Before Airlift Card, the number of armies in Target Country is: 10
-Log: TestPlayer applied Airlift Card successfully
-Log: After Airlift Card, the number of armies in Target Country is: 20
-
-Order Issued: Bomb 
-Player : player_1 Target Country : Target1 Country 
-Successfully Executed
-
-Log: Target1 Country's army count before deploying the bomb : 6
-Log: player_1 applied Bomb Card successfully
-Log: Target1 Country's army count after deploying the bomb : 3
-
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 5
-
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 0
-
-Order Issued: Diplomacy
-Issuing Player: Player1
-Target Player: Player2
-Welcome to Risk (Warzone) by U6 build1
+Owned_Cards:- none
 
 
 
-=======End=======
+Log: Quebec-Central	 Army Count:- 1
 
+Log: Ontario-West	 Army Count:- 5
 
-=======New phase: End=======
+Log: New_Brunswick	 Army Count:- 0
 
+Log: N&L-Newfoundland	 Army Count:- 0
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
+Log: Ontario-South	 Army Count:- 0
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
+Log: 
+ PLAYING:-  A
 
-Order Issued: 
-Moved 5 armies to Target Country from Source Country
+Log: 
+Player Name:- A
+Armies Left:- 13
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
-
-Order Issued: Airlift
-Player: TestPlayer
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 10
-Log: Before Airlift Card, the number of armies in Target Country is: 10
-Log: TestPlayer applied Airlift Card successfully
-Log: After Airlift Card, the number of armies in Target Country is: 20
-
-Order Issued: Bomb 
-Player : player_1 Target Country : Target1 Country 
-Successfully Executed
-
-Log: Target1 Country's army count before deploying the bomb : 6
-Log: player_1 applied Bomb Card successfully
-Log: Target1 Country's army count after deploying the bomb : 3
-
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 5
-
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 0
-
-Order Issued: Diplomacy
-Issuing Player: Player1
-Target Player: Player2
-Welcome to Risk (Warzone) by U6 build1
+Owned_Cards:- none
 
 
 
-=======End=======
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
 
 
-=======New phase: End=======
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 16
+
+Owned_Cards:- none
 
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
+Log: Quebec-North	 Army Count:- 0
 
-Order Issued: 
-Moved 5 armies to Target Country from Source Country
+Log: N&L-Labrador	 Army Count:- 0
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
+Log: Nova_Scotia	 Army Count:- 0
 
-Order Issued: Advance
-Player: Player 1
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 5
-Log: Player 1 has successfully advanced and captured Target Country
+Log: Prince_Edward_Island	 Army Count:- 5
 
-Order Issued: Airlift
-Player: TestPlayer
-Source Country: Source Country
-Target Country: Target Country
-Number Of Armies: 10
-Log: Before Airlift Card, the number of armies in Target Country is: 10
-Log: TestPlayer applied Airlift Card successfully
-Log: After Airlift Card, the number of armies in Target Country is: 20
+Log: Quebec-South	 Army Count:- 0
 
-Order Issued: Bomb 
-Player : player_1 Target Country : Target1 Country 
-Successfully Executed
+Log: 
+ PLAYING:-  B
 
-Log: Target1 Country's army count before deploying the bomb : 6
-Log: player_1 applied Bomb Card successfully
-Log: Target1 Country's army count after deploying the bomb : 3
+Log: 
+Player Name:- B
+Armies Left:- 15
 
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 5
+Owned_Cards:- none
 
-Order Issued: Deploy 
-Player : Player1 Target Country : Country 1 Number Of Armies : 0
 
-Order Issued: Diplomacy
-Issuing Player: Player1
-Target Player: Player2
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 0
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+ Order Issued: Deploy 
+Player : B Target Country : New_Brunswick Number Of Armies : 12
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 6
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 19
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: All orders received !! Now executing
+
+=======New phase: ExecuteOrders=======
+
+
+=======New phase: CreateOrders=======
+
+Log: 
+ PLAYING:-  A
+
+Log: 
+Player Name:- A
+Armies Left:- 22
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-North	 Army Count:- 0
+
+Log: N&L-Labrador	 Army Count:- 0
+
+Log: Nova_Scotia	 Army Count:- 0
+
+Log: Prince_Edward_Island	 Army Count:- 5
+
+Log: Quebec-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 9
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 9
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 0
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+
+Log: 
+ PLAYING:-  B
+
+Log: 
+Player Name:- B
+Armies Left:- 0
+
+Owned_Cards:- none
+
+
+
+Log: Quebec-Central	 Army Count:- 1
+
+Log: Ontario-West	 Army Count:- 5
+
+Log: New_Brunswick	 Army Count:- 12
+
+Log: N&L-Newfoundland	 Army Count:- 0
+
+Log: Ontario-South	 Army Count:- 0
+

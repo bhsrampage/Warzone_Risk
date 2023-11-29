@@ -6,7 +6,9 @@ package app.warzone.player.orders;
  * Subclasses of this abstract class will define the behavior of individual orders.
  */
 public abstract class Order {
-	public abstract void execute();
-	public abstract void printOrder();
-	public abstract boolean isValid();
+    public abstract void execute();
+
+    public abstract void printOrder();
+
+    public abstract boolean isValid();
 }

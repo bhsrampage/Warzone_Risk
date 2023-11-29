@@ -16,7 +16,7 @@ public class LogEntryBuffer extends Observable implements Serializable {
     /**
      * Initialises the Class Instance by adding LogWriter Observer object.
      */
-    public LogEntryBuffer(){
+    public LogEntryBuffer() {
         LogFileWriter l_logWriter = new LogFileWriter();
         this.addObserver(l_logWriter);
     }
@@ -26,7 +26,7 @@ public class LogEntryBuffer extends Observable implements Serializable {
      *
      * @return Log Message
      */
-    public String getD_logMessage(){
+    public String getD_logMessage() {
         return d_logMessage;
     }
 
@@ -34,22 +34,22 @@ public class LogEntryBuffer extends Observable implements Serializable {
      * Sets the Log Message and Notifies the Observer Objects.
      *
      * @param p_messageToUpdate Log Message to Set
-     * @param p_logType Type of Log : Command, Order, Effect or Phase
+     * @param p_logType         Type of Log : Command, Order, Effect or Phase
      */
-    public void currentLog(String p_messageToUpdate, String p_logType){
+    public void currentLog(String p_messageToUpdate, String p_logType) {
 
-        switch(p_logType.toLowerCase()){
+        switch (p_logType.toLowerCase()) {
             case "command":
-                d_logMessage = System.lineSeparator()+ "Command Entered: "+ p_messageToUpdate + System.lineSeparator();
+                d_logMessage = System.lineSeparator() + "Command Entered: " + p_messageToUpdate + System.lineSeparator();
                 break;
             case "order":
-                d_logMessage = System.lineSeparator()+ "Order Issued: "+p_messageToUpdate+System.lineSeparator();
+                d_logMessage = System.lineSeparator() + " Order Issued: " + p_messageToUpdate + System.lineSeparator();
                 break;
             case "phase":
-                d_logMessage = System.lineSeparator()+ "======="+ p_messageToUpdate + "======="+System.lineSeparator()+System.lineSeparator();
+                d_logMessage = System.lineSeparator() + "=======" + p_messageToUpdate + "=======" + System.lineSeparator() + System.lineSeparator();
                 break;
             case "effect":
-                d_logMessage = "Log: "+ p_messageToUpdate + System.lineSeparator();
+                d_logMessage = "Log: " + p_messageToUpdate + System.lineSeparator();
                 break;
             case "start":
             case "end":

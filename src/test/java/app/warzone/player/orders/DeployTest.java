@@ -1,14 +1,11 @@
 package app.warzone.player.orders;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
+import app.warzone.map.Country;
+import app.warzone.player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import app.warzone.map.Country;
-import app.warzone.player.Player;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test class for the Deploy class, which represents a deployment order in a

@@ -6,6 +6,7 @@ import java.io.InputStream;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -15,37 +16,37 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 public class GameEngineTest {
 
-	private GameEngine gameEngine;
-	private InputStream originalSystemIn;
+    private GameEngine gameEngine;
+    private InputStream originalSystemIn;
 
-	/**
-	 * Setup method to initialize the GameEngine and store the original System.in
-	 * stream.
-	 */
-	@BeforeEach
-	public void setUp() {
-		gameEngine = new GameEngine();
-		originalSystemIn = System.in;
-	}
+    /**
+     * Setup method to initialize the GameEngine and store the original System.in
+     * stream.
+     */
+    @BeforeEach
+    public void setUp() {
+        gameEngine = new GameEngine();
+        originalSystemIn = System.in;
+    }
 
-	/**
-	 * Test the initialization of the game when the user quits. To ensure that the
-	 * game phase is not set to STARTUP when the user quits.
-	 */
-	@Test
-	public void testInitializeQuit() {
-		String userInput = "3\n";
-		InputStream userInputInputStream = new ByteArrayInputStream(userInput.getBytes());
-		System.setIn(userInputInputStream);
-		gameEngine.initialize();
-		assertEquals("End",gameEngine.gamePhase.getClass().getSimpleName());
-	}
+    /**
+     * Test the initialization of the game when the user quits. To ensure that the
+     * game phase is not set to STARTUP when the user quits.
+     */
+    @Test
+    public void testInitializeQuit() {
+        String userInput = "3\n";
+        InputStream userInputInputStream = new ByteArrayInputStream(userInput.getBytes());
+        System.setIn(userInputInputStream);
+        gameEngine.initialize();
+        assertEquals("End", gameEngine.gamePhase.getClass().getSimpleName());
+    }
 
-	/**
-	 * To restore the original System.in stream after testing.
-	 */
-	@AfterEach
-	public void tearDown() {
-		System.setIn(originalSystemIn);
-	}
+    /**
+     * To restore the original System.in stream after testing.
+     */
+    @AfterEach
+    public void tearDown() {
+        System.setIn(originalSystemIn);
+    }
 }

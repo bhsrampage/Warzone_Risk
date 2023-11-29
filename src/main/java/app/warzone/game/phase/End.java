@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Invalidates all the methods declared in Phase Class
+ *
  * @see Phase
  */
 public class End extends Phase {
@@ -70,6 +71,16 @@ public class End extends Phase {
     @Override
     public void executeOrders() {
         printInvalidCommandMessage();
+    }
+
+    @Override
+    public void saveGame(List<String> p_arguments) {
+        printInvalidCommandMessage();
+    }
+
+    @Override
+    public void loadGame(List<String> p_arguments) {
+printInvalidCommandMessage();
     }
 
     public void next() {

@@ -5,7 +5,8 @@ import app.warzone.map.Country;
 import app.warzone.player.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * Javadoc for the BlockadeTest class.
