@@ -1,4 +1,5 @@
 package app.warzone.player.strategy;
+import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 import app.warzone.player.orders.Advance;
@@ -141,7 +142,9 @@ public class AggressiveStrategy extends PlayerStrategy {
         }
 
         System.out.println("\nAggressive Player max army country : " + l_toAttackFrom + "  " + l_toAttackFrom.getCurrentArmyCount());
+        GameUtils.updateLog("Aggressive Player max army country : " + l_toAttackFrom + "  " + l_toAttackFrom.getCurrentArmyCount(), "effect");
         System.out.println("\nAggressive Player to attack country : " + l_toAttack + "  " + l_toAttack.getCurrentArmyCount());
+        GameUtils.updateLog("Aggressive Player to attack country : " + l_toAttack + "  " + l_toAttack.getCurrentArmyCount(),"effect");
 
         return null;
     }

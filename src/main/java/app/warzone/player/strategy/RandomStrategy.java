@@ -1,5 +1,6 @@
 package app.warzone.player.strategy;
 
+import app.warzone.game.GameUtils;
 import app.warzone.map.Country;
 import app.warzone.player.Player;
 import app.warzone.player.orders.*;
@@ -63,16 +64,19 @@ public class RandomStrategy extends PlayerStrategy{
                 case (0):
                     // Deploy Order
                     System.out.println("Random Order : Deploy");
+                    GameUtils.updateLog("Random Order : Deploy", "order");
                     l_numOfArmies = l_rand.nextInt(d_targetPlayer.d_currentArmyCount);
                     return new Deploy(d_targetPlayer, l_numOfArmies, ownCountry());
                 case (1):
                     // Advance Order
                     System.out.println("Random Order : Advance");
+                    GameUtils.updateLog("Random Order : Advance", "order");
                     l_numOfArmies = l_rand.nextInt(d_targetPlayer.d_currentArmyCount);
                     return new Advance(d_targetPlayer, ownCountry(), anyCountry(), l_numOfArmies);
                 case (2):
                     // AirLift
                     System.out.println("Random Order : Airlift");
+                    GameUtils.updateLog("Random Order : Airlift", "order");
                     l_numOfArmies = l_rand.nextInt(d_targetPlayer.d_currentArmyCount);
                     if (d_targetPlayer.d_holdingCards.contains("airlift")){
                         return new Airlift(d_targetPlayer, ownCountry(), ownCountry(), l_numOfArmies);
@@ -84,6 +88,7 @@ public class RandomStrategy extends PlayerStrategy{
                 case (3):
                     //Blockade Card
                     System.out.println("Random Order : Blockade");
+                    GameUtils.updateLog("Random Order : Blockade", "order");
                     if (d_targetPlayer.d_holdingCards.contains("blockade")){
                         return new Blockade(d_targetPlayer, ownCountry());
                     }
@@ -94,6 +99,8 @@ public class RandomStrategy extends PlayerStrategy{
                 case (4):
                     //Bomb Card
                     System.out.println("Random Order : Bomb");
+                    GameUtils.updateLog("Random Order : Bomb", "order");
+
                     if (d_targetPlayer.d_holdingCards.contains("bomb")){
                         return new Bomb(d_targetPlayer, anyCountry());
                     }
