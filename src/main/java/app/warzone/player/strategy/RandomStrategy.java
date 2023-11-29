@@ -100,6 +100,7 @@ public class RandomStrategy extends PlayerStrategy{
                     //Bomb Card
                     System.out.println("Random Order : Bomb");
                     GameUtils.updateLog("Random Order : Bomb", "order");
+
                     if (d_targetPlayer.d_holdingCards.contains("bomb")){
                         return new Bomb(d_targetPlayer, anyCountry());
                     }

@@ -216,6 +216,7 @@ public class Player {
                 case "blockade":
                     System.out.println("Blockade Order");
                     GameUtils.updateLog("Blockade order Received!!", "order");
+
                     if (l_cmdTokens.length < 2) {
                         System.out.println("Invalid Arguments");
                         break;
