@@ -15,7 +15,7 @@ public class GameEngine {
     Scanner SCAN;
     public MapUtils d_targetMapUtil;
 
-    public GameUtils d_gameUtil;
+    public static GameUtils d_gameUtil;
     public static Phase gamePhase;
 
     /**
@@ -108,7 +108,7 @@ public class GameEngine {
                     gamePhase.assignCountries();
                     break;
                 case "tournament":
-                    Tournament.begin(arguments);
+                    Tournament.startTournament(arguments);
                     break;
                 case "showmap":
                     gamePhase.showMap();

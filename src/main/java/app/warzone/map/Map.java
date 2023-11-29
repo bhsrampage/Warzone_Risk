@@ -23,14 +23,14 @@ public class Map {
     /**
      * The list of continents in the map.
      */
-    List<Continent> d_continents;
+    static List<Continent> d_continents;
 
     /**
      * The list of countries in the map.
      */
-    List<Country> d_countries;
+    static List<Country> d_countries;
 
-    public List<Country> getD_countries() {
+    public static List<Country> getD_countries() {
         return d_countries;
     }
 
@@ -127,7 +127,7 @@ public class Map {
         return null;
     }
 
-    public List<Continent> getD_continents() {
+    public static List<Continent> getD_continents() {
         return d_continents;
     }
 
