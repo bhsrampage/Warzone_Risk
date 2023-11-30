@@ -1,25 +1,24 @@
 package app.warzone.game;
 
-
-import app.warzone.map.Map;
-import app.warzone.map.MapUtils;
+import app.warzone.game.phase.End;
+import app.warzone.game.phase.PlaySetup;
+import app.warzone.game.phase.TournamentEnd;
 import app.warzone.player.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static app.warzone.game.GameUtils.d_playerList;
-import static app.warzone.game.GameEngine.gamePhase;
-import static app.warzone.game.GameEngine.d_gameUtil;
-import app.warzone.map.MapUtils.*;
 
-public class Tournament {
+public class Tournament extends GameEngine {
 
     static ArrayList<String> d_mapsList;
     static ArrayList<String> d_playerStrategiesList;
 
     static int d_gamesCount;
     static int d_maximumTurns;
+
+    public static GameEngine d_ge;
 
     Tournament() {
         d_mapsList = new ArrayList<>();
@@ -30,75 +29,68 @@ public class Tournament {
 
         d_mapsList = new ArrayList<>();
         d_playerStrategiesList = new ArrayList<>();
-        d_playerList.clear();
 
         if (!validateTournamentCommands(p_arguments)) {
             System.out.println("Validation Failed!!! So Exiting Tournament Mode...");
             return;
         }
 
-        for (int i = 0; i < d_playerStrategiesList.size(); i++) {
-            Player l_player = new Player(d_playerStrategiesList.get(i) + i, d_playerStrategiesList.get(i));
-            System.out.println("Player Name and Strategy : " + l_player.d_playerName + "   " + l_player.d_strategy);
-            d_playerList.add(l_player);
-        }
-
         for (int i = 0; i < d_mapsList.size(); i++) {
-            List<String> l_mapName = new ArrayList<>();
-            l_mapName.add(d_mapsList.get(i));
-            boolean l_mapLoadStatus = false;
 
             for (int j = 0; j < d_gamesCount; j++) {
 
                 try {
-                    l_mapLoadStatus = app.warzone.map.MapUtils.d_isMapLoaded;
-
-                    if (!l_mapLoadStatus) {
-                        System.out.println("Map " + d_mapsList.get(i) + " could not be loaded, moving to next one");
-                        continue;
-                    }
-
-
                     System.out.println("\n\n\n\n\nGAME " + (j + 1) + " FOR MAP " + (i + 1) + ":\n\n\n");
-
-                    automaticGame();
-
-                    MapUtils.clearMapData();
+                    automaticGame(d_mapsList.get(i));
                 } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                for (Player l_player : d_playerList)
-                    l_player.clearPlayerData();
 
             }
         }
         d_playerStrategiesList.clear();
         d_mapsList.clear();
-        d_playerList.clear();
-
     }
 
-    public static void automaticGame() /* throws InvalidMapException */ {
+    public static void automaticGame(String p_mapName) /* throws InvalidMapException */ {
         String l_Winner = "";
+        GameEngine.setPhase(new PlaySetup(d_ge));
+        List<String> l_args = new ArrayList<>();
+        //Load map
+        l_args.add(p_mapName);
+        gamePhase.loadMap(l_args);
+        l_args.clear();
 
+        //Add players
+        for (int i = 0; i < d_playerStrategiesList.size();i++) {
+            l_args.add("-add");
+            l_args.add(d_playerStrategiesList.get(i) + i);
+            l_args.add(d_playerStrategiesList.get(i));
+        }
+        gamePhase.setPlayers(l_args);
+        l_args.clear();
+
+        //Assign Countries
         gamePhase.assignCountries();
         System.out.println("\n\nCountries assigning DONE\n");
 
+        //Start game
         for (int turns=0; turns < d_maximumTurns; turns++)
         {
             d_gameUtil.assignReinforcementArmies();
             gamePhase.createOrders();
             gamePhase.executeOrders();
 
-            if (gameWinnerName() != "") {
+            if (gamePhase instanceof End) {
                 l_Winner = gameWinnerName();
                 System.out.println(l_Winner + " Won the Game!!!");
-
                 break;
             }
         }
-        if (l_Winner.equals("")) {
+        if (l_Winner.isEmpty()) {
             System.out.println("\nTurns Exceeded and Nobody won, So It is a DRAW Match.\n\n\n");
         }
+        GameEngine.setPhase(new TournamentEnd(d_ge));
 
     }
 
