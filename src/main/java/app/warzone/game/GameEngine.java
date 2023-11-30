@@ -18,6 +18,8 @@ public class GameEngine {
     public static GameUtils d_gameUtil;
     public static Phase gamePhase;
 
+    public boolean isTournamentMode = false;
+
     /**
      * Method that allows the GameEngine object to change its state.
      *
@@ -92,7 +94,7 @@ public class GameEngine {
 
         d_gameUtil = new GameUtils();
 
-        while (gamePhase instanceof PlaySetup) {
+        while (isTournamentMode ? gamePhase instanceof TournamentEnd : gamePhase instanceof PlaySetup) {
             String l_userInput = SCAN.nextLine();
             String[] l_cmdTokens = l_userInput.split(" ");
             List<String> arguments = Arrays.asList(Arrays.copyOfRange(l_cmdTokens, 1, l_cmdTokens.length));
@@ -108,6 +110,7 @@ public class GameEngine {
                     gamePhase.assignCountries();
                     break;
                 case "tournament":
+                    isTournamentMode = true;
                     Tournament.startTournament(arguments);
                     break;
                 case "showmap":
@@ -135,7 +138,6 @@ public class GameEngine {
             gamePhase.createOrders();
             gamePhase.executeOrders();
         }
-
     }
 
     /**

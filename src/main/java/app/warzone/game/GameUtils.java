@@ -193,6 +193,11 @@ public class GameUtils {
         System.out.println("Player edit tasks have been performed successfully");
     }
 
+    static void clearInstance() {
+        d_playerList.clear();
+        d_currTargetMap = null;
+    }
+
     /**
      * Get a player by their name.
      *
