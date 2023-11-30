@@ -8,6 +8,8 @@ import app.warzone.player.strategy.*;
 
 import java.util.*;
 
+import static app.warzone.game.GameUtils.d_playerList;
+
 
 /**
  * Represents a player in the Warzone game, with methods for managing player
@@ -293,6 +295,76 @@ public class Player {
      */
     public void removeDiplomacyPlayer(Player p_player) {
         d_diplomacyPlayers.remove(p_player);
+    }
+
+    /**
+     * Gets player name.
+     *
+     * @return player name
+     */
+    public String getD_playerName() {
+        return d_playerName;
+    }
+
+    /**
+     * Sets player name.
+     *
+     * @param p_playerName player name
+     */
+    public void setD_playerName(String p_playerName) {
+        d_playerName = p_playerName;
+    }
+
+    public int getD_Armies() {
+        return d_currentArmyCount;
+    }
+
+    /**
+     * Sets number of armies owned by the player.
+     *
+     * @param p_armies armies count
+     */
+    public void setD_Armies(int p_armies) {
+        d_currentArmyCount = p_armies;
+    }
+
+    /**
+     * Gets a list of countries assigned to the player.
+     *
+     * @return list of assigned countries
+     */
+    public List<Country> getD_holdingCountries() {
+        return d_holdingCountries;
+    }
+
+    /**
+     * Sets a list of countries assigned to the player.
+     *
+     * @param p_assignedCountries list of assigned countries
+     */
+    public void setD_holdingCountries(List<Country> p_assignedCountries) {
+        d_holdingCountries = p_assignedCountries;
+    }
+
+
+    /**
+     * Gets player object from player name.
+     *
+     * @param p_playerName player name
+     * @return the player object
+     */
+    public Player getPlayerFromPlayerName(String p_playerName) {
+        for (Player l_player : d_playerList) {
+            if (l_player.getD_playerName() == p_playerName) {
+                return l_player;
+            }
+        }
+        return null;
+
+    }
+    public void clearPlayerData() {
+        this.setD_Armies(0);
+        this.getD_holdingCountries().clear();
     }
 
 }

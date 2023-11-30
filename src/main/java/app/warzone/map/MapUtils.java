@@ -7,6 +7,10 @@ import app.warzone.map.writer.ConquestFileWriter;
 import app.warzone.map.writer.MapFileWriter;
 import app.warzone.map.writer.MapWriterAdapter;
 
+import app.warzone.map.Country;
+import app.warzone.map.Continent;
+import app.warzone.map.Map;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -24,12 +28,12 @@ public class MapUtils {
     /**
      * The target map being operated on.
      */
-    Map d_currTargetMap;
+    public Map d_currTargetMap;
 
     /**
      * Flag to indicate whether map is loaded
      */
-    boolean d_isMapLoaded;
+    public static boolean d_isMapLoaded;
 
     /**
      * Helper method to print default map not loaded message
@@ -266,4 +270,19 @@ public class MapUtils {
         return l_result;
     }
 
+    /**
+     * Clear map data.
+     */
+    public static void clearMapData() {
+        for (Continent l_continent : Map.getD_continents()) {
+            for (Country l_country : Map.getD_countries()) {
+                l_country.getNeighbouringCountries().clear();
+                l_country = null;
+            }
+            Map.getD_countries().clear();
+            l_continent = null;
+        }
+        Map.getD_continents().clear();
+        Map.getD_countries().clear();
+    }
 }
