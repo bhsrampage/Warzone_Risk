@@ -217,6 +217,8 @@ public class Player {
                     break;
                 case "blockade":
                     System.out.println("Blockade Order");
+                    GameUtils.updateLog("Blockade order Received!!", "order");
+
                     if (l_cmdTokens.length < 2) {
                         System.out.println("Invalid Arguments");
                         break;
@@ -230,6 +232,7 @@ public class Player {
                     break;
                 case "negotiate":
                     System.out.println("Negotiate Order");
+                    GameUtils.updateLog("Negotiate order Received!!", "order");
                     if (l_cmdTokens.length < 2) {
                         System.out.println("Invalid Arguments");
                         break;
@@ -238,6 +241,7 @@ public class Player {
                     break;
                 case "airlift":
                     System.out.println("Airlift Order");
+                    GameUtils.updateLog("Airlift order Received!!", "order");
                     if (l_cmdTokens.length < 4) {
                         System.out.println("Invalid Arguments");
                         break;
@@ -246,6 +250,7 @@ public class Player {
                     break;
                 case "savegame":
                     System.out.println("Saving game progress...");
+                    GameUtils.updateLog("Saving game progress...", "order");
                     GameEngine.gamePhase.saveGame(Arrays.asList(l_cmdTokens));
                     break;
                 default:
