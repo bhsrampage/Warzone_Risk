@@ -124,6 +124,7 @@ public class GameEngine {
                     break;
             }
         }
+        if (isTournamentMode) setPhase(new End(this));
         listenGameplayCommands();
     }
 
@@ -133,9 +134,10 @@ public class GameEngine {
      * Display map after execution
      */
     private void listenGameplayCommands() {
-        while (!(gamePhase instanceof End)) {
+        while (true) {
             d_gameUtil.assignReinforcementArmies();
             gamePhase.createOrders();
+            if (gamePhase instanceof End) break;
             gamePhase.executeOrders();
         }
     }

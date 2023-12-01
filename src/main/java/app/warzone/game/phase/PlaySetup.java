@@ -72,6 +72,10 @@ public class PlaySetup extends Play {
     }
 
     public void loadGame(List<String> p_arguments) {
+        if (p_arguments.isEmpty()) {
+            System.out.println("Plz mention name of the game file to be loaded");
+            return;
+        }
         //Implementation here to load game
        if (new LoadGame().gameLoad(p_arguments.get(0))) next();
        else System.out.println("No game file found with name " + p_arguments.get(0));

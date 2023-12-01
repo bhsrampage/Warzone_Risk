@@ -44,7 +44,6 @@ public class CreateOrders extends MainPlay {
                 l_currPlayingPlayers.remove(l_targetPlayer);
             } else {
                 showMap();
-                System.out.println("Issueing " + l_currPlayingPlayers.size() + l_targetPlayer.d_playerName);
                 l_targetPlayer.issue_order();
                 l_i++;
             }

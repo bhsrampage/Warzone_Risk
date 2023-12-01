@@ -1,6 +1,7 @@
 package app.warzone.game;
 
 import app.warzone.game.phase.End;
+import app.warzone.game.phase.Play;
 import app.warzone.game.phase.PlaySetup;
 import app.warzone.game.phase.TournamentEnd;
 import app.warzone.player.Player;
@@ -19,21 +20,14 @@ public class Tournament extends GameEngine {
     static int d_maximumTurns;
 
     public static GameEngine d_ge;
-
-    Tournament() {
-        d_mapsList = new ArrayList<>();
-        d_playerStrategiesList = new ArrayList<>();
-    }
+    public static String[][] l_winners;
 
     public static void startTournament(List<String> p_arguments) {
-
-        d_mapsList = new ArrayList<>();
-        d_playerStrategiesList = new ArrayList<>();
-
         if (!validateTournamentCommands(p_arguments)) {
             System.out.println("Validation Failed!!! So Exiting Tournament Mode...");
             return;
         }
+        l_winners = new String[d_mapsList.size()][d_gamesCount];
 
         for (int i = 0; i < d_mapsList.size(); i++) {
 
@@ -41,19 +35,31 @@ public class Tournament extends GameEngine {
 
                 try {
                     System.out.println("\n\n\n\n\nGAME " + (j + 1) + " FOR MAP " + (i + 1) + ":\n\n\n");
-                    automaticGame(d_mapsList.get(i));
+                   l_winners[i][j] = automaticGame(d_mapsList.get(i));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
             }
         }
+        String l_name = "N/A";
+        int l_i = 1 , l_j = 1;
+        for(String[] l_winnerList : l_winners) {
+            l_j = 1;
+            for (String l_winner : l_winnerList){
+                if (l_winner != null) l_name = l_winner;
+                System.out.printf("\n Winner of Map %d , Game %d is %s\n",l_i,l_j,l_name);
+                l_j++;
+            }
+            l_i++;
+        }
         d_playerStrategiesList.clear();
         d_mapsList.clear();
+        GameEngine.setPhase(new TournamentEnd(d_ge));
     }
 
-    public static void automaticGame(String p_mapName) /* throws InvalidMapException */ {
-        String l_Winner = "";
+    public static String automaticGame(String p_mapName) /* throws InvalidMapException */ {
+        String l_Winner = null;
         GameEngine.setPhase(new PlaySetup(d_ge));
         List<String> l_args = new ArrayList<>();
         //Load map
@@ -79,28 +85,25 @@ public class Tournament extends GameEngine {
         {
             d_gameUtil.assignReinforcementArmies();
             gamePhase.createOrders();
-            gamePhase.executeOrders();
-
             if (gamePhase instanceof End) {
                 l_Winner = gameWinnerName();
                 System.out.println(l_Winner + " Won the Game!!!");
                 break;
             }
+            gamePhase.executeOrders();
         }
-        if (l_Winner.isEmpty()) {
+        if (l_Winner == null) {
             System.out.println("\nTurns Exceeded and Nobody won, So It is a DRAW Match.\n\n\n");
         }
-        GameEngine.setPhase(new TournamentEnd(d_ge));
-
+        GameUtils.clearInstance();
+        return l_Winner;
     }
 
     public static String gameWinnerName() {
-
-        for (Player l_player: d_playerList) {
-            if (!l_player.d_hasLost)
-                return l_player.d_playerName;
-        }
-        return "";
+        ArrayList<Player> l_tempList = new ArrayList<>(d_playerList);
+        l_tempList.removeIf(p -> p.d_hasLost);
+        if (l_tempList.size() == 1) return l_tempList.get(0).d_playerName;
+        else return null;
     }
 
     public static boolean validateTournamentCommands(List<String> p_arguments) {

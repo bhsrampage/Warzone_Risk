@@ -42,7 +42,7 @@ public class BenevolentStrategy extends PlayerStrategy{
     Order deployOnWeakestCountry() {
         Country weakestCountry = getWeakestCountry();
         if (weakestCountry != null) {
-            int d_deployArmyCount = new Random().nextInt(d_targetPlayer.d_currentArmyCount) + 1;
+            int d_deployArmyCount = new Random().nextInt(Math.max(d_targetPlayer.d_currentArmyCount, 0)) + 1;
             return new Deploy(d_targetPlayer, d_deployArmyCount, weakestCountry);
         }
         return null;
