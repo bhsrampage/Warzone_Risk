@@ -1,58 +1,50 @@
 package app.warzone.game;
 
-import app.warzone.game.Tournament;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TournamentTest {
+class TournamentTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    private final PrintStream originalOut = System.out;
-
-    @Before
-    public void setUpStreams() {
-        System.setOut(new PrintStream(outContent));
-    }
-
-    @After
-    public void restoreStreams() {
-        System.setOut(originalOut);
-    }
-
+    /**
+     * Tests the validateTournamentCommands method with valid input parameters.
+     */
     @Test
-    public void testBegin() {
-        // Set up test data
-        List<String> arguments = Arrays.asList("-M", "map1", "map2", "-P", "strategy1", "strategy2", "-G", "3", "-D", "20");
+    void validateTournamentCommands_Valid() {
+        Tournament tournament = new Tournament();
+        List<String> arguments = Arrays.asList("-M", "map1.txt", "-P", "strategy1", "strategy2", "-G", "3", "-D", "20");
 
-        // Execute the method to test
-        Tournament.startTournament(arguments);
+        boolean result = tournament.validateTournamentCommands(arguments);
 
-        // Assert the expected output or behavior
-        // You might want to check the output if it's correct, or validate other aspects of your code
-        // For now, let's just check that the output is not empty (assuming your code prints something meaningful)
-        assertNotNull(outContent.toString());
-    }
-
-    @Test
-    public void testValidateTournamentCommands() {
-        // Set up test data
-        List<String> arguments = Arrays.asList("-M", "map1", "map2", "-P", "strategy1", "strategy2", "-G", "3", "-D", "20");
-
-        // Execute the method to test
-        boolean result = Tournament.validateTournamentCommands(arguments);
-
-        // Assert the expected output or behavior
         assertTrue(result);
-        // You might want to add more assertions based on the specific logic in your validateTournamentCommands method
     }
 
-    // Add more test methods as needed for other functionalities in the Tournament class
+    /**
+     * Tests the validateTournamentCommands method with invalid input parameters.
+     */
+    @Test
+    void validateTournamentCommands_Invalid() {
+        Tournament tournament = new Tournament();
+        List<String> arguments = Arrays.asList("-M", "map1.txt", "-P", "strategy1", "-G", "0", "-D", "60");
+
+        boolean result = tournament.validateTournamentCommands(arguments);
+
+        assertFalse(result);
+    }
+
+    /**
+     * Tests the automaticGame method with an invalid map, expecting an exception to be thrown.
+     */
+    @Test
+    void automaticGame_InvalidMap() {
+        Tournament tournament = new Tournament();
+        tournament.d_maximumTurns = 15;
+        tournament.d_ge = new GameEngine();
+
+        assertThrows(Exception.class, () -> tournament.automaticGame("invalidMap.txt"));
+    }
 }
+

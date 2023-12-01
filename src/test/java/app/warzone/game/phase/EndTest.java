@@ -1,5 +1,6 @@
 package app.warzone.game.phase;
 
-class EndTest {
+public class EndTest {
+
 
 }
