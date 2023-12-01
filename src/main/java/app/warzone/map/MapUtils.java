@@ -239,15 +239,15 @@ public class MapUtils {
      */
     public void editMap(List<String> p_arguments) {
         try {
-            String l_mapType = checkMapType(p_arguments.get(0));
-            System.out.println("Selected Map Type:- " + l_mapType);
             File l_myObj = new File("src/main/resources/maps/" + p_arguments.get(0) + ".map");
             if (!l_myObj.exists()) {
-                d_currTargetMap = new Map(p_arguments.get(0),l_mapType);
+                d_currTargetMap = new Map(p_arguments.get(0),"Domination");
                 if (l_myObj.createNewFile()) {
                     System.out.println("File not found created new");
                 }
             } else {
+                String l_mapType = checkMapType(p_arguments.get(0));
+                System.out.println("Selected Map Type:- " + l_mapType);
                 MapFileParser l_fileParser;
                 if(l_mapType.equals("Domination")) l_fileParser = new MapFileParser(p_arguments.get(0));
                 else l_fileParser = new MapFileAdapter(new ConquestFileParser(p_arguments.get(0)));
