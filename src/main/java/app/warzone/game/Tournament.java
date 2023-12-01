@@ -22,6 +22,12 @@ public class Tournament extends GameEngine {
     public static GameEngine d_ge;
     public static String[][] l_winners;
 
+    /**
+     * Starts a tournament based on the provided arguments.
+     * Prints the winners of each game.
+     *
+     * @param p_arguments List of arguments for the tournament.
+     */
     public static void startTournament(List<String> p_arguments) {
         if (!validateTournamentCommands(p_arguments)) {
             System.out.println("Validation Failed!!! So Exiting Tournament Mode...");
@@ -58,6 +64,12 @@ public class Tournament extends GameEngine {
         GameEngine.setPhase(new TournamentEnd(d_ge));
     }
 
+    /**
+     * Executes an automatic game on the specified map and returns the winner's name.
+     *
+     * @param p_mapName The name of the map for the game.
+     * @return The name of the winner of the game.
+     */
     public static String automaticGame(String p_mapName) /* throws InvalidMapException */ {
         String l_Winner = null;
         GameEngine.setPhase(new PlaySetup(d_ge));
@@ -99,6 +111,11 @@ public class Tournament extends GameEngine {
         return l_Winner;
     }
 
+    /**
+     * Retrieves the name of the winner of the current game.
+     *
+     * @return The name of the game winner or null if no winner.
+     */
     public static String gameWinnerName() {
         ArrayList<Player> l_tempList = new ArrayList<>(d_playerList);
         l_tempList.removeIf(p -> p.d_hasLost);
@@ -106,6 +123,12 @@ public class Tournament extends GameEngine {
         else return null;
     }
 
+    /**
+     * Validates the provided tournament commands.
+     *
+     * @param p_arguments List of arguments for the tournament.
+     * @return True if the commands are valid, false otherwise.
+     */
     public static boolean validateTournamentCommands(List<String> p_arguments) {
         d_mapsList = new ArrayList<>();
         d_playerStrategiesList = new ArrayList<>();
